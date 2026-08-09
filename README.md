@@ -49,8 +49,8 @@ Translates academic terminology into executive corporate analogies:
 * **Triangulation:** "Cross-checking findings with at least three independent data streams (financials, interviews, audit logs)."
 * **Theoretical Saturation:** "The point in stakeholder interviewing where additional meetings yield zero new insights."
 
-### 5. 🎬 HyperFrames Explainer Video (AI Voice Clone)
-Includes an integrated 1-minute video overview with synchronized AI-cloned voice narration, live animated scene transitions, closed captions, and interactive timeline controls.
+### 5. 🎧 Executive Audio Walkthrough
+Includes an integrated 1-minute spoken orientation guiding scholars through the methodology desk with synchronized presentation slides, live transcript, and chapter navigation.
 
 ---
 
