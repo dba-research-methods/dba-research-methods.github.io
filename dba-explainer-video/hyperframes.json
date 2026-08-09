@@ -1,0 +1,17 @@
+{
+  "name": "dba-explainer-video",
+  "version": "1.0.0",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "duration": 49.5,
+  "compositions": [
+    {
+      "id": "dba-explainer",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "duration": 49.5
+    }
+  ]
+}
