@@ -4,69 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DBA Executive Research Reference Desk | Applied Methods, Books & Verified Tools</title>
-  <meta name="description" content="An exhaustive 3D research methodology desk reference designed for Doctor of Business Administration (DBA) executives. Verified links to Amazon books, Wikipedia concepts, official companions, and open-source tools.">
+  <meta name="description" content="An interactive research methodology desk reference for Doctor of Business Administration (DBA) executives. Verified links to Amazon books, Wikipedia concepts, official companions, and open-source tools.">
 
-  <!-- Google Fonts: Editorial Serif + Clean Modern Sans + Monospace -->
+  <!-- Google Fonts: Modern Geometric Sans + Editorial Serif + Monospace -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================================
-       Design System: Pure Light Executive Palette with Spatial 3D Aesthetics
+       Design System: Edubem.pt Inspired Vibrant Educational Tech Aesthetic
+       100% Pure Light Theme · Meteorite & Electric Indigo Palette
        ========================================================================== */
     :root {
-      --font-serif: 'Newsreader', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
       --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-      /* Warm Luxury Editorial Palette (Non-Dark Theme) */
-      --bg-canvas: #FAFAF8;
-      --bg-surface: #FFFFFF;
-      --bg-surface-subtle: #F6F5F2;
-      --bg-surface-active: #EFECE6;
-      --bg-glass: rgba(255, 255, 255, 0.88);
+      /* Edubem Core Brand Tokens */
+      --color-primary: #673DE6;
+      --color-primary-dark: #5025D1;
+      --color-primary-light: #EBE4FF;
+      --color-meteorite-dark: #2F1C6A;
+      --color-meteorite: #8C85FF;
+      --color-meteorite-light: #D5DFFF;
+
+      /* Edubem Semantic Palette */
+      --color-azure: #357DF9;
+      --color-azure-dark: #265AB2;
+      --color-azure-light: #E3EBF9;
       
-      --border-subtle: #E8E6E1;
-      --border-medium: #D8D5CD;
-      --border-strong: #0F172A;
+      --color-success: #00B090;
+      --color-success-dark: #008361;
+      --color-success-light: #DEF4F0;
 
-      /* High-Contrast Executive Typography */
-      --text-primary: #0F172A;
-      --text-secondary: #475569;
-      --text-tertiary: #64748B;
-      --text-inverse: #FFFFFF;
+      --color-warning: #FFCD35;
+      --color-warning-dark: #FEA419;
+      --color-warning-light: #FFF8E2;
 
-      /* Executive Semantic Accents */
-      --accent-navy: #1E3A8A;
-      --accent-navy-hover: #1E40AF;
-      --accent-navy-light: #EFF6FF;
-      --accent-slate: #334155;
-      
-      --tag-blue-bg: #E0F2FE;
-      --tag-blue-text: #0369A1;
-      --tag-green-bg: #DCFCE7;
-      --tag-green-text: #15803D;
-      --tag-amber-bg: #FEF3C7;
-      --tag-amber-text: #92400E;
-      --tag-purple-bg: #F3E8FF;
-      --tag-purple-text: #6B21A8;
-      --tag-rose-bg: #FFE4E6;
-      --tag-rose-text: #9F1239;
+      --color-danger: #FC5185;
+      --color-danger-dark: #D63163;
+      --color-danger-light: #FFE8EF;
 
-      --radius-sm: 6px;
-      --radius-md: 12px;
-      --radius-lg: 18px;
-      --radius-xl: 24px;
+      /* Neutrals & Surfaces */
+      --color-dark: #1D1E20;
+      --color-gray-dark: #36344D;
+      --color-gray: #727586;
+      --color-gray-border: #DADCE0;
+      --color-gray-light: #F8F9FC;
+      --color-light: #FFFFFF;
+      --bg-glass: rgba(255, 255, 255, 0.92);
+
+      /* Radii */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
       --radius-full: 9999px;
 
-      /* 3D Spatial Shadows */
-      --shadow-3d-subtle: 0 2px 4px rgba(15, 23, 42, 0.04), 0 6px 12px rgba(15, 23, 42, 0.03);
-      --shadow-3d-card: 0 10px 30px -10px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
-      --shadow-3d-hover: 0 20px 40px -12px rgba(30, 58, 138, 0.15), 0 8px 16px -4px rgba(15, 23, 42, 0.06);
+      /* Edubem Soft Ambient 3D Shadows */
+      --shadow-subtle: 0 2px 6px rgba(47, 28, 106, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+      --shadow-card: 0 10px 30px -8px rgba(80, 37, 209, 0.08), 0 2px 6px rgba(0, 0, 0, 0.02);
+      --shadow-hover: 0 20px 40px -10px rgba(80, 37, 209, 0.16), 0 6px 16px rgba(0, 0, 0, 0.04);
+      --shadow-button: 0 4px 14px rgba(103, 61, 230, 0.3);
 
-      --ease-out-spatial: cubic-bezier(0.16, 1, 0.3, 1);
-      --transition-3d: transform 0.4s var(--ease-out-spatial), box-shadow 0.4s var(--ease-out-spatial), border-color 0.3s ease;
+      --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-base: 0.3s var(--ease-smooth);
     }
 
     *, *::before, *::after {
@@ -76,8 +79,8 @@
     }
 
     body {
-      background-color: var(--bg-canvas);
-      color: var(--text-primary);
+      background-color: var(--color-gray-light);
+      color: var(--color-dark);
       font-family: var(--font-sans);
       font-size: 14.5px;
       line-height: 1.6;
@@ -87,14 +90,17 @@
       perspective: 1200px;
     }
 
+    /* Ambient Subtle Grid & Gradient Mesh */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      background-size: 40px 40px;
       background-image: 
-        linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+        radial-gradient(circle at 10% 20%, rgba(235, 228, 255, 0.5) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(222, 244, 240, 0.4) 0%, transparent 40%),
+        linear-gradient(to right, rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
       pointer-events: none;
       z-index: 0;
     }
@@ -102,14 +108,14 @@
     a { color: inherit; text-decoration: none; }
 
     .container {
-      max-width: 1200px;
+      max-width: 1220px;
       margin: 0 auto;
       padding: 0 24px;
       position: relative;
       z-index: 1;
     }
 
-    /* Floating Glass Navbar */
+    /* Floating Glass Navigation Bar */
     .navbar-container {
       position: sticky;
       top: 16px;
@@ -119,19 +125,19 @@
     }
 
     .navbar {
-      max-width: 1200px;
+      max-width: 1220px;
       margin: 0 auto;
       background: var(--bg-glass);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.85);
-      box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(0,0,0,0.04);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow-card);
       border-radius: var(--radius-full);
-      padding: 8px 20px;
+      padding: 8px 22px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      transition: all 0.3s ease;
+      transition: var(--transition-base);
     }
 
     .brand {
@@ -141,27 +147,28 @@
     }
 
     .brand-badge {
-      background: linear-gradient(135deg, #0F172A, #1E3A8A);
-      color: var(--text-inverse);
+      background: linear-gradient(135deg, var(--color-meteorite-dark) 0%, var(--color-primary) 100%);
+      color: #FFFFFF;
       font-family: var(--font-mono);
       font-size: 11px;
       font-weight: 700;
-      padding: 5px 10px;
+      padding: 5px 11px;
       border-radius: var(--radius-full);
       letter-spacing: 0.08em;
-      box-shadow: 0 2px 8px rgba(30, 58, 138, 0.25);
+      box-shadow: 0 2px 8px rgba(103, 61, 230, 0.3);
     }
 
     .brand-title {
       font-weight: 800;
-      font-size: 14.5px;
+      font-size: 15px;
       letter-spacing: -0.02em;
-      color: var(--text-primary);
+      color: var(--color-meteorite-dark);
     }
 
     .brand-tagline {
       font-size: 11.5px;
-      color: var(--text-tertiary);
+      color: var(--color-gray);
+      font-weight: 500;
     }
 
     .nav-actions {
@@ -170,35 +177,40 @@
       gap: 10px;
     }
 
+    /* Edubem Button-in-Button Architecture */
     .btn-action {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%);
-      color: var(--text-inverse);
+      background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+      color: #FFFFFF;
       padding: 8px 18px 8px 16px;
       border-radius: var(--radius-full);
       font-size: 13px;
-      font-weight: 600;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.25);
       cursor: pointer;
-      box-shadow: 0 4px 14px rgba(30, 58, 138, 0.25);
-      transition: all var(--transition-3d);
+      box-shadow: var(--shadow-button);
+      transition: all 0.3s var(--ease-smooth);
       transform: translateZ(0);
     }
     .btn-action:hover {
       transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 8px 20px rgba(30, 58, 138, 0.35);
+      box-shadow: 0 8px 22px rgba(103, 61, 230, 0.4);
+    }
+    .btn-action:active {
+      transform: translateY(0) scale(0.98);
     }
 
     .btn-icon-circle {
       width: 22px;
       height: 22px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 11px;
       transition: transform 0.2s ease;
     }
     .btn-action:hover .btn-icon-circle {
@@ -206,37 +218,50 @@
     }
 
     .btn-secondary {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-primary);
-      padding: 8px 14px;
+      background: #FFFFFF;
+      border: 1px solid var(--color-gray-border);
+      color: var(--color-meteorite-dark);
+      padding: 8px 15px;
       border-radius: var(--radius-full);
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;
-      box-shadow: var(--shadow-3d-subtle);
+      box-shadow: var(--shadow-subtle);
       transition: all 0.2s ease;
     }
     .btn-secondary:hover {
-      border-color: var(--border-medium);
-      background: var(--bg-surface-subtle);
+      border-color: var(--color-meteorite);
+      background: var(--color-primary-light);
+      color: var(--color-primary-dark);
       transform: translateY(-1px);
     }
 
-    /* 3D Hero Section */
+    /* Hero Section (Edubem Energy) */
     .hero-stage {
       padding: 24px 0 36px;
       position: relative;
     }
 
-    .hero-card-3d {
-      background: linear-gradient(180deg, #FFFFFF 0%, #FAF9F6 100%);
-      border: 1px solid rgba(255, 255, 255, 0.95);
+    .hero-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(218, 220, 224, 0.7);
       border-radius: var(--radius-xl);
-      padding: 40px 44px;
-      box-shadow: var(--shadow-3d-card);
+      padding: 44px 48px;
+      box-shadow: var(--shadow-card);
       position: relative;
       overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--color-primary-light) 0%, rgba(235, 228, 255, 0) 70%);
+      pointer-events: none;
     }
 
     .hero-eyebrow {
@@ -245,38 +270,42 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent-navy);
-      margin-bottom: 14px;
+      color: var(--color-primary);
+      margin-bottom: 16px;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--accent-navy-light);
-      padding: 4px 12px;
+      background: var(--color-primary-light);
+      padding: 5px 14px;
       border-radius: var(--radius-full);
-      border: 1px solid #DBEAFE;
     }
 
     .hero-title {
-      font-family: var(--font-serif);
-      font-size: clamp(32px, 4vw, 50px);
-      font-weight: 500;
+      font-family: var(--font-sans);
+      font-size: clamp(34px, 4.4vw, 54px);
+      font-weight: 800;
       line-height: 1.15;
-      color: var(--text-primary);
-      margin-bottom: 16px;
+      color: var(--color-meteorite-dark);
+      margin-bottom: 18px;
       max-width: 960px;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.03em;
     }
-    .hero-title em {
-      font-style: italic;
-      color: var(--accent-navy);
+    .hero-title .highlight {
+      color: var(--color-primary);
+      position: relative;
+      display: inline-block;
+    }
+    .hero-title .highlight-gold {
+      color: var(--color-warning-dark);
     }
 
     .hero-lead {
-      font-size: 15.5px;
-      color: var(--text-secondary);
-      max-width: 860px;
+      font-size: 16px;
+      color: var(--color-gray-dark);
+      max-width: 880px;
       line-height: 1.65;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
+      font-weight: 450;
     }
 
     .hero-cta-group {
@@ -286,51 +315,53 @@
       align-items: center;
     }
 
+    /* Geometric Metric Strip */
     .executive-card-strip {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 16px;
-      margin-top: 28px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border-subtle);
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid var(--color-gray-border);
     }
 
     .exec-metric-card {
-      background: #FFFFFF;
-      border: 1px solid var(--border-subtle);
+      background: var(--color-gray-light);
+      border: 1px solid var(--color-gray-border);
       border-radius: var(--radius-md);
-      padding: 14px 16px;
-      box-shadow: var(--shadow-3d-subtle);
-      transition: var(--transition-3d);
+      padding: 16px 18px;
+      box-shadow: var(--shadow-subtle);
+      transition: var(--transition-base);
     }
     .exec-metric-card:hover {
       transform: translateY(-2px);
-      box-shadow: var(--shadow-3d-hover);
-      border-color: var(--accent-navy);
+      box-shadow: var(--shadow-card);
+      border-color: var(--color-primary);
+      background: #FFFFFF;
     }
     .exec-metric-label {
       font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
-      color: var(--text-tertiary);
+      color: var(--color-gray);
       margin-bottom: 4px;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
     }
     .exec-metric-val {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--color-meteorite-dark);
     }
 
-    /* Interactive 3D Methodology Matcher Wizard */
+    /* 3-Click Methodology Matcher Wizard */
     .matcher-wizard-container {
-      background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 100%);
-      border: 1px solid #BFDBFE;
+      background: linear-gradient(135deg, var(--color-primary-light) 0%, #FFFFFF 100%);
+      border: 1px solid var(--color-meteorite-light);
       border-radius: var(--radius-lg);
-      padding: 24px 28px;
+      padding: 26px 30px;
       margin-bottom: 32px;
-      box-shadow: 0 8px 24px rgba(30, 58, 138, 0.06);
+      box-shadow: var(--shadow-card);
     }
 
     .wizard-header {
@@ -342,10 +373,9 @@
       margin-bottom: 16px;
     }
     .wizard-title {
-      font-family: var(--font-serif);
       font-size: 20px;
-      font-weight: 600;
-      color: var(--accent-navy);
+      font-weight: 800;
+      color: var(--color-meteorite-dark);
       display: flex;
       align-items: center;
       gap: 8px;
@@ -359,7 +389,7 @@
 
     .wizard-step-box {
       background: #FFFFFF;
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--color-gray-border);
       border-radius: var(--radius-md);
       padding: 14px 16px;
     }
@@ -368,65 +398,69 @@
       font-size: 10.5px;
       font-weight: 700;
       text-transform: uppercase;
-      color: var(--text-tertiary);
+      color: var(--color-gray);
       margin-bottom: 8px;
     }
     .wizard-select {
       width: 100%;
-      padding: 8px 12px;
-      border: 1px solid var(--border-medium);
+      padding: 9px 12px;
+      border: 1px solid var(--color-gray-border);
       border-radius: var(--radius-sm);
       font-family: var(--font-sans);
       font-size: 13.5px;
-      color: var(--text-primary);
+      color: var(--color-dark);
       background: #FFFFFF;
       cursor: pointer;
       outline: none;
+      transition: border-color 0.2s ease;
     }
     .wizard-select:focus {
-      border-color: var(--accent-navy);
-      box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(103, 61, 230, 0.15);
     }
 
     .wizard-result-box {
-      background: linear-gradient(135deg, #1E3A8A, #0F172A);
+      background: linear-gradient(135deg, var(--color-meteorite-dark) 0%, var(--color-primary-dark) 100%);
       color: #FFFFFF;
       border-radius: var(--radius-md);
       padding: 16px 20px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      box-shadow: 0 4px 14px rgba(47, 28, 106, 0.2);
     }
     .wizard-result-badge {
       font-family: var(--font-mono);
       font-size: 10.5px;
       font-weight: 700;
-      color: #93C5FD;
+      color: var(--color-meteorite-light);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
     .wizard-result-text {
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 15.5px;
+      font-weight: 800;
       margin: 4px 0 8px;
     }
     .wizard-btn-jump {
       align-self: flex-start;
       background: #FFFFFF;
-      color: var(--accent-navy);
+      color: var(--color-primary-dark);
       font-size: 12px;
       font-weight: 700;
-      padding: 4px 12px;
+      padding: 5px 14px;
       border-radius: var(--radius-full);
       border: none;
       cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       transition: all 0.2s ease;
     }
     .wizard-btn-jump:hover {
-      background: #DBEAFE;
+      background: var(--color-primary-light);
+      transform: translateY(-1px);
     }
 
-    /* Universal Live Search & Filter Bar */
+    /* Universal Live Search / Filter Bar */
     .filter-search-container {
       display: flex;
       flex-wrap: wrap;
@@ -444,26 +478,26 @@
     .search-input {
       width: 100%;
       padding: 10px 16px 10px 38px;
-      border: 1px solid var(--border-medium);
+      border: 1px solid var(--color-gray-border);
       border-radius: var(--radius-full);
       background: #FFFFFF;
       font-family: var(--font-sans);
       font-size: 13.5px;
-      color: var(--text-primary);
-      box-shadow: var(--shadow-3d-subtle);
+      color: var(--color-dark);
+      box-shadow: var(--shadow-subtle);
       outline: none;
       transition: all 0.2s ease;
     }
     .search-input:focus {
-      border-color: var(--accent-navy);
-      box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.12), var(--shadow-3d-subtle);
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(103, 61, 230, 0.12), var(--shadow-subtle);
     }
     .search-icon-svg {
       position: absolute;
       left: 14px;
       top: 50%;
       transform: translateY(-50%);
-      color: var(--text-tertiary);
+      color: var(--color-gray);
       pointer-events: none;
     }
 
@@ -472,12 +506,12 @@
       position: sticky;
       top: 80px;
       z-index: 90;
-      background: rgba(250, 250, 248, 0.94);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(248, 249, 252, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       padding: 10px 0;
       margin-bottom: 24px;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--color-gray-border);
     }
 
     .tab-bar {
@@ -490,68 +524,68 @@
     .tab-bar::-webkit-scrollbar { display: none; }
 
     .tab-btn {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-secondary);
-      padding: 8px 16px;
+      background: #FFFFFF;
+      border: 1px solid var(--color-gray-border);
+      color: var(--color-gray-dark);
+      padding: 8px 18px;
       border-radius: var(--radius-full);
       font-family: var(--font-sans);
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       white-space: nowrap;
-      box-shadow: var(--shadow-3d-subtle);
-      transition: all var(--transition-3d);
+      box-shadow: var(--shadow-subtle);
+      transition: all var(--transition-base);
     }
     .tab-btn:hover {
-      color: var(--text-primary);
-      border-color: var(--border-medium);
+      color: var(--color-primary);
+      border-color: var(--color-meteorite);
       transform: translateY(-2px);
-      box-shadow: var(--shadow-3d-hover);
+      box-shadow: var(--shadow-card);
     }
     .tab-btn.active {
-      background: #0F172A;
+      background: linear-gradient(135deg, var(--color-meteorite-dark) 0%, var(--color-primary-dark) 100%);
       color: #FFFFFF;
-      border-color: #0F172A;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
+      border-color: var(--color-meteorite-dark);
+      box-shadow: 0 4px 14px rgba(47, 28, 106, 0.25);
     }
     .tab-pill {
       font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 700;
-      padding: 2px 7px;
+      padding: 2px 8px;
       border-radius: var(--radius-full);
-      background: var(--bg-surface-subtle);
-      color: var(--text-tertiary);
+      background: var(--color-gray-light);
+      color: var(--color-gray);
     }
     .tab-btn.active .tab-pill {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.25);
       color: #FFFFFF;
     }
 
-    /* 3D Double-Bezel Card Archetype */
+    /* 3D Double-Bezel Card Archetype (Edubem Aesthetic) */
     .card-3d-shell {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(246, 245, 242, 0.8));
-      border: 1px solid rgba(0, 0, 0, 0.07);
+      background: #FFFFFF;
+      border: 1px solid var(--color-gray-border);
       border-radius: var(--radius-lg);
       padding: 6px;
-      box-shadow: var(--shadow-3d-card);
-      transition: var(--transition-3d);
+      box-shadow: var(--shadow-card);
+      transition: transform 0.4s var(--ease-smooth), box-shadow 0.4s var(--ease-smooth), border-color 0.3s ease;
       transform-style: preserve-3d;
       position: relative;
     }
 
     .card-3d-shell:hover {
-      box-shadow: var(--shadow-3d-hover);
-      border-color: rgba(30, 58, 138, 0.25);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--color-meteorite);
     }
 
     .card-3d-core {
       background: #FFFFFF;
-      border: 1px solid var(--border-subtle);
+      border: 1px solid rgba(218, 220, 224, 0.5);
       border-radius: calc(var(--radius-lg) - 5px);
       padding: 24px;
       height: 100%;
@@ -559,14 +593,13 @@
       flex-direction: column;
       justify-content: space-between;
       position: relative;
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9);
     }
 
     .card-glare {
       position: absolute;
       inset: 0;
       border-radius: var(--radius-lg);
-      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.5) 0%, transparent 60%);
+      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(235, 228, 255, 0.6) 0%, transparent 60%);
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
@@ -576,16 +609,16 @@
     }
 
     @keyframes pulseMatch {
-      0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
-      70% { box-shadow: 0 0 0 14px rgba(37, 99, 235, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(103, 61, 230, 0.5); }
+      70% { box-shadow: 0 0 0 16px rgba(103, 61, 230, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(103, 61, 230, 0); }
     }
     .card-3d-shell.highlight-match {
-      border-color: #2563EB;
+      border-color: var(--color-primary);
       animation: pulseMatch 2s infinite;
     }
 
-    /* Layout Grids */
+    /* Grids */
     .solver-grid, .vault-grid, .tools-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -606,29 +639,37 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       display: inline-block;
+      border-radius: var(--radius-full);
+      padding: 4px 10px;
     }
 
+    .tag-mint { color: var(--color-success-dark); background: var(--color-success-light); }
+    .tag-azure { color: var(--color-azure-dark); background: var(--color-azure-light); }
+    .tag-purple { color: var(--color-primary-dark); background: var(--color-primary-light); }
+    .tag-amber { color: var(--color-warning-dark); background: var(--color-warning-light); }
+    .tag-rose { color: var(--color-danger-dark); background: var(--color-danger-light); }
+
     .card-title {
-      font-family: var(--font-serif);
-      font-size: 21px;
-      font-weight: 600;
-      color: var(--text-primary);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--color-meteorite-dark);
       margin-bottom: 8px;
       line-height: 1.3;
+      letter-spacing: -0.02em;
     }
 
     .card-subtitle {
       font-size: 13.5px;
-      color: var(--text-secondary);
+      color: var(--color-gray-dark);
       margin-bottom: 16px;
-      font-style: italic;
+      font-weight: 500;
     }
 
     .card-spec-box {
-      background: var(--bg-surface-subtle);
-      border: 1px solid var(--border-subtle);
+      background: var(--color-gray-light);
+      border: 1px solid var(--color-gray-border);
       border-radius: var(--radius-sm);
       padding: 12px 14px;
       font-size: 12.5px;
@@ -636,7 +677,7 @@
       margin-bottom: 16px;
     }
     .card-spec-row {
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
     .card-spec-row:last-child {
       margin-bottom: 0;
@@ -646,18 +687,18 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border-subtle);
+      padding-top: 14px;
+      border-top: 1px solid var(--color-gray-border);
       margin-top: auto;
     }
 
     .link-chip {
       font-family: var(--font-mono);
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
       padding: 6px 12px;
       border-radius: var(--radius-full);
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--color-gray-border);
       display: inline-flex;
       align-items: center;
       gap: 5px;
@@ -671,34 +712,34 @@
     }
     .link-chip:active { transform: translateY(0); }
 
-    .link-chip-amazon { color: #92400E; background: #FFFBEB; border-color: #FDE68A; }
+    .link-chip-amazon { color: var(--color-warning-dark); background: var(--color-warning-light); border-color: #FDE68A; }
     .link-chip-amazon:hover { background: #FEF3C7; color: #78350F; }
 
-    .link-chip-wiki { color: #0369A1; background: #F0F9FF; border-color: #BAE6FD; }
+    .link-chip-wiki { color: var(--color-azure-dark); background: var(--color-azure-light); border-color: #BAE6FD; }
     .link-chip-wiki:hover { background: #E0F2FE; color: #075985; }
 
-    .link-chip-paper { color: #15803D; background: #F0FDF4; border-color: #BBF7D0; }
+    .link-chip-paper { color: var(--color-success-dark); background: var(--color-success-light); border-color: #BBF7D0; }
     .link-chip-paper:hover { background: #DCFCE7; color: #166534; }
 
-    .link-chip-docs { color: #6B21A8; background: #FAF5FF; border-color: #E9D5FF; }
+    .link-chip-docs { color: var(--color-primary-dark); background: var(--color-primary-light); border-color: #E9D5FF; }
     .link-chip-docs:hover { background: #F3E8FF; color: #581C87; }
 
-    .link-chip-copy { color: #334155; background: #F8FAFC; border-color: #E2E8F0; cursor: pointer; }
-    .link-chip-copy:hover { background: #E2E8F0; color: #0F172A; }
+    .link-chip-copy { color: var(--color-gray-dark); background: #F8FAFC; border-color: #E2E8F0; cursor: pointer; }
+    .link-chip-copy:hover { background: #E2E8F0; color: var(--color-meteorite-dark); }
 
     /* Audio Walkthrough Stage */
     .walkthrough-stage {
-      background: linear-gradient(180deg, #FFFFFF 0%, #FAF9F6 100%);
-      border: 1px solid var(--border-subtle);
+      background: #FFFFFF;
+      border: 1px solid var(--color-gray-border);
       border-radius: var(--radius-xl);
       padding: 32px;
-      box-shadow: var(--shadow-3d-card);
+      box-shadow: var(--shadow-card);
       margin-top: 16px;
     }
 
     .walkthrough-viewport {
-      background: #FFFFFF;
-      border: 1px solid var(--border-medium);
+      background: var(--color-gray-light);
+      border: 1px solid var(--color-gray-border);
       border-radius: var(--radius-lg);
       padding: 36px 44px;
       min-height: 280px;
@@ -711,7 +752,7 @@
 
     .walkthrough-scene {
       display: none;
-      animation: sceneFade 0.4s var(--ease-out-spatial) forwards;
+      animation: sceneFade 0.4s var(--ease-smooth) forwards;
     }
     .walkthrough-scene.active {
       display: block;
@@ -730,13 +771,13 @@
     #audio-waveform-canvas {
       width: 100%;
       height: 48px;
-      background: var(--bg-surface-subtle);
+      background: #FFFFFF;
       border-radius: var(--radius-sm);
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--color-gray-border);
     }
 
     .transcript-pill-box {
-      background: #0F172A;
+      background: var(--color-meteorite-dark);
       color: #FFFFFF;
       padding: 14px 20px;
       border-radius: var(--radius-md);
@@ -745,7 +786,7 @@
       gap: 12px;
       font-size: 14px;
       font-weight: 500;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+      box-shadow: 0 4px 14px rgba(47, 28, 106, 0.2);
     }
 
     .walkthrough-controls {
@@ -756,24 +797,24 @@
       gap: 16px;
       margin-top: 20px;
       padding-top: 18px;
-      border-top: 1px solid var(--border-subtle);
+      border-top: 1px solid var(--color-gray-border);
     }
 
-    /* Toast */
+    /* Toast Notification */
     .toast {
       position: fixed;
       bottom: 32px;
       right: 32px;
-      background: #0F172A;
+      background: var(--color-meteorite-dark);
       color: #FFFFFF;
       padding: 12px 20px;
       border-radius: var(--radius-full);
       font-size: 13px;
-      font-weight: 600;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(47, 28, 106, 0.3);
       opacity: 0;
       transform: translateY(15px);
-      transition: all 0.3s var(--ease-out-spatial);
+      transition: all 0.3s var(--ease-smooth);
       z-index: 1000;
       display: flex;
       align-items: center;
@@ -782,11 +823,11 @@
     .toast.show { opacity: 1; transform: translateY(0); }
 
     footer {
-      border-top: 1px solid var(--border-subtle);
+      border-top: 1px solid var(--color-gray-border);
       padding: 48px 0;
       margin-top: 80px;
       font-size: 13px;
-      color: var(--text-tertiary);
+      color: var(--color-gray);
       background: #FFFFFF;
     }
     .footer-flex {
@@ -823,13 +864,13 @@
     </header>
   </div>
 
-  <!-- 3D Hero Stage -->
+  <!-- Hero Section -->
   <section class="hero-stage">
     <div class="container">
-      <div class="hero-card-3d">
+      <div class="hero-card">
         <div class="hero-eyebrow">Executive Doctoral Inquiry &middot; Practice-Led Research &middot; Source Citations</div>
         <h1 class="hero-title">
-          From Business Problem to <em>Scholarly Rigor</em>
+          From Business Problem to <span class="highlight">Scholarly Rigor</span>
         </h1>
         <p class="hero-lead">
           A practical reference desk engineered for senior business leaders with 20+ years of corporate leadership embarking on executive doctoral inquiry (DBA). Translating seminal research texts (<strong>Saunders, Coghlan, Hair, Yin, Creswell</strong>) into clear management inquiry with direct, verified links to <strong>books, conceptual guides, official companions, and open-source software</strong>.
@@ -884,7 +925,7 @@
         📖 Jargon Translated <span class="tab-pill">Plain English</span>
       </button>
       <button class="tab-btn" onclick="switchDeskTab('video')">
-        🎧 Audio Walkthrough <span class="tab-pill" style="background: #E0F2FE; color: #0369A1;">1-Min Briefing</span>
+        🎧 Audio Walkthrough <span class="tab-pill" style="background: var(--color-primary-light); color: var(--color-primary-dark);">1-Min Briefing</span>
       </button>
       <button class="tab-btn" onclick="switchDeskTab('vault')">
         🌐 Research Vault <span class="tab-pill">Portals &amp; Guides</span>
@@ -901,7 +942,7 @@
         <svg class="search-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         <input type="text" id="global-search-input" class="search-input" placeholder="Search methods, authors, tools, or concepts (e.g. Hair, Case Study, Taguette, Creswell)..." oninput="filterDeskContent(this.value)">
       </div>
-      <div style="font-family: var(--font-mono); font-size: 11.5px; color: var(--text-tertiary);">
+      <div style="font-family: var(--font-mono); font-size: 11.5px; color: var(--color-gray);">
         <span id="search-match-count">Showing all references</span>
       </div>
     </div>
@@ -917,7 +958,7 @@
           <div class="wizard-title">
             <span>🧭</span> 3-Click Methodology Diagnostic
           </div>
-          <span style="font-family: var(--font-mono); font-size: 11.5px; color: var(--text-secondary);">
+          <span style="font-family: var(--font-mono); font-size: 11.5px; color: var(--color-gray-dark);">
             Select your scenario to illuminate your optimal research design
           </span>
         </div>
@@ -961,7 +1002,7 @@
           <div class="card-glare"></div>
           <div class="card-3d-core">
             <div>
-              <span class="card-tag" style="color: #15803D; background: #DCFCE7; padding: 3px 8px; border-radius: 4px;">INTERNAL PROBLEM SOLVING</span>
+              <span class="card-tag tag-mint">INTERNAL PROBLEM SOLVING</span>
               <h3 class="card-title">Solving an Operational Breakdown in Your Own Company</h3>
               <p class="card-subtitle"><strong>Method:</strong> Insider Action Research (Cyclical: Diagnose &rarr; Plan &rarr; Act &rarr; Evaluate)</p>
               
@@ -984,7 +1025,7 @@
           <div class="card-glare"></div>
           <div class="card-3d-core">
             <div>
-              <span class="card-tag" style="color: #0369A1; background: #E0F2FE; padding: 3px 8px; border-radius: 4px;">CROSS-FIRM BENCHMARKING</span>
+              <span class="card-tag tag-azure">CROSS-FIRM BENCHMARKING</span>
               <h3 class="card-title">Comparing Successful vs Failed Corporate Transformations</h3>
               <p class="card-subtitle"><strong>Method:</strong> Comparative Multi-Case Studies (Yin) combined with fuzzy-set QCA (fsQCA)</p>
               
@@ -1007,7 +1048,7 @@
           <div class="card-glare"></div>
           <div class="card-3d-core">
             <div>
-              <span class="card-tag" style="color: #6B21A8; background: #F3E8FF; padding: 3px 8px; border-radius: 4px;">SURVEY &amp; MODEL TESTING</span>
+              <span class="card-tag tag-purple">SURVEY &amp; MODEL TESTING</span>
               <h3 class="card-title">Testing Customer or Employee Perception &amp; Performance Links</h3>
               <p class="card-subtitle"><strong>Method:</strong> Partial Least Squares Structural Equation Modeling (PLS-SEM)</p>
               
@@ -1030,7 +1071,7 @@
           <div class="card-glare"></div>
           <div class="card-3d-core">
             <div>
-              <span class="card-tag" style="color: #92400E; background: #FEF3C7; padding: 3px 8px; border-radius: 4px;">FRAMEWORK &amp; ARTIFACT CREATION</span>
+              <span class="card-tag tag-amber">FRAMEWORK &amp; ARTIFACT CREATION</span>
               <h3 class="card-title">Designing &amp; Validating an Enterprise Framework or AI System</h3>
               <p class="card-subtitle"><strong>Method:</strong> Design Science Research (DSR) &middot; Build &amp; Evaluate Cycle (Hevner &amp; Gregor)</p>
               
@@ -1052,7 +1093,7 @@
           <div class="card-glare"></div>
           <div class="card-3d-core">
             <div>
-              <span class="card-tag" style="color: #166534; background: #DCFCE7; padding: 3px 8px; border-radius: 4px;">QUALITATIVE INQUIRY</span>
+              <span class="card-tag tag-mint">QUALITATIVE INQUIRY</span>
               <h3 class="card-title">Uncovering How C-Suite Executives Make Critical Choices</h3>
               <p class="card-subtitle"><strong>Method:</strong> Inductive Thematic Analysis / Gioia Methodology (1st order concepts &rarr; 2nd order themes &rarr; aggregate dimensions)</p>
               
@@ -1075,7 +1116,7 @@
           <div class="card-glare"></div>
           <div class="card-3d-core">
             <div>
-              <span class="card-tag" style="color: #9F1239; background: #FFE4E6; padding: 3px 8px; border-radius: 4px;">POLICY &amp; STRATEGY EVALUATION</span>
+              <span class="card-tag tag-rose">POLICY &amp; STRATEGY EVALUATION</span>
               <h3 class="card-title">Measuring the True Causal Impact of an Executive Initiative</h3>
               <p class="card-subtitle"><strong>Method:</strong> Quasi-Experimental Field Design (Difference-in-Differences / Propensity Score Matching)</p>
               
@@ -1098,7 +1139,7 @@
           <div class="card-glare"></div>
           <div class="card-3d-core">
             <div>
-              <span class="card-tag" style="color: #0369A1; background: #E0F2FE; padding: 3px 8px; border-radius: 4px;">EVIDENCE SYNTHESIS</span>
+              <span class="card-tag tag-azure">EVIDENCE SYNTHESIS</span>
               <h3 class="card-title">Systematic Evidence Mapping of Existing Business Research</h3>
               <p class="card-subtitle"><strong>Method:</strong> Systematic Literature Review &amp; Evidence Synthesis (PRISMA 2020 Protocol)</p>
               
@@ -1124,8 +1165,8 @@
          ========================================================================== -->
     <div id="pane-books" class="tab-pane" style="display: none;">
       <div style="margin-bottom: 20px;">
-        <h2 style="font-family: var(--font-serif); font-size: 26px; font-weight: 500;">The Executive Bookshelf &middot; Foundational Literature</h2>
-        <p style="color: var(--text-secondary); font-size: 14px;">Seminal research methods texts translated into clear executive takeaways with 1-click citation copying and verified links.</p>
+        <h2 style="font-size: 26px; font-weight: 800; color: var(--color-meteorite-dark);">The Executive Bookshelf &middot; Foundational Literature</h2>
+        <p style="color: var(--color-gray); font-size: 14px;">Seminal research methods texts translated into clear executive takeaways with 1-click citation copying and verified links.</p>
       </div>
 
       <div class="books-grid">
@@ -1136,7 +1177,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #0369A1; background: #E0F2FE; padding: 3px 8px; border-radius: 4px;">METHODOLOGY BLUEPRINT</span>
+                <span class="card-tag tag-azure">METHODOLOGY BLUEPRINT</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('Saunders, M., Lewis, P., & Thornhill, A. (2019). Research Methods for Business Students (8th ed.). Pearson.')">📋 Copy APA</button>
               </div>
               <h3 class="card-title">Research Methods for Business Students (8th / 9th Edition)</h3>
@@ -1161,7 +1202,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #15803D; background: #DCFCE7; padding: 3px 8px; border-radius: 4px;">PRACTITIONER INQUIRY</span>
+                <span class="card-tag tag-mint">PRACTITIONER INQUIRY</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('Coghlan, D., & Brannick, T. (2014). Doing Action Research in Your Own Organization (4th ed.). SAGE Publications.')">📋 Copy APA</button>
               </div>
               <h3 class="card-title">Doing Action Research in Your Own Organization (5th Edition)</h3>
@@ -1185,7 +1226,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #6B21A8; background: #F3E8FF; padding: 3px 8px; border-radius: 4px;">QUANTITATIVE MODELING</span>
+                <span class="card-tag tag-purple">QUANTITATIVE MODELING</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('Hair, J. F., Hult, G. T. M., Ringle, C. M., & Sarstedt, M. (2021). A Primer on Partial Least Squares Structural Equation Modeling (PLS-SEM) (3rd ed.). SAGE Publications.')">📋 Copy APA</button>
               </div>
               <h3 class="card-title">A Primer on PLS-SEM (3rd Edition)</h3>
@@ -1210,7 +1251,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #92400E; background: #FEF3C7; padding: 3px 8px; border-radius: 4px;">QUALITATIVE &amp; COMPARATIVE</span>
+                <span class="card-tag tag-amber">QUALITATIVE &amp; COMPARATIVE</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('Yin, R. K. (2018). Case Study Research and Applications: Design and Methods (6th ed.). SAGE Publications.')">📋 Copy APA</button>
               </div>
               <h3 class="card-title">Case Study Research and Applications (6th Edition)</h3>
@@ -1234,7 +1275,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #166534; background: #DCFCE7; padding: 3px 8px; border-radius: 4px;">DATA DISPLAY &amp; CODING</span>
+                <span class="card-tag tag-mint">DATA DISPLAY &amp; CODING</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('Miles, M. B., Huberman, A. M., & Saldaña, J. (2020). Qualitative Data Analysis: A Methods Sourcebook (4th ed.). SAGE Publications.')">📋 Copy APA</button>
               </div>
               <h3 class="card-title">Qualitative Data Analysis: A Methods Sourcebook (4th Edition)</h3>
@@ -1258,7 +1299,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #9F1239; background: #FFE4E6; padding: 3px 8px; border-radius: 4px;">STATISTICAL REASONING</span>
+                <span class="card-tag tag-rose">STATISTICAL REASONING</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('Field, A. (2018). Discovering Statistics Using IBM SPSS Statistics (5th ed.). SAGE Publications.')">📋 Copy APA</button>
               </div>
               <h3 class="card-title">Discovering Statistics Using IBM SPSS / R (5th Edition)</h3>
@@ -1282,7 +1323,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #0369A1; background: #E0F2FE; padding: 3px 8px; border-radius: 4px;">MIXED METHODS COMPANION</span>
+                <span class="card-tag tag-azure">MIXED METHODS COMPANION</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('Creswell, J. W., & Creswell, J. D. (2018). Research Design: Qualitative, Quantitative, and Mixed Methods Approaches (5th ed.). SAGE Publications.')">📋 Copy APA</button>
               </div>
               <h3 class="card-title">Research Design: Qualitative, Quantitative, &amp; Mixed Methods</h3>
@@ -1306,7 +1347,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #9F1239; background: #FFE4E6; padding: 3px 8px; border-radius: 4px;">CAUSAL INFERENCE</span>
+                <span class="card-tag tag-rose">CAUSAL INFERENCE</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('Shadish, W. R., Cook, T. D., & Campbell, D. T. (2002). Experimental and Quasi-Experimental Designs for Generalized Causal Inference. Cengage Learning.')">📋 Copy APA</button>
               </div>
               <h3 class="card-title">Experimental &amp; Quasi-Experimental Designs</h3>
@@ -1330,7 +1371,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #6B21A8; background: #F3E8FF; padding: 3px 8px; border-radius: 4px;">MULTIVARIATE STATISTICS</span>
+                <span class="card-tag tag-purple">MULTIVARIATE STATISTICS</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('Hair, J. F., Black, W. C., Babin, B. J., & Anderson, R. E. (2018). Multivariate Data Analysis (8th ed.). Cengage Learning.')">📋 Copy APA</button>
               </div>
               <h3 class="card-title">Multivariate Data Analysis (8th Edition)</h3>
@@ -1356,8 +1397,8 @@
          ========================================================================== -->
     <div id="pane-tools" class="tab-pane" style="display: none;">
       <div style="margin-bottom: 20px;">
-        <h2 style="font-family: var(--font-serif); font-size: 26px; font-weight: 500;">Practical Software Matrix &middot; Verified Open Source</h2>
-        <p style="color: var(--text-secondary); font-size: 14px;">Curated open-source software categorized by executive usability with 1-click install commands and verified documentation links.</p>
+        <h2 style="font-size: 26px; font-weight: 800; color: var(--color-meteorite-dark);">Practical Software Matrix &middot; Verified Open Source</h2>
+        <p style="color: var(--color-gray); font-size: 14px;">Curated open-source software categorized by executive usability with 1-click install commands and verified documentation links.</p>
       </div>
 
       <div class="tools-grid">
@@ -1368,7 +1409,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #15803D; background: #DCFCE7; padding: 3px 8px; border-radius: 4px;">🟢 ZERO-CODE WEB GUI</span>
+                <span class="card-tag tag-mint">🟢 ZERO-CODE WEB GUI</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('pip install taguette && taguette server')">💻 Copy Run</button>
               </div>
               <h3 class="card-title">Taguette</h3>
@@ -1393,7 +1434,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #15803D; background: #DCFCE7; padding: 3px 8px; border-radius: 4px;">🟢 ZERO-CODE WEB GUI</span>
+                <span class="card-tag tag-mint">🟢 ZERO-CODE WEB GUI</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('pip install asreview && asreview lab')">💻 Copy Run</button>
               </div>
               <h3 class="card-title">ASReview Lab</h3>
@@ -1418,7 +1459,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #92400E; background: #FEF3C7; padding: 3px 8px; border-radius: 4px;">🟡 DESKTOP APPLICATION</span>
+                <span class="card-tag tag-amber">🟡 DESKTOP APPLICATION</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('pip install qualcoder && qualcoder')">💻 Copy Run</button>
               </div>
               <h3 class="card-title">QualCoder</h3>
@@ -1443,7 +1484,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #3730A3; background: #E0E7FF; padding: 3px 8px; border-radius: 4px;">🟠 R SCRIPTING / STATS</span>
+                <span class="card-tag tag-purple">🟠 R SCRIPTING / STATS</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('install.packages("seminr")')">💻 Copy Install</button>
               </div>
               <h3 class="card-title">SEMinR</h3>
@@ -1468,7 +1509,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #3730A3; background: #E0E7FF; padding: 3px 8px; border-radius: 4px;">🟠 PYTHON STATS</span>
+                <span class="card-tag tag-purple">🟠 PYTHON STATS</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('pip install pingouin')">💻 Copy Install</button>
               </div>
               <h3 class="card-title">Pingouin</h3>
@@ -1493,7 +1534,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #3730A3; background: #E0E7FF; padding: 3px 8px; border-radius: 4px;">🟠 CAUSAL AI / PYTHON</span>
+                <span class="card-tag tag-rose">🟠 CAUSAL AI / PYTHON</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('pip install dowhy')">💻 Copy Install</button>
               </div>
               <h3 class="card-title">DoWhy</h3>
@@ -1518,7 +1559,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #92400E; background: #FEF3C7; padding: 3px 8px; border-radius: 4px;">🟡 DISSERTATION PUBLISHING</span>
+                <span class="card-tag tag-amber">🟡 DISSERTATION PUBLISHING</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('quarto create project book my-dissertation')">💻 Copy Scaffold</button>
               </div>
               <h3 class="card-title">Quarto CLI</h3>
@@ -1543,7 +1584,7 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag" style="color: #3730A3; background: #E0E7FF; padding: 3px 8px; border-radius: 4px;">🟠 R SCRIPTING / CONFIG</span>
+                <span class="card-tag tag-azure">🟠 R SCRIPTING / CONFIG</span>
                 <button class="link-chip link-chip-copy" onclick="copyCitation('install.packages("QCA")')">💻 Copy Install</button>
               </div>
               <h3 class="card-title">R QCA Package</h3>
@@ -1570,8 +1611,8 @@
          ========================================================================== -->
     <div id="pane-jargon" class="tab-pane" style="display: none;">
       <div style="margin-bottom: 20px;">
-        <h2 style="font-family: var(--font-serif); font-size: 26px; font-weight: 500;">Jargon Translated &middot; Plain English Guide</h2>
-        <p style="color: var(--text-secondary); font-size: 14px;">Dense academic methodology concepts demystified into intuitive corporate leadership analogies.</p>
+        <h2 style="font-size: 26px; font-weight: 800; color: var(--color-meteorite-dark);">Jargon Translated &middot; Plain English Guide</h2>
+        <p style="color: var(--color-gray); font-size: 14px;">Dense academic methodology concepts demystified into intuitive corporate leadership analogies.</p>
       </div>
 
       <div class="jargon-grid">
@@ -1582,10 +1623,10 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--accent-navy);">Epistemology</h3>
+                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Epistemology</h3>
                 <a href="https://en.wikipedia.org/wiki/Epistemology" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
               </div>
-              <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">"What standard of evidence is required before we accept a claim as true?"</div>
+              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"What standard of evidence is required before we accept a claim as true?"</div>
               <div class="card-spec-box">
                 <strong>Executive Analogy:</strong> A CFO demanding audited financial ledger entries (Positivism) vs a CEO conducting in-depth stakeholder interviews to understand morale (Interpretivism).
               </div>
@@ -1599,10 +1640,10 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--accent-navy);">Ontology</h3>
+                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Ontology</h3>
                 <a href="https://en.wikipedia.org/wiki/Ontology" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
               </div>
-              <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">"What is the true nature of the business reality we are investigating?"</div>
+              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"What is the true nature of the business reality we are investigating?"</div>
               <div class="card-spec-box">
                 <strong>Executive Analogy:</strong> Is customer brand loyalty an objective metric that exists independently (Objectivism), or is it socially created through perceptions and relationships (Constructivism)?
               </div>
@@ -1616,10 +1657,10 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--accent-navy);">Construct Validity</h3>
+                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Construct Validity</h3>
                 <a href="https://en.wikipedia.org/wiki/Construct_validity" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
               </div>
-              <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">"Are your survey questions actually measuring strategic intent or just noise?"</div>
+              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"Are your survey questions actually measuring strategic intent or just noise?"</div>
               <div class="card-spec-box">
                 <strong>Executive Analogy:</strong> Ensuring your employee satisfaction survey isn't just measuring how much staff like the cafeteria coffee instead of their true cultural engagement.
               </div>
@@ -1633,10 +1674,10 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--accent-navy);">Triangulation</h3>
+                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Triangulation</h3>
                 <a href="https://en.wikipedia.org/wiki/Triangulation_(social_science)" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
               </div>
-              <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">"Cross-checking a key insight using at least three distinct data sources."</div>
+              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"Cross-checking a key insight using at least three distinct data sources."</div>
               <div class="card-spec-box">
                 <strong>Executive Analogy:</strong> Validating customer churn by cross-referencing Salesforce CRM logs, customer exit interviews, and quarterly financial revenue reports.
               </div>
@@ -1650,10 +1691,10 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--accent-navy);">Theoretical Saturation</h3>
+                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Theoretical Saturation</h3>
                 <a href="https://en.wikipedia.org/wiki/Theoretical_sampling" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
               </div>
-              <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">"The point where conducting further interviews reveals zero new concepts."</div>
+              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"The point where conducting further interviews reveals zero new concepts."</div>
               <div class="card-spec-box">
                 <strong>Executive Analogy:</strong> After speaking with 18 supply chain VPs, the 19th and 20th interviews only repeat the exact same pain points. You have reached diminishing returns.
               </div>
@@ -1667,10 +1708,10 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--accent-navy);">HTMT Ratio (&lt; 0.85 / 0.90)</h3>
+                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">HTMT Ratio (&lt; 0.85 / 0.90)</h3>
                 <a href="https://doi.org/10.1007/s11747-014-0403-8" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-docs">DOI Paper ↗</a>
               </div>
-              <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">"The gold standard test proving two business concepts are truly distinct."</div>
+              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"The gold standard test proving two business concepts are truly distinct."</div>
               <div class="card-spec-box">
                 <strong>Executive Analogy:</strong> Mathematically proving that 'Brand Trust' and 'Customer Satisfaction' in your survey are two separate commercial drivers, not the same question asked twice.
               </div>
@@ -1684,10 +1725,10 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--accent-navy);">Confounding Variable</h3>
+                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Confounding Variable</h3>
                 <a href="https://en.wikipedia.org/wiki/Confounding" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
               </div>
-              <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">"A hidden third factor that secretly causes both your cause and effect."</div>
+              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"A hidden third factor that secretly causes both your cause and effect."</div>
               <div class="card-spec-box">
                 <strong>Executive Analogy:</strong> Claiming your new sales training boosted Q4 revenue, while ignoring that the entire industry grew by 25% due to holiday seasonality.
               </div>
@@ -1701,10 +1742,10 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--accent-navy);">Action Research Cycle</h3>
+                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Action Research Cycle</h3>
                 <a href="https://en.wikipedia.org/wiki/Action_research" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
               </div>
-              <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">"Simultaneously executing an organizational intervention and researching its impact."</div>
+              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"Simultaneously executing an organizational intervention and researching its impact."</div>
               <div class="card-spec-box">
                 <strong>Executive Analogy:</strong> Rolling out an enterprise ERP platform inside your own business and rigorously documenting behavioral resistance and workflow adaptations across 4 quarters.
               </div>
@@ -1718,10 +1759,10 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--accent-navy);">Quasi-Experiment</h3>
+                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Quasi-Experiment</h3>
                 <a href="https://en.wikipedia.org/wiki/Quasi-experiment" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
               </div>
-              <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">"An empirical study evaluating an intervention without randomized lab assignment."</div>
+              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"An empirical study evaluating an intervention without randomized lab assignment."</div>
               <div class="card-spec-box">
                 <strong>Executive Analogy:</strong> Testing a new performance bonus in your Chicago regional division while using your Dallas division as an un-treated control benchmark.
               </div>
@@ -1735,10 +1776,10 @@
           <div class="card-3d-core">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--accent-navy);">Gioia Methodology</h3>
+                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Gioia Methodology</h3>
                 <a href="https://en.wikipedia.org/wiki/Thematic_analysis" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
               </div>
-              <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">"A systematic 3-tier inductive coding structure for qualitative management research."</div>
+              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"A systematic 3-tier inductive coding structure for qualitative management research."</div>
               <div class="card-spec-box">
                 <strong>Executive Analogy:</strong> Aggregating raw executive quotes (1st order) into management themes (2nd order) and overarching strategic theoretical dimensions.
               </div>
@@ -1756,14 +1797,14 @@
       <div style="margin-bottom: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 16px;">
         <div>
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-            <h2 style="font-family: var(--font-serif); font-size: 26px; font-weight: 500; color: var(--text-primary);">
+            <h2 style="font-size: 26px; font-weight: 800; color: var(--color-meteorite-dark);">
               Executive Audio Walkthrough
             </h2>
-            <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; background: #E0F2FE; color: #0369A1; padding: 3px 10px; border-radius: var(--radius-full);">
+            <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; background: var(--color-primary-light); color: var(--color-primary-dark); padding: 4px 12px; border-radius: var(--radius-full);">
               🎧 1-Min Spoken Briefing
             </span>
           </div>
-          <p style="color: var(--text-secondary); font-size: 14px; max-width: 800px;">
+          <p style="color: var(--color-gray); font-size: 14px; max-width: 800px;">
             A calm, professorial spoken orientation guiding you through how to use this reference desk to translate corporate challenges into defensible doctoral research designs.
           </p>
         </div>
@@ -1776,9 +1817,9 @@
           
           <!-- Scene 1: Welcome & Research Philosophy -->
           <div class="walkthrough-scene active" id="v-scene-1">
-            <span class="card-tag" style="color: var(--accent-navy);">PART 1 &middot; ORIENTATION (00:00 - 00:13)</span>
-            <h3 class="card-title" style="font-size: 28px; margin-bottom: 10px;">From Business Problem to <em>Scholarly Rigor</em></h3>
-            <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 18px;">
+            <span class="card-tag tag-purple">PART 1 &middot; ORIENTATION (00:00 - 00:13)</span>
+            <h3 class="card-title" style="font-size: 28px; margin-bottom: 10px;">From Business Problem to <span class="highlight">Scholarly Rigor</span></h3>
+            <p style="font-size: 15px; color: var(--color-gray-dark); line-height: 1.6; margin-bottom: 18px;">
               Designed specifically for senior industry leaders with 20+ years of corporate leadership embarking on executive doctoral inquiry (DBA).
             </p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
@@ -1799,21 +1840,21 @@
 
           <!-- Scene 2: Problem Solver -->
           <div class="walkthrough-scene" id="v-scene-2">
-            <span class="card-tag" style="color: #15803D;">PART 2 &middot; PROBLEM SOLVER (00:13 - 00:26)</span>
-            <h3 class="card-title" style="font-size: 28px; margin-bottom: 10px;">Match Your Challenge to the <em>Right Methodology</em></h3>
-            <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 18px;">
+            <span class="card-tag tag-mint">PART 2 &middot; PROBLEM SOLVER (00:13 - 00:26)</span>
+            <h3 class="card-title" style="font-size: 28px; margin-bottom: 10px;">Match Your Challenge to the <span class="highlight">Right Methodology</span></h3>
+            <p style="font-size: 15px; color: var(--color-gray-dark); line-height: 1.6; margin-bottom: 18px;">
               Select your specific corporate challenge to identify the exact academic research design, textbook chapter, and analysis software.
             </p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
-              <div class="exec-metric-card" style="border-left: 3px solid #16A34A;">
+              <div class="exec-metric-card" style="border-left: 3px solid var(--color-success);">
                 <div class="exec-metric-label">INTERNAL FIX</div>
                 <div class="exec-metric-val">Action Research</div>
               </div>
-              <div class="exec-metric-card" style="border-left: 3px solid #2563EB;">
+              <div class="exec-metric-card" style="border-left: 3px solid var(--color-azure);">
                 <div class="exec-metric-label">SURVEY MODEL</div>
                 <div class="exec-metric-val">PLS-SEM Path</div>
               </div>
-              <div class="exec-metric-card" style="border-left: 3px solid #7C3AED;">
+              <div class="exec-metric-card" style="border-left: 3px solid var(--color-primary);">
                 <div class="exec-metric-label">BENCHMARK</div>
                 <div class="exec-metric-val">Multi-Case fsQCA</div>
               </div>
@@ -1822,9 +1863,9 @@
 
           <!-- Scene 3: Bookshelf & Tools -->
           <div class="walkthrough-scene" id="v-scene-3">
-            <span class="card-tag" style="color: #92400E;">PART 3 &middot; BOOKS &amp; TOOLS (00:26 - 00:39)</span>
-            <h3 class="card-title" style="font-size: 28px; margin-bottom: 10px;">Foundational Books &amp; <em>Practical Software</em></h3>
-            <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 18px;">
+            <span class="card-tag tag-amber">PART 3 &middot; BOOKS &amp; TOOLS (00:26 - 00:39)</span>
+            <h3 class="card-title" style="font-size: 28px; margin-bottom: 10px;">Foundational Books &amp; <span class="highlight">Practical Software</span></h3>
+            <p style="font-size: 15px; color: var(--color-gray-dark); line-height: 1.6; margin-bottom: 18px;">
               Seminal frameworks from Saunders, Coghlan, and Hair connected directly to verified repositories rated by executive usability.
             </p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
@@ -1845,9 +1886,9 @@
 
           <!-- Scene 4: Jargon & Defense -->
           <div class="walkthrough-scene" id="v-scene-4">
-            <span class="card-tag" style="color: #6B21A8;">PART 4 &middot; YOUR DEFENSE (00:39 - 00:51)</span>
-            <h3 class="card-title" style="font-size: 28px; margin-bottom: 10px;">Your Companion to a <em>Defensible Doctorate</em></h3>
-            <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 18px;">
+            <span class="card-tag tag-purple">PART 4 &middot; YOUR DEFENSE (00:39 - 00:51)</span>
+            <h3 class="card-title" style="font-size: 28px; margin-bottom: 10px;">Your Companion to a <span class="highlight">Defensible Doctorate</span></h3>
+            <p style="font-size: 15px; color: var(--color-gray-dark); line-height: 1.6; margin-bottom: 18px;">
               Decode complex terminology in plain English and walk into your dissertation defense with total methodological confidence.
             </p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
@@ -1875,7 +1916,7 @@
 
         <!-- Synchronized Spoken Transcript Box -->
         <div class="transcript-pill-box">
-          <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: #93C5FD; letter-spacing: 0.05em;">
+          <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--color-meteorite-light); letter-spacing: 0.05em;">
             TRANSCRIPT
           </span>
           <span id="v-caption-text" style="flex: 1;">
@@ -1893,11 +1934,11 @@
             <button class="btn-secondary" onclick="restartVideoPlayback()" style="padding: 7px 14px; font-size: 12px;">
               🔄 Replay
             </button>
-            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary);" id="v-time-display">00:00 / 00:50</span>
+            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--color-gray);" id="v-time-display">00:00 / 00:50</span>
           </div>
 
           <div style="flex: 1; min-width: 160px; display: flex; align-items: center;">
-            <input type="range" style="width: 100%; height: 6px; accent-color: var(--accent-navy); cursor: pointer;" id="v-scrubber" min="0" max="50.8" step="0.1" value="0" oninput="seekVideoPlayback(this.value)">
+            <input type="range" style="width: 100%; height: 6px; accent-color: var(--color-primary); cursor: pointer;" id="v-scrubber" min="0" max="50.8" step="0.1" value="0" oninput="seekVideoPlayback(this.value)">
           </div>
 
           <div style="display: flex; gap: 6px; flex-wrap: wrap;">
@@ -1917,8 +1958,8 @@
          ========================================================================== -->
     <div id="pane-vault" class="tab-pane" style="display: none;">
       <div style="margin-bottom: 20px;">
-        <h2 style="font-family: var(--font-serif); font-size: 26px; font-weight: 500;">Research Vault &middot; Curated Portals</h2>
-        <p style="color: var(--text-secondary); font-size: 14px;">Next-level literature discovery platforms, systematic review standards, and scholarly societies.</p>
+        <h2 style="font-size: 26px; font-weight: 800; color: var(--color-meteorite-dark);">Research Vault &middot; Curated Portals</h2>
+        <p style="color: var(--color-gray); font-size: 14px;">Next-level literature discovery platforms, systematic review standards, and scholarly societies.</p>
       </div>
 
       <div class="vault-grid">
@@ -1927,7 +1968,7 @@
           <div class="card-glare"></div>
           <div class="card-3d-core">
             <div>
-              <div class="card-tag" style="color: #0369A1; background: #E0F2FE; padding: 3px 8px; border-radius: 4px;">VISUAL GRAPH</div>
+              <span class="card-tag tag-azure">VISUAL GRAPH</span>
               <h3 class="card-title">Connected Papers</h3>
               <p class="card-subtitle">Visual graph exploration of academic papers.</p>
               <div class="card-spec-box">
@@ -1944,7 +1985,7 @@
           <div class="card-glare"></div>
           <div class="card-3d-core">
             <div>
-              <div class="card-tag" style="color: #15803D; background: #DCFCE7; padding: 3px 8px; border-radius: 4px;">METHODOLOGY PORTAL</div>
+              <span class="card-tag tag-mint">METHODOLOGY PORTAL</span>
               <h3 class="card-title">SAGE Publishing Overview</h3>
               <p class="card-subtitle">Authoritative publisher of business research methods.</p>
               <div class="card-spec-box">
@@ -1961,7 +2002,7 @@
           <div class="card-glare"></div>
           <div class="card-3d-core">
             <div>
-              <div class="card-tag" style="color: #6B21A8; background: #F3E8FF; padding: 3px 8px; border-radius: 4px;">ACADEMIC SOCIETY</div>
+              <span class="card-tag tag-purple">ACADEMIC SOCIETY</span>
               <h3 class="card-title">Academy of Management</h3>
               <p class="card-subtitle">The global society for management scholars.</p>
               <div class="card-spec-box">
@@ -1978,7 +2019,7 @@
           <div class="card-glare"></div>
           <div class="card-3d-core">
             <div>
-              <div class="card-tag" style="color: #92400E; background: #FEF3C7; padding: 3px 8px; border-radius: 4px;">REVIEW STANDARD</div>
+              <span class="card-tag tag-amber">REVIEW STANDARD</span>
               <h3 class="card-title">PRISMA 2020 Statement</h3>
               <p class="card-subtitle">Gold-standard systematic review flow diagrams &amp; checklists.</p>
               <div class="card-spec-box">
@@ -1995,7 +2036,7 @@
           <div class="card-glare"></div>
           <div class="card-3d-core">
             <div>
-              <div class="card-tag" style="color: #0369A1; background: #E0F2FE; padding: 3px 8px; border-radius: 4px;">PLS-SEM ACADEMY</div>
+              <span class="card-tag tag-azure">PLS-SEM ACADEMY</span>
               <h3 class="card-title">SmartPLS Knowledge Base</h3>
               <p class="card-subtitle">Tutorials and interpretation guidelines for PLS-SEM.</p>
               <div class="card-spec-box">
@@ -2012,7 +2053,7 @@
           <div class="card-glare"></div>
           <div class="card-3d-core">
             <div>
-              <div class="card-tag" style="color: #15803D; background: #DCFCE7; padding: 3px 8px; border-radius: 4px;">AI SEARCH ENGINE</div>
+              <span class="card-tag tag-mint">AI SEARCH ENGINE</span>
               <h3 class="card-title">Semantic Scholar</h3>
               <p class="card-subtitle">AI-backed scholarly discovery by the Allen Institute.</p>
               <div class="card-spec-box">
@@ -2276,7 +2317,7 @@
         const x = i * barWidth + barWidth * 0.2;
         const y = (height - barHeight) / 2;
         
-        ctx.fillStyle = isPlaying ? '#1E3A8A' : '#CBD5E1';
+        ctx.fillStyle = isPlaying ? '#673DE6' : '#CBD5E1';
         ctx.beginPath();
         ctx.roundRect(x, y, barWidth * 0.6, barHeight, 3);
         ctx.fill();
