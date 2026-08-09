@@ -1927,13 +1927,13 @@
 
     const captions = [
       { start: 0.0, end: 5.5, text: "Welcome to the DBA Executive Research Reference Desk." },
-      { start: 5.5, end: 11.5, text: "If you are a senior business professional pursuing an executive doctorate, this resource is designed for you. It bridges foundational academic methodology with real-world practitioner problem-solving." },
-      { start: 11.5, end: 17.5, text: "Start with the Business Problem Solver to match your corporate challenge directly to the right research design..." },
-      { start: 17.5, end: 24.5, text: "...whether that is Insider Action Research, Multi-Case Studies, or Survey Path Modeling." },
-      { start: 24.5, end: 31.0, text: "Explore the Executive Bookshelf to understand seminal frameworks from Saunders, Coghlan, and Hair in clear management language." },
-      { start: 31.0, end: 37.5, text: "Use the GitHub Tool Matrix to access verified open-source software, rated for executive ease of use." },
-      { start: 37.5, end: 43.5, text: "And whenever you encounter complex academic terminology, look it up in the Executive Jargon Buster." },
-      { start: 43.5, end: 50.0, text: "This reference desk is your practical companion from problem definition all the way to your final dissertation defense." }
+      { start: 5.5, end: 13.0, text: "If you are an experienced business leader pursuing an executive doctorate, this resource was designed specifically for your journey." },
+      { start: 13.0, end: 19.5, text: "It bridges academic research methodology with practical, evidence-based management inquiry." },
+      { start: 19.5, end: 26.5, text: "Begin with the Problem Solver to align your organizational challenge with the appropriate research design..." },
+      { start: 26.5, end: 33.5, text: "Explore the Core Bookshelf to understand seminal frameworks from Saunders, Coghlan, and Hair in clear executive language." },
+      { start: 33.5, end: 40.0, text: "Use the Practical Tools matrix to access verified open-source software, rated for executive ease of use." },
+      { start: 40.0, end: 45.5, text: "And whenever you encounter complex academic terminology, consult the Jargon Translated guide." },
+      { start: 45.5, end: 51.0, text: "Consider this desk your companion, from framing your initial research question all the way to your doctoral defense." }
     ];
 
     function formatTime(sec) {
@@ -1945,7 +1945,7 @@
     function updateVideoState() {
       if (!audio) return;
       const t = audio.currentTime;
-      const dur = audio.duration || 49.5;
+      const dur = audio.duration || 50.8;
 
       scrubber.value = t;
       timeDisplay.textContent = formatTime(t) + ' / ' + formatTime(dur);
@@ -1954,13 +1954,13 @@
       let activeSceneId = 'v-scene-1';
       let activeChipId = 'chip-s1';
 
-      if (t >= 37.5) {
+      if (t >= 39.0) {
         activeSceneId = 'v-scene-4';
         activeChipId = 'chip-s4';
-      } else if (t >= 24.5) {
+      } else if (t >= 26.0) {
         activeSceneId = 'v-scene-3';
         activeChipId = 'chip-s3';
-      } else if (t >= 12.0) {
+      } else if (t >= 13.0) {
         activeSceneId = 'v-scene-2';
         activeChipId = 'chip-s2';
       }
