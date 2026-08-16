@@ -1,2386 +1,480 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DBA Executive Research Reference Desk | Applied Methods, Books & Verified Tools</title>
-  <meta name="description" content="An interactive research methodology desk reference for Doctor of Business Administration (DBA) executives. Verified links to Amazon books, Wikipedia concepts, official companions, and open-source tools.">
-
-  <!-- Google Fonts: Modern Geometric Sans + Editorial Serif + Monospace -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    /* ==========================================================================
-       Design System: Edubem.pt Inspired Vibrant Educational Tech Aesthetic
-       100% Pure Light Theme · Meteorite & Electric Indigo Palette
-       ========================================================================== */
-    :root {
-      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --font-serif: 'Newsreader', Georgia, serif;
-      --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-
-      /* Edubem Core Brand Tokens */
-      --color-primary: #673DE6;
-      --color-primary-dark: #5025D1;
-      --color-primary-light: #EBE4FF;
-      --color-meteorite-dark: #2F1C6A;
-      --color-meteorite: #8C85FF;
-      --color-meteorite-light: #D5DFFF;
-
-      /* Edubem Semantic Palette */
-      --color-azure: #357DF9;
-      --color-azure-dark: #265AB2;
-      --color-azure-light: #E3EBF9;
-      
-      --color-success: #00B090;
-      --color-success-dark: #008361;
-      --color-success-light: #DEF4F0;
-
-      --color-warning: #FFCD35;
-      --color-warning-dark: #FEA419;
-      --color-warning-light: #FFF8E2;
-
-      --color-danger: #FC5185;
-      --color-danger-dark: #D63163;
-      --color-danger-light: #FFE8EF;
-
-      /* Neutrals & Surfaces */
-      --color-dark: #1D1E20;
-      --color-gray-dark: #36344D;
-      --color-gray: #727586;
-      --color-gray-border: #DADCE0;
-      --color-gray-light: #F8F9FC;
-      --color-light: #FFFFFF;
-      --bg-glass: rgba(255, 255, 255, 0.92);
-
-      /* Radii */
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
-      --radius-xl: 28px;
-      --radius-full: 9999px;
-
-      /* Edubem Soft Ambient 3D Shadows */
-      --shadow-subtle: 0 2px 6px rgba(47, 28, 106, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-      --shadow-card: 0 10px 30px -8px rgba(80, 37, 209, 0.08), 0 2px 6px rgba(0, 0, 0, 0.02);
-      --shadow-hover: 0 20px 40px -10px rgba(80, 37, 209, 0.16), 0 6px 16px rgba(0, 0, 0, 0.04);
-      --shadow-button: 0 4px 14px rgba(103, 61, 230, 0.3);
-
-      --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
-      --transition-base: 0.3s var(--ease-smooth);
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--color-gray-light);
-      color: var(--color-dark);
-      font-family: var(--font-sans);
-      font-size: 14.5px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-      perspective: 1200px;
-    }
-
-    /* Ambient Subtle Grid & Gradient Mesh */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(235, 228, 255, 0.5) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(222, 244, 240, 0.4) 0%, transparent 40%),
-        linear-gradient(to right, rgba(0, 0, 0, 0.015) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
-      background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      max-width: 1220px;
-      margin: 0 auto;
-      padding: 0 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Floating Glass Navigation Bar */
-    .navbar-container {
-      position: sticky;
-      top: 16px;
-      z-index: 100;
-      padding: 0 24px;
-      margin-bottom: 24px;
-    }
-
-    .navbar {
-      max-width: 1220px;
-      margin: 0 auto;
-      background: var(--bg-glass);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      box-shadow: var(--shadow-card);
-      border-radius: var(--radius-full);
-      padding: 8px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: var(--transition-base);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-badge {
-      background: linear-gradient(135deg, var(--color-meteorite-dark) 0%, var(--color-primary) 100%);
-      color: #FFFFFF;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      padding: 5px 11px;
-      border-radius: var(--radius-full);
-      letter-spacing: 0.08em;
-      box-shadow: 0 2px 8px rgba(103, 61, 230, 0.3);
-    }
-
-    .brand-title {
-      font-weight: 800;
-      font-size: 15px;
-      letter-spacing: -0.02em;
-      color: var(--color-meteorite-dark);
-    }
-
-    .brand-tagline {
-      font-size: 11.5px;
-      color: var(--color-gray);
-      font-weight: 500;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    /* Edubem Button-in-Button Architecture */
-    .btn-action {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
-      color: #FFFFFF;
-      padding: 8px 18px 8px 16px;
-      border-radius: var(--radius-full);
-      font-size: 13px;
-      font-weight: 700;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      cursor: pointer;
-      box-shadow: var(--shadow-button);
-      transition: all 0.3s var(--ease-smooth);
-      transform: translateZ(0);
-    }
-    .btn-action:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 8px 22px rgba(103, 61, 230, 0.4);
-    }
-    .btn-action:active {
-      transform: translateY(0) scale(0.98);
-    }
-
-    .btn-icon-circle {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      transition: transform 0.2s ease;
-    }
-    .btn-action:hover .btn-icon-circle {
-      transform: translateX(2px);
-    }
-
-    .btn-secondary {
-      background: #FFFFFF;
-      border: 1px solid var(--color-gray-border);
-      color: var(--color-meteorite-dark);
-      padding: 8px 15px;
-      border-radius: var(--radius-full);
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: var(--shadow-subtle);
-      transition: all 0.2s ease;
-    }
-    .btn-secondary:hover {
-      border-color: var(--color-meteorite);
-      background: var(--color-primary-light);
-      color: var(--color-primary-dark);
-      transform: translateY(-1px);
-    }
-
-    /* Hero Section (Edubem Energy) */
-    .hero-stage {
-      padding: 24px 0 36px;
-      position: relative;
-    }
-
-    .hero-card {
-      background: #FFFFFF;
-      border: 1px solid rgba(218, 220, 224, 0.7);
-      border-radius: var(--radius-xl);
-      padding: 44px 48px;
-      box-shadow: var(--shadow-card);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      top: -40px;
-      right: -40px;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--color-primary-light) 0%, rgba(235, 228, 255, 0) 70%);
-      pointer-events: none;
-    }
-
-    .hero-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-primary);
-      margin-bottom: 16px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--color-primary-light);
-      padding: 5px 14px;
-      border-radius: var(--radius-full);
-    }
-
-    .hero-title {
-      font-family: var(--font-sans);
-      font-size: clamp(34px, 4.4vw, 54px);
-      font-weight: 800;
-      line-height: 1.15;
-      color: var(--color-meteorite-dark);
-      margin-bottom: 18px;
-      max-width: 960px;
-      letter-spacing: -0.03em;
-    }
-    .hero-title .highlight {
-      color: var(--color-primary);
-      position: relative;
-      display: inline-block;
-    }
-    .hero-title .highlight-gold {
-      color: var(--color-warning-dark);
-    }
-
-    .hero-lead {
-      font-size: 16px;
-      color: var(--color-gray-dark);
-      max-width: 880px;
-      line-height: 1.65;
-      margin-bottom: 28px;
-      font-weight: 450;
-    }
-
-    .hero-cta-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-    }
-
-    /* Geometric Metric Strip */
-    .executive-card-strip {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 16px;
-      margin-top: 32px;
-      padding-top: 28px;
-      border-top: 1px solid var(--color-gray-border);
-    }
-
-    .exec-metric-card {
-      background: var(--color-gray-light);
-      border: 1px solid var(--color-gray-border);
-      border-radius: var(--radius-md);
-      padding: 16px 18px;
-      box-shadow: var(--shadow-subtle);
-      transition: var(--transition-base);
-    }
-    .exec-metric-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-card);
-      border-color: var(--color-primary);
-      background: #FFFFFF;
-    }
-    .exec-metric-label {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--color-gray);
-      margin-bottom: 4px;
-      letter-spacing: 0.06em;
-    }
-    .exec-metric-val {
-      font-size: 14px;
-      font-weight: 800;
-      color: var(--color-meteorite-dark);
-    }
-
-    /* 3-Click Methodology Matcher Wizard */
-    .matcher-wizard-container {
-      background: linear-gradient(135deg, var(--color-primary-light) 0%, #FFFFFF 100%);
-      border: 1px solid var(--color-meteorite-light);
-      border-radius: var(--radius-lg);
-      padding: 26px 30px;
-      margin-bottom: 32px;
-      box-shadow: var(--shadow-card);
-    }
-
-    .wizard-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    .wizard-title {
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--color-meteorite-dark);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .wizard-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-    }
-
-    .wizard-step-box {
-      background: #FFFFFF;
-      border: 1px solid var(--color-gray-border);
-      border-radius: var(--radius-md);
-      padding: 14px 16px;
-    }
-    .wizard-step-label {
-      font-family: var(--font-mono);
-      font-size: 10.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--color-gray);
-      margin-bottom: 8px;
-    }
-    .wizard-select {
-      width: 100%;
-      padding: 9px 12px;
-      border: 1px solid var(--color-gray-border);
-      border-radius: var(--radius-sm);
-      font-family: var(--font-sans);
-      font-size: 13.5px;
-      color: var(--color-dark);
-      background: #FFFFFF;
-      cursor: pointer;
-      outline: none;
-      transition: border-color 0.2s ease;
-    }
-    .wizard-select:focus {
-      border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(103, 61, 230, 0.15);
-    }
-
-    .wizard-result-box {
-      background: linear-gradient(135deg, var(--color-meteorite-dark) 0%, var(--color-primary-dark) 100%);
-      color: #FFFFFF;
-      border-radius: var(--radius-md);
-      padding: 16px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      box-shadow: 0 4px 14px rgba(47, 28, 106, 0.2);
-    }
-    .wizard-result-badge {
-      font-family: var(--font-mono);
-      font-size: 10.5px;
-      font-weight: 700;
-      color: var(--color-meteorite-light);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .wizard-result-text {
-      font-size: 15.5px;
-      font-weight: 800;
-      margin: 4px 0 8px;
-    }
-    .wizard-btn-jump {
-      align-self: flex-start;
-      background: #FFFFFF;
-      color: var(--color-primary-dark);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 5px 14px;
-      border-radius: var(--radius-full);
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      transition: all 0.2s ease;
-    }
-    .wizard-btn-jump:hover {
-      background: var(--color-primary-light);
-      transform: translateY(-1px);
-    }
-
-    /* Universal Live Search / Filter Bar */
-    .filter-search-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .search-input-wrapper {
-      position: relative;
-      flex: 1;
-      max-width: 440px;
-    }
-    .search-input {
-      width: 100%;
-      padding: 10px 16px 10px 38px;
-      border: 1px solid var(--color-gray-border);
-      border-radius: var(--radius-full);
-      background: #FFFFFF;
-      font-family: var(--font-sans);
-      font-size: 13.5px;
-      color: var(--color-dark);
-      box-shadow: var(--shadow-subtle);
-      outline: none;
-      transition: all 0.2s ease;
-    }
-    .search-input:focus {
-      border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(103, 61, 230, 0.12), var(--shadow-subtle);
-    }
-    .search-icon-svg {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--color-gray);
-      pointer-events: none;
-    }
-
-    /* Sticky Tab Navigation */
-    .tab-bar-section {
-      position: sticky;
-      top: 80px;
-      z-index: 90;
-      background: rgba(248, 249, 252, 0.94);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      padding: 10px 0;
-      margin-bottom: 24px;
-      border-bottom: 1px solid var(--color-gray-border);
-    }
-
-    .tab-bar {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 4px;
-      scrollbar-width: none;
-    }
-    .tab-bar::-webkit-scrollbar { display: none; }
-
-    .tab-btn {
-      background: #FFFFFF;
-      border: 1px solid var(--color-gray-border);
-      color: var(--color-gray-dark);
-      padding: 8px 18px;
-      border-radius: var(--radius-full);
-      font-family: var(--font-sans);
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-      box-shadow: var(--shadow-subtle);
-      transition: all var(--transition-base);
-    }
-    .tab-btn:hover {
-      color: var(--color-primary);
-      border-color: var(--color-meteorite);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-card);
-    }
-    .tab-btn.active {
-      background: linear-gradient(135deg, var(--color-meteorite-dark) 0%, var(--color-primary-dark) 100%);
-      color: #FFFFFF;
-      border-color: var(--color-meteorite-dark);
-      box-shadow: 0 4px 14px rgba(47, 28, 106, 0.25);
-    }
-    .tab-pill {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: var(--radius-full);
-      background: var(--color-gray-light);
-      color: var(--color-gray);
-    }
-    .tab-btn.active .tab-pill {
-      background: rgba(255, 255, 255, 0.25);
-      color: #FFFFFF;
-    }
-
-    /* 3D Double-Bezel Card Archetype (Edubem Aesthetic) */
-    .card-3d-shell {
-      background: #FFFFFF;
-      border: 1px solid var(--color-gray-border);
-      border-radius: var(--radius-lg);
-      padding: 6px;
-      box-shadow: var(--shadow-card);
-      transition: transform 0.4s var(--ease-smooth), box-shadow 0.4s var(--ease-smooth), border-color 0.3s ease;
-      transform-style: preserve-3d;
-      position: relative;
-    }
-
-    .card-3d-shell:hover {
-      box-shadow: var(--shadow-hover);
-      border-color: var(--color-meteorite);
-    }
-
-    .card-3d-core {
-      background: #FFFFFF;
-      border: 1px solid rgba(218, 220, 224, 0.5);
-      border-radius: calc(var(--radius-lg) - 5px);
-      padding: 24px;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-    }
-
-    .card-glare {
-      position: absolute;
-      inset: 0;
-      border-radius: var(--radius-lg);
-      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(235, 228, 255, 0.6) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-    }
-    .card-3d-shell:hover .card-glare {
-      opacity: 1;
-    }
-
-    @keyframes pulseMatch {
-      0% { box-shadow: 0 0 0 0 rgba(103, 61, 230, 0.5); }
-      70% { box-shadow: 0 0 0 16px rgba(103, 61, 230, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(103, 61, 230, 0); }
-    }
-    .card-3d-shell.highlight-match {
-      border-color: var(--color-primary);
-      animation: pulseMatch 2s infinite;
-    }
-
-    /* Grids */
-    .solver-grid, .vault-grid, .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 24px;
-      margin-top: 16px;
-    }
-
-    .books-grid, .jargon-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-      gap: 24px;
-      margin-top: 16px;
-    }
-
-    .card-tag {
-      font-family: var(--font-mono);
-      font-size: 10.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 10px;
-      display: inline-block;
-      border-radius: var(--radius-full);
-      padding: 4px 10px;
-    }
-
-    .tag-mint { color: var(--color-success-dark); background: var(--color-success-light); }
-    .tag-azure { color: var(--color-azure-dark); background: var(--color-azure-light); }
-    .tag-purple { color: var(--color-primary-dark); background: var(--color-primary-light); }
-    .tag-amber { color: var(--color-warning-dark); background: var(--color-warning-light); }
-    .tag-rose { color: var(--color-danger-dark); background: var(--color-danger-light); }
-
-    .card-title {
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--color-meteorite-dark);
-      margin-bottom: 8px;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-    }
-
-    .card-subtitle {
-      font-size: 13.5px;
-      color: var(--color-gray-dark);
-      margin-bottom: 16px;
-      font-weight: 500;
-    }
-
-    .card-spec-box {
-      background: var(--color-gray-light);
-      border: 1px solid var(--color-gray-border);
-      border-radius: var(--radius-sm);
-      padding: 12px 14px;
-      font-size: 12.5px;
-      line-height: 1.55;
-      margin-bottom: 16px;
-    }
-    .card-spec-row {
-      margin-bottom: 5px;
-    }
-    .card-spec-row:last-child {
-      margin-bottom: 0;
-    }
-
-    .deep-links-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding-top: 14px;
-      border-top: 1px solid var(--color-gray-border);
-      margin-top: auto;
-    }
-
-    .link-chip {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      padding: 6px 12px;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--color-gray-border);
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.2s ease;
-      background: #FFFFFF;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
-    }
-    .link-chip:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-    .link-chip:active { transform: translateY(0); }
-
-    .link-chip-amazon { color: var(--color-warning-dark); background: var(--color-warning-light); border-color: #FDE68A; }
-    .link-chip-amazon:hover { background: #FEF3C7; color: #78350F; }
-
-    .link-chip-wiki { color: var(--color-azure-dark); background: var(--color-azure-light); border-color: #BAE6FD; }
-    .link-chip-wiki:hover { background: #E0F2FE; color: #075985; }
-
-    .link-chip-paper { color: var(--color-success-dark); background: var(--color-success-light); border-color: #BBF7D0; }
-    .link-chip-paper:hover { background: #DCFCE7; color: #166534; }
-
-    .link-chip-docs { color: var(--color-primary-dark); background: var(--color-primary-light); border-color: #E9D5FF; }
-    .link-chip-docs:hover { background: #F3E8FF; color: #581C87; }
-
-    .link-chip-copy { color: var(--color-gray-dark); background: #F8FAFC; border-color: #E2E8F0; cursor: pointer; }
-    .link-chip-copy:hover { background: #E2E8F0; color: var(--color-meteorite-dark); }
-
-    /* Audio Walkthrough Stage */
-    .walkthrough-stage {
-      background: #FFFFFF;
-      border: 1px solid var(--color-gray-border);
-      border-radius: var(--radius-xl);
-      padding: 32px;
-      box-shadow: var(--shadow-card);
-      margin-top: 16px;
-    }
-
-    .walkthrough-viewport {
-      background: var(--color-gray-light);
-      border: 1px solid var(--color-gray-border);
-      border-radius: var(--radius-lg);
-      padding: 36px 44px;
-      min-height: 280px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
-      position: relative;
-    }
-
-    .walkthrough-scene {
-      display: none;
-      animation: sceneFade 0.4s var(--ease-smooth) forwards;
-    }
-    .walkthrough-scene.active {
-      display: block;
-    }
-    @keyframes sceneFade {
-      from { opacity: 0; transform: translateY(10px) scale(0.99); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    .audio-visualizer-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 18px 0 12px;
-    }
-    #audio-waveform-canvas {
-      width: 100%;
-      height: 48px;
-      background: #FFFFFF;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--color-gray-border);
-    }
-
-    .transcript-pill-box {
-      background: var(--color-meteorite-dark);
-      color: #FFFFFF;
-      padding: 14px 20px;
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 14px;
-      font-weight: 500;
-      box-shadow: 0 4px 14px rgba(47, 28, 106, 0.2);
-    }
-
-    .walkthrough-controls {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      margin-top: 20px;
-      padding-top: 18px;
-      border-top: 1px solid var(--color-gray-border);
-    }
-
-    /* Toast Notification */
-    .toast {
-      position: fixed;
-      bottom: 32px;
-      right: 32px;
-      background: var(--color-meteorite-dark);
-      color: #FFFFFF;
-      padding: 12px 20px;
-      border-radius: var(--radius-full);
-      font-size: 13px;
-      font-weight: 700;
-      box-shadow: 0 10px 25px rgba(47, 28, 106, 0.3);
-      opacity: 0;
-      transform: translateY(15px);
-      transition: all 0.3s var(--ease-smooth);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .toast.show { opacity: 1; transform: translateY(0); }
-
-    footer {
-      border-top: 1px solid var(--color-gray-border);
-      padding: 48px 0;
-      margin-top: 80px;
-      font-size: 13px;
-      color: var(--color-gray);
-      background: #FFFFFF;
-    }
-    .footer-flex {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DBA Research Methods — a working desk for executive doctoral scholars</title>
+<meta name="description" content="Reference desk, problem-mining workbook, SMART critique and audio orientation: practice-led research methods for senior leaders pursuing a Doctor of Business Administration." />
+<meta name="theme-color" content="#F5F4EF" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23126D68'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='14' font-weight='700' fill='%23FFFEFA' text-anchor='middle'%3EDBA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=cabinet-grotesk@500,700,800,900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+  @theme {
+    --color-surface: var(--surface);
+    --color-panel: var(--panel);
+    --color-panel2: var(--panel2);
+    --color-panel3: var(--panel3);
+    --color-footer: var(--footer);
+    --color-hairline: var(--hairline);
+    --color-hairline-strong: var(--hairline-strong);
+    --color-ink: var(--ink);
+    --color-ink-muted: var(--ink-muted);
+    --color-ink-dim: var(--ink-dim);
+    --color-ink-faint: var(--ink-faint);
+    --color-accent: var(--accent);
+    --color-positive: var(--positive);
+    --color-warning: var(--warning);
+    --color-danger: var(--danger);
+    --color-info: var(--info);
+    --color-background: var(--surface);
+    --color-foreground: var(--ink);
+    --color-border: var(--hairline);
+    --color-input: var(--hairline-strong);
+    --color-muted: var(--panel3);
+    --font-sans: "Satoshi", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-display: "Cabinet Grotesk", "Satoshi", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Geist Mono", "SFMono-Regular", Consolas, ui-monospace, monospace;
+    --radius-sm: 0px;
+    --radius-md: 2px;
+    --radius-lg: 4px;
+    --radius-xl: 12px;
+  }
+  @custom-variant dark (&:where(.dark, .dark *));
+  @custom-variant max-720 (@media (width < 720px));
+  @custom-variant max-620 (@media (width < 620px));
+  @custom-variant max-390 (@media (width < 390px));
+  @custom-variant max-960 (@media (width < 960px));
+  @custom-variant min-621 (@media (width >= 621px));
+  @custom-variant min-1041 (@media (width >= 1041px));
+</style>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* Hub — page-specific components. Tokens live in styles.css. */
+  .hub-grid {
+    display: grid;
+    gap: 1px;
+    border: 1px solid var(--hairline);
+    background: var(--hairline);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  }
+  .hub-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: var(--panel);
+    padding: 1.375rem;
+    transition: background-color 0.15s;
+  }
+  .hub-card:hover { background: var(--panel2); }
+  .hub-card:hover .hub-card-title { color: var(--accent); }
+  .hub-card-index {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .hub-card-title {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--ink);
+    transition: color 0.15s;
+  }
+  .hub-card-body { font-size: 13px; line-height: 1.65; color: var(--ink-muted); }
+  .hub-card-meta {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    padding-top: 0.5rem;
+  }
+  .hub-card-go {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .section-head { padding: 2.5rem 0 1.25rem; }
+  .section-kicker {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .section-title {
+    margin-top: 0.5rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+    font-weight: 700;
+    letter-spacing: -0.032em;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+  .section-lede { margin-top: 0.625rem; max-width: 68ch; font-size: 13.5px; line-height: 1.65; color: var(--ink-muted); }
+</style>
 </head>
 <body>
+<div id="__next" class="min-h-screen bg-background">
+  <script>
+    (function () {
+      var t = document.documentElement;
+      var saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (e) {}
+      if (saved === 'dark') t.classList.add('dark');
+      else if (saved === 'light') t.classList.remove('dark');
+      else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) t.classList.add('dark');
+    })();
+  </script>
 
-  <!-- Floating Glass Navbar -->
-  <div class="navbar-container">
-    <header class="navbar">
-      <div class="brand">
-        <span class="brand-badge">DBA</span>
-        <div>
-          <div class="brand-title">Executive Research Desk</div>
-          <div class="brand-tagline">Applied Doctoral Methodology Reference</div>
-        </div>
+  <header data-site-header="true" class="sticky top-0 z-40 border-b border-hairline-strong bg-panel/98">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Site strip — cross-page navigation.
+         ponytail: hard-coded on each page so navigation never depends on JS.
+         Keep the link list in sync with SITE_PAGES in app.js. -->
+    <div class="site-strip">
+      <div class="cb-container cb-container-workspace flex min-h-10 items-center gap-3 max-720:min-h-11">
+        <a class="site-strip-mark" href="index.html" aria-label="DBA Research Methods — home" aria-current="page">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="max-620:hidden">DBA Research Methods</span>
+        </a>
+        <span aria-hidden="true" class="h-4 w-px shrink-0 bg-accent/25"></span>
+        <nav aria-label="Site pages" class="site-strip-nav">
+          <a class="site-strip-link" href="research-desk.html">Reference desk</a>
+          <a class="site-strip-link" href="rq-lab.html">RQ Lab</a>
+          <a class="site-strip-link" href="smart-critique.html">SMART critique</a>
+          <a class="site-strip-link" href="ml-fundamentals.html">ML fundamentals</a>
+          <a class="site-strip-link" href="audio-orientation.html">Orientation</a>
+        </nav>
       </div>
-      <div class="nav-actions">
-        <button class="btn-secondary" onclick="window.print()">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-          Print / PDF
-        </button>
-        <a href="https://github.com/dba-research-methods/dba-research-methods.github.io" target="_blank" rel="noopener noreferrer" class="btn-action">
-          <span>GitHub Repository</span>
-          <div class="btn-icon-circle">&rarr;</div>
+    </div>
+
+    <div class="cb-container cb-container-workspace flex min-h-[66px] items-stretch max-720:min-h-[60px]">
+      <div class="flex shrink-0 items-center border-r border-hairline pr-4 max-720:border-r-0">
+        <a aria-label="Home — top" class="inline-flex min-h-11 items-center text-ink" href="#top">
+          <span class="font-display text-[19px] font-bold leading-none tracking-[-0.035em]">DBA<span class="text-accent"> Research Methods</span></span>
         </a>
       </div>
-    </header>
-  </div>
+      <nav aria-label="Primary navigation" class="ml-4 hidden items-stretch min-1041:flex">
+        <a class="nav-link" href="#start">Start here</a>
+        <a class="nav-link" href="#orientation">Orientation</a>
+        <a class="nav-link" href="#adjacent">Adjacent skills</a>
+        <a class="nav-link" href="#inside">What's inside</a>
+      </nav>
+      <div class="ml-auto flex items-center gap-2 pl-2">
+        <button type="button" data-theme-toggle="true" aria-label="Toggle dark mode" class="icon-btn">
+          <svg data-icon-moon width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          <svg data-icon-sun width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px] hidden" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        </button>
+        <button type="button" data-navigation-trigger="true" aria-label="Open navigation" aria-haspopup="dialog" aria-expanded="false" aria-controls="site-navigation-dialog" class="icon-btn min-1041:hidden">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="hero-stage">
-    <div class="container">
-      <div class="hero-card">
-        <div class="hero-eyebrow">Executive Doctoral Inquiry &middot; Practice-Led Research &middot; Source Citations</div>
-        <h1 class="hero-title">
-          From Business Problem to <span class="highlight">Scholarly Rigor</span>
-        </h1>
-        <p class="hero-lead">
-          A practical reference desk engineered for senior business leaders with 20+ years of corporate leadership embarking on executive doctoral inquiry (DBA). Translating seminal research texts (<strong>Saunders, Coghlan, Hair, Yin, Creswell</strong>) into clear management inquiry with direct, verified links to <strong>books, conceptual guides, official companions, and open-source software</strong>.
+  <main id="main-content">
+    <section id="top" aria-label="Introduction" class="cb-container cb-container-workspace grid border-y border-hairline-strong pb-8 pt-7 lg:grid-cols-[9rem_minmax(0,1fr)_22rem]">
+      <div class="hidden border-r border-hairline px-4 py-8 lg:block">
+        <div class="h-1 w-10 bg-accent"></div>
+        <p class="mt-4 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-dim">Working desk</p>
+        <p class="mt-1 font-mono text-[10px] text-ink-dim">Executive doctorate · 2026</p>
+      </div>
+
+      <div class="px-4 py-8">
+        <p class="text-sm font-semibold text-ink-muted">Doctor of Business Administration · practice-led inquiry</p>
+        <h1 class="hero-title">Research methods, <span class="text-accent">made operational.</span></h1>
+        <p class="mt-6 max-w-[62ch] text-[15px] leading-[1.7] text-ink-muted">
+          Built while working through a DBA research-methods course, and kept as a working desk rather than
+          lecture notes. It maps <strong class="font-semibold text-ink">business problems to research designs</strong>,
+          mines a <strong class="font-semibold text-ink">researchable problem</strong> out of a case everyone thinks
+          is a success story, and takes the <strong class="font-semibold text-ink">SMART framework</strong> apart
+          before you commit an objective to a proposal.
         </p>
-
-        <div class="hero-cta-group">
-          <button class="btn-action" onclick="switchDeskTab('video')" style="padding: 10px 22px; font-size: 14px;">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            <span>Listen to Overview (1 Min)</span>
-            <div class="btn-icon-circle">&rarr;</div>
-          </button>
-          <button class="btn-secondary" onclick="switchDeskTab('solver')" style="padding: 10px 18px; font-size: 13.5px;">
-            🧭 Match Your Business Challenge &rarr;
-          </button>
-        </div>
-
-        <div class="executive-card-strip">
-          <div class="exec-metric-card">
-            <div class="exec-metric-label">Research Philosophy</div>
-            <div class="exec-metric-val">Pragmatism &amp; Action Research</div>
-          </div>
-          <div class="exec-metric-card">
-            <div class="exec-metric-label">Primary Modeling</div>
-            <div class="exec-metric-val">PLS-SEM &middot; Multi-Case &middot; Thematic</div>
-          </div>
-          <div class="exec-metric-card">
-            <div class="exec-metric-label">Source References</div>
-            <div class="exec-metric-val">Core Books &middot; Wikipedia &middot; Official Docs</div>
-          </div>
-          <div class="exec-metric-card">
-            <div class="exec-metric-label">Practical Software</div>
-            <div class="exec-metric-val">Zero-Code Web GUIs &middot; Desktop CAQDAS</div>
-          </div>
-        </div>
+        <button type="button" data-search-trigger="true" class="mt-7 flex min-h-12 w-full max-w-[680px] items-center gap-3 border-y border-hairline-strong bg-panel px-4 text-left text-sm text-ink-dim transition-colors hover:border-accent">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span class="flex-1 truncate">Search across the desk, the workbook and the critique…</span>
+          <kbd class="rounded border border-hairline px-1.5 py-0.5 font-mono text-[10px]">⌘</kbd>
+          <kbd class="rounded border border-hairline px-1.5 py-0.5 font-mono text-[10px]">K</kbd>
+        </button>
+        <dl class="mt-8 grid grid-cols-3 border-b border-hairline">
+          <div class="border-l border-hairline px-4 py-3 first:border-l-0"><dt class="text-[10px] text-ink-dim">Research designs</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">7</dd></div>
+          <div class="border-l border-hairline px-4 py-3"><dt class="text-[10px] text-ink-dim">Seminal texts</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">9</dd></div>
+          <div class="border-l border-hairline px-4 py-3"><dt class="text-[10px] text-ink-dim">Cited sources</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">52</dd></div>
+        </dl>
       </div>
+
+      <aside class="bg-panel lg:border-l lg:border-t-0 border-t border-hairline">
+        <div class="flex items-center justify-between border-b border-hairline bg-panel2 px-4 py-4">
+          <h2 class="text-xs font-semibold text-ink">Where to start</h2>
+          <span class="text-[10px] text-ink-dim">by stage of inquiry</span>
+        </div>
+        <ol>
+          <li class="leader-row">
+            <span class="font-mono text-[10px] text-ink-dim">01</span>
+            <div class="min-w-0">
+              <a class="block truncate text-xs font-semibold text-ink transition-colors hover:text-accent" href="audio-orientation.html">Audio orientation</a>
+              <span class="text-[10px] text-ink-dim">Hear how it fits together</span>
+            </div>
+            <div class="text-right"><span class="font-mono text-sm text-accent">0:51</span><span class="block text-[9px] text-ink-dim">Runtime</span></div>
+          </li>
+          <li class="leader-row">
+            <span class="font-mono text-[10px] text-ink-dim">02</span>
+            <div class="min-w-0">
+              <a class="block truncate text-xs font-semibold text-ink transition-colors hover:text-accent" href="rq-lab.html">RQ Lab</a>
+              <span class="text-[10px] text-ink-dim">Find a researchable problem</span>
+            </div>
+            <div class="text-right"><span class="font-mono text-sm text-accent">36</span><span class="block text-[9px] text-ink-dim">Sources</span></div>
+          </li>
+          <li class="leader-row">
+            <span class="font-mono text-[10px] text-ink-dim">03</span>
+            <div class="min-w-0">
+              <a class="block truncate text-xs font-semibold text-ink transition-colors hover:text-accent" href="smart-critique.html">SMART critique</a>
+              <span class="text-[10px] text-ink-dim">Stress-test the objective</span>
+            </div>
+            <div class="text-right"><span class="font-mono text-sm text-accent">16</span><span class="block text-[9px] text-ink-dim">Sources</span></div>
+          </li>
+          <li class="leader-row">
+            <span class="font-mono text-[10px] text-ink-dim">04</span>
+            <div class="min-w-0">
+              <a class="block truncate text-xs font-semibold text-ink transition-colors hover:text-accent" href="research-desk.html">Reference desk</a>
+              <span class="text-[10px] text-ink-dim">Pick a design and its tooling</span>
+            </div>
+            <div class="text-right"><span class="font-mono text-sm text-accent">7</span><span class="block text-[9px] text-ink-dim">Designs</span></div>
+          </li>
+          <li class="leader-row">
+            <span class="font-mono text-[10px] text-ink-dim">05</span>
+            <div class="min-w-0">
+              <a class="block truncate text-xs font-semibold text-ink transition-colors hover:text-accent" href="ml-fundamentals.html">ML fundamentals</a>
+              <span class="text-[10px] text-ink-dim">Adjacent · quantitative literacy</span>
+            </div>
+            <div class="text-right"><span class="font-mono text-sm text-accent">12</span><span class="block text-[9px] text-ink-dim">Algorithms</span></div>
+          </li>
+        </ol>
+        <p class="border-t border-hairline px-4 py-3 text-[11px] leading-relaxed text-ink-dim">Every page carries its own sources. Nothing here is behind a login, and nothing tracks you.</p>
+      </aside>
+    </section>
+
+    <div class="cb-container cb-container-workspace">
+
+      <section id="start" aria-labelledby="start-title">
+        <div class="section-head">
+          <p class="section-kicker">Start here</p>
+          <h2 id="start-title" class="section-title">Three tools, in the order you will need them</h2>
+          <p class="section-lede">A doctoral study starts as a business irritation and has to end as a defensible design. These three pages cover that path: find the problem, sharpen the objective, choose the method.</p>
+        </div>
+
+        <div class="hub-grid">
+          <a class="hub-card" href="rq-lab.html">
+            <span class="hub-card-index">01 · Workbook</span>
+            <h3 class="hub-card-title">RQ Lab — problem mining</h3>
+            <p class="hub-card-body">Walmart's supply chain is taught as a success story. This workbook reads it as evidence instead, separates an implementation challenge from a research gap, and produces three researchable problems with the designs that would answer them.</p>
+            <div class="hub-card-meta">
+              <span class="chip">15 sections</span>
+              <span class="chip">17 figures</span>
+              <span class="chip">36 sources</span>
+            </div>
+            <span class="hub-card-go">Open the workbook <span aria-hidden="true">→</span></span>
+          </a>
+
+          <a class="hub-card" href="smart-critique.html">
+            <span class="hub-card-index">02 · Ledger</span>
+            <h3 class="hub-card-title">SMART objectives — the critique</h3>
+            <p class="hub-card-body">SMART survives because it is a decent framework. It damages research when it becomes dogma. First-order critiques of the five criteria, then the second-order effects on the system — goal displacement, risk aversion in topic choice, epistemic closure.</p>
+            <div class="hub-card-meta">
+              <span class="chip">First &amp; second order</span>
+              <span class="chip">16 sources</span>
+            </div>
+            <span class="hub-card-go">Read the ledger <span aria-hidden="true">→</span></span>
+          </a>
+
+          <a class="hub-card" href="research-desk.html">
+            <span class="hub-card-index">03 · Reference</span>
+            <h3 class="hub-card-title">Executive reference desk</h3>
+            <p class="hub-card-body">Seven business situations mapped to the research design that fits, each with its seminal text, its open-source software and its executive watch-out. Plus a bookshelf, a tools matrix, and jargon translated into management language.</p>
+            <div class="hub-card-meta">
+              <span class="chip">7 designs</span>
+              <span class="chip">9 books</span>
+              <span class="chip">8 tools</span>
+              <span class="chip">10 terms</span>
+            </div>
+            <span class="hub-card-go">Open the desk <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
+      </section>
+
+      <section id="orientation" aria-labelledby="orientation-title">
+        <div class="section-head">
+          <p class="section-kicker">Orientation</p>
+          <h2 id="orientation-title" class="section-title">Fifty-one seconds, if you would rather be told</h2>
+          <p class="section-lede">A spoken walkthrough with synchronised slides, chapter jumps, and the full transcript in text for anyone who would rather read it.</p>
+        </div>
+        <div class="hub-grid">
+          <a class="hub-card" href="audio-orientation.html">
+            <span class="hub-card-index">Audio · 4 chapters</span>
+            <h3 class="hub-card-title">Hear how the desk fits together</h3>
+            <p class="hub-card-body">From framing an initial research question through to the doctoral defence, in the order the material is meant to be used.</p>
+            <div class="hub-card-meta">
+              <span class="chip">0:51 runtime</span>
+              <span class="chip">Live captions</span>
+              <span class="chip">Full transcript</span>
+            </div>
+            <span class="hub-card-go">Play the briefing <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
+      </section>
+
+      <section id="adjacent" aria-labelledby="adjacent-title">
+        <div class="section-head">
+          <p class="section-kicker">Adjacent skills</p>
+          <h2 id="adjacent-title" class="section-title">Not research methods — but next door to them</h2>
+          <p class="section-lede">Quantitative literacy that keeps turning up in DBA work: what a model is actually claiming, and which metrics tell you whether it worked. Read it as background, not as part of the methods track.</p>
+        </div>
+        <div class="hub-grid">
+          <a class="hub-card" href="ml-fundamentals.html">
+            <span class="hub-card-index">Background reading</span>
+            <h3 class="hub-card-title">Machine learning fundamentals</h3>
+            <p class="hub-card-body">The four paradigms, the concepts behind every model, a field guide to twelve algorithms, and the evaluation metrics that tell the truth. Source-grounded, hype-free.</p>
+            <div class="hub-card-meta">
+              <span class="chip">4 paradigms</span>
+              <span class="chip">12 algorithms</span>
+              <span class="chip">Glossary</span>
+            </div>
+            <span class="hub-card-go">Open the explainer <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
+      </section>
+
+      <section id="inside" aria-labelledby="inside-title" class="pb-4">
+        <div class="section-head">
+          <p class="section-kicker">What's inside</p>
+          <h2 id="inside-title" class="section-title">The whole site, counted</h2>
+          <p class="section-lede">Everything is a static page. No build step, no tracking, no account. Use <kbd class="rounded border border-hairline px-1.5 py-0.5 font-mono text-[10px]">⌘K</kbd> on any page to search it and jump between the rest.</p>
+        </div>
+
+        <div class="border border-hairline bg-panel">
+          <ol>
+            <li class="leader-row">
+              <span class="font-mono text-[10px] text-ink-dim">01</span>
+              <div class="min-w-0"><a class="block text-xs font-semibold text-ink transition-colors hover:text-accent" href="research-desk.html">Executive reference desk</a><span class="text-[10px] text-ink-dim">Problem solver · bookshelf · tools · jargon · vault</span></div>
+              <div class="text-right"><span class="font-mono text-sm text-accent">40</span><span class="block text-[9px] text-ink-dim">Entries</span></div>
+            </li>
+            <li class="leader-row">
+              <span class="font-mono text-[10px] text-ink-dim">02</span>
+              <div class="min-w-0"><a class="block text-xs font-semibold text-ink transition-colors hover:text-accent" href="rq-lab.html">RQ Lab — problem-mining workbook</a><span class="text-[10px] text-ink-dim">Current state → gap → consequences → design</span></div>
+              <div class="text-right"><span class="font-mono text-sm text-accent">15</span><span class="block text-[9px] text-ink-dim">Sections</span></div>
+            </li>
+            <li class="leader-row">
+              <span class="font-mono text-[10px] text-ink-dim">03</span>
+              <div class="min-w-0"><a class="block text-xs font-semibold text-ink transition-colors hover:text-accent" href="smart-critique.html">SMART objectives — framework &amp; critique</a><span class="text-[10px] text-ink-dim">Five criteria · the dogma problem · the defence</span></div>
+              <div class="text-right"><span class="font-mono text-sm text-accent">7</span><span class="block text-[9px] text-ink-dim">Sections</span></div>
+            </li>
+            <li class="leader-row">
+              <span class="font-mono text-[10px] text-ink-dim">04</span>
+              <div class="min-w-0"><a class="block text-xs font-semibold text-ink transition-colors hover:text-accent" href="audio-orientation.html">Audio orientation</a><span class="text-[10px] text-ink-dim">Four chapters · live captions · full transcript</span></div>
+              <div class="text-right"><span class="font-mono text-sm text-accent">0:51</span><span class="block text-[9px] text-ink-dim">Runtime</span></div>
+            </li>
+            <li class="leader-row">
+              <span class="font-mono text-[10px] text-ink-dim">05</span>
+              <div class="min-w-0"><a class="block text-xs font-semibold text-ink transition-colors hover:text-accent" href="ml-fundamentals.html">Machine learning fundamentals</a><span class="text-[10px] text-ink-dim">Adjacent · paradigms, algorithms, metrics</span></div>
+              <div class="text-right"><span class="font-mono text-sm text-accent">9</span><span class="block text-[9px] text-ink-dim">Sections</span></div>
+            </li>
+          </ol>
+        </div>
+
+        <p class="mt-6 max-w-[68ch] text-xs leading-relaxed text-ink-dim">
+          Built for executive doctoral scholars — leaders with two decades of practice who need the academic
+          apparatus, not a second career in epistemology. Corrections and additions are welcome in the
+          <a class="text-accent hover:underline" href="https://github.com/dba-research-methods/dba-research-methods.github.io" rel="noopener" target="_blank">source repository</a>.
+        </p>
+      </section>
+
     </div>
-  </section>
-
-  <!-- Sticky Tab Bar Navigation -->
-  <nav class="tab-bar-section">
-    <div class="container tab-bar">
-      <button class="tab-btn active" onclick="switchDeskTab('solver')">
-        🧭 Problem Solver <span class="tab-pill">Match Method</span>
-      </button>
-      <button class="tab-btn" onclick="switchDeskTab('books')">
-        📚 Core Bookshelf <span class="tab-pill">Seminal Texts</span>
-      </button>
-      <button class="tab-btn" onclick="switchDeskTab('tools')">
-        🛠️ Practical Tools <span class="tab-pill">Open Source</span>
-      </button>
-      <button class="tab-btn" onclick="switchDeskTab('jargon')">
-        📖 Jargon Translated <span class="tab-pill">Plain English</span>
-      </button>
-      <button class="tab-btn" onclick="switchDeskTab('video')">
-        🎧 Audio Walkthrough <span class="tab-pill" style="background: var(--color-primary-light); color: var(--color-primary-dark);">1-Min Briefing</span>
-      </button>
-      <button class="tab-btn" onclick="switchDeskTab('vault')">
-        🌐 Research Vault <span class="tab-pill">Portals &amp; Guides</span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Main Workspace -->
-  <main class="container">
-
-    <!-- Universal Live Search / Filter Bar -->
-    <div class="filter-search-container">
-      <div class="search-input-wrapper">
-        <svg class="search-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" id="global-search-input" class="search-input" placeholder="Search methods, authors, tools, or concepts (e.g. Hair, Case Study, Taguette, Creswell)..." oninput="filterDeskContent(this.value)">
-      </div>
-      <div style="font-family: var(--font-mono); font-size: 11.5px; color: var(--color-gray);">
-        <span id="search-match-count">Showing all references</span>
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         TAB 1: Business Problem Solver (Complete 7 Scenarios)
-         ========================================================================== -->
-    <div id="pane-solver" class="tab-pane">
-
-      <!-- Interactive 3D Methodology Matcher Wizard -->
-      <div class="matcher-wizard-container">
-        <div class="wizard-header">
-          <div class="wizard-title">
-            <span>🧭</span> 3-Click Methodology Diagnostic
-          </div>
-          <span style="font-family: var(--font-mono); font-size: 11.5px; color: var(--color-gray-dark);">
-            Select your scenario to illuminate your optimal research design
-          </span>
-        </div>
-        <div class="wizard-steps">
-          <div class="wizard-step-box">
-            <div class="wizard-step-label">1. Research Setting</div>
-            <select id="wiz-setting" class="wizard-select" onchange="runMethodologyDiagnostic()">
-              <option value="internal">Inside My Own Organization</option>
-              <option value="comparative">Across Multiple Firms / Industry Rivals</option>
-              <option value="survey">Broad Stakeholder / Customer Sample</option>
-              <option value="artifact">Building a System, Algorithm or Framework</option>
-              <option value="qualitative">In-Depth Leadership Interviews (C-Suite)</option>
-              <option value="policy">Policy / Compensation Intervention Evaluation</option>
-              <option value="litreview">Systematic Evidence Synthesis of Literature</option>
-            </select>
-          </div>
-          <div class="wizard-step-box">
-            <div class="wizard-step-label">2. Primary Objective</div>
-            <select id="wiz-objective" class="wizard-select" onchange="runMethodologyDiagnostic()">
-              <option value="action">Iterative Intervention &amp; Friction Fix</option>
-              <option value="compare">Comparative Explanations &amp; Configurations</option>
-              <option value="kpi">Test Perception &amp; Performance Path Models</option>
-              <option value="design">Design Science Artifact Validation</option>
-              <option value="grounded">Inductive Theory Building from Quotes</option>
-              <option value="causal">Measure Causal Program Impact (ROI)</option>
-              <option value="systematic">Comprehensive Literature Synthesis (PRISMA)</option>
-            </select>
-          </div>
-          <div class="wizard-result-box">
-            <div class="wizard-result-badge">Recommended Design</div>
-            <div class="wizard-result-text" id="wiz-result-name">Insider Action Research</div>
-            <button class="wizard-btn-jump" id="wiz-btn-jump" onclick="jumpToMatchedMethod()">Highlight Card &darr;</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="solver-grid">
-
-        <!-- Scenario 1: Action Research -->
-        <div class="card-3d-shell" id="method-action-research" data-search="internal operational breakdown friction insider action research coghlan brannick taguette qualcoder change management cycles">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <span class="card-tag tag-mint">INTERNAL PROBLEM SOLVING</span>
-              <h3 class="card-title">Solving an Operational Breakdown in Your Own Company</h3>
-              <p class="card-subtitle"><strong>Method:</strong> Insider Action Research (Cyclical: Diagnose &rarr; Plan &rarr; Act &rarr; Evaluate)</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>Seminal Text:</strong> David Coghlan &amp; Teresa Brannick (Doing Action Research in Your Own Organization)</div>
-                <div class="card-spec-row"><strong>Recommended Tool:</strong> Taguette / QualCoder for qualitative coding of internal reflections, meeting minutes, and change logs.</div>
-                <div class="card-spec-row"><strong>Executive Watchout:</strong> Managing role duality (being both a senior manager and researcher) and organizational politics.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.amazon.com/s?k=Doing+Action+Research+in+Your+Own+Organization+David+Coghlan" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-amazon">🛒 Amazon Search ↗</a>
-              <a href="https://en.wikipedia.org/wiki/Action_research" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">📖 Wikipedia: Action Research ↗</a>
-              <a href="https://www.taguette.org" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-paper">💻 Taguette Tool ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Scenario 2: Multi-Case fsQCA -->
-        <div class="card-3d-shell" id="method-multicase-qca" data-search="comparing successful vs failed corporate transformations cross-firm benchmark comparative multi-case study yin fsqca setmethods rival explanations">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <span class="card-tag tag-azure">CROSS-FIRM BENCHMARKING</span>
-              <h3 class="card-title">Comparing Successful vs Failed Corporate Transformations</h3>
-              <p class="card-subtitle"><strong>Method:</strong> Comparative Multi-Case Studies (Yin) combined with fuzzy-set QCA (fsQCA)</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>Seminal Text:</strong> Robert K. Yin (Case Study Research and Applications)</div>
-                <div class="card-spec-row"><strong>Recommended Tool:</strong> R QCA Package / SetMethods for configurational causal recipes across 8-20 firms.</div>
-                <div class="card-spec-row"><strong>Executive Watchout:</strong> Ensuring rival explanations are systematically documented and cross-case evidence is triangulated.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.amazon.com/s?k=Case+Study+Research+and+Applications+Robert+K+Yin" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-amazon">🛒 Amazon Search ↗</a>
-              <a href="https://en.wikipedia.org/wiki/Case_study" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">📖 Wikipedia: Case Study ↗</a>
-              <a href="https://cran.r-project.org/package=QCA" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-docs">📦 CRAN: QCA Package ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Scenario 3: PLS-SEM Survey Modeling -->
-        <div class="card-3d-shell" id="method-pls-sem" data-search="testing customer or employee perception and performance links survey path modeling pls-sem hair seminr pingouin htmt smartpls mediation">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <span class="card-tag tag-purple">SURVEY &amp; MODEL TESTING</span>
-              <h3 class="card-title">Testing Customer or Employee Perception &amp; Performance Links</h3>
-              <p class="card-subtitle"><strong>Method:</strong> Partial Least Squares Structural Equation Modeling (PLS-SEM)</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>Seminal Text:</strong> Joseph F. Hair, G. Tomas M. Hult, Christian M. Ringle &amp; Marko Sarstedt (A Primer on PLS-SEM)</div>
-                <div class="card-spec-row"><strong>Recommended Tool:</strong> SEMinR (R package) / Pingouin (Python) / SmartPLS</div>
-                <div class="card-spec-row"><strong>Executive Watchout:</strong> Reporting HTMT ratios for discriminant validity and bootstrapping for path significance.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.amazon.com/s?k=A+Primer+on+Partial+Least+Squares+Structural+Equation+Modeling+PLS-SEM+Hair" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-amazon">🛒 Amazon Search ↗</a>
-              <a href="https://en.wikipedia.org/wiki/Partial_least_squares_path_modeling" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">📖 Wikipedia: PLS-SEM ↗</a>
-              <a href="https://www.pls-sem.net" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-paper">🌐 Official Companion (pls-sem.net) ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Scenario 4: Design Science Research -->
-        <div class="card-3d-shell" id="method-design-science" data-search="design science research hevner gregor artificial intelligence algorithm framework artifact governance IT systems">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <span class="card-tag tag-amber">FRAMEWORK &amp; ARTIFACT CREATION</span>
-              <h3 class="card-title">Designing &amp; Validating an Enterprise Framework or AI System</h3>
-              <p class="card-subtitle"><strong>Method:</strong> Design Science Research (DSR) &middot; Build &amp; Evaluate Cycle (Hevner &amp; Gregor)</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>Seminal Text:</strong> Alan Hevner &amp; Shirley Gregor (Design Science Research in Information Systems)</div>
-                <div class="card-spec-row"><strong>Recommended Tool:</strong> Quarto / Python for prototype testing and structured expert panel Delphi evaluations.</div>
-                <div class="card-spec-row"><strong>Executive Watchout:</strong> Proving the artifact is innovative and rigorously evaluating its organizational utility.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.amazon.com/s?k=Design+Science+Research+in+Information+Systems+Hevner" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-amazon">🛒 Amazon Search ↗</a>
-              <a href="https://en.wikipedia.org/wiki/Design_science_(methodology)" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">📖 Wikipedia: Design Science ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Scenario 5: Grounded Theory & Gioia Thematic Analysis -->
-        <div class="card-3d-shell" id="method-grounded-theory" data-search="uncovering how c-suite executives make critical choices qualitative grounded theory thematic analysis gioia corbin strauss asreview interviews">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <span class="card-tag tag-mint">QUALITATIVE INQUIRY</span>
-              <h3 class="card-title">Uncovering How C-Suite Executives Make Critical Choices</h3>
-              <p class="card-subtitle"><strong>Method:</strong> Inductive Thematic Analysis / Gioia Methodology (1st order concepts &rarr; 2nd order themes &rarr; aggregate dimensions)</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>Seminal Text:</strong> Miles, Huberman &amp; Saldaña (Qualitative Data Analysis)</div>
-                <div class="card-spec-row"><strong>Recommended Tool:</strong> ASReview (AI literature triage) &amp; QualCoder / Taguette (interview coding)</div>
-                <div class="card-spec-row"><strong>Executive Watchout:</strong> Demonstrating theoretical saturation across in-depth semi-structured interviews.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.amazon.com/s?k=Qualitative+Data+Analysis+A+Methods+Sourcebook+Miles+Huberman" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-amazon">🛒 Amazon Search ↗</a>
-              <a href="https://en.wikipedia.org/wiki/Thematic_analysis" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">📖 Wikipedia: Thematic Analysis ↗</a>
-              <a href="https://asreview.ai" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-paper">🧠 ASReview Portal ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Scenario 6: Quasi-Experimental Evaluation -->
-        <div class="card-3d-shell" id="method-quasi-experiment" data-search="measuring the true causal impact of an executive initiative policy compensation dowhy difference in differences shadish">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <span class="card-tag tag-rose">POLICY &amp; STRATEGY EVALUATION</span>
-              <h3 class="card-title">Measuring the True Causal Impact of an Executive Initiative</h3>
-              <p class="card-subtitle"><strong>Method:</strong> Quasi-Experimental Field Design (Difference-in-Differences / Propensity Score Matching)</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>Seminal Text:</strong> Shadish, Cook &amp; Campbell (Experimental and Quasi-Experimental Designs for Causal Inference)</div>
-                <div class="card-spec-row"><strong>Recommended Tool:</strong> DoWhy (Python Causal AI) / Pingouin</div>
-                <div class="card-spec-row"><strong>Executive Watchout:</strong> Controlling for confounding historical events and pre-intervention trend differences.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.amazon.com/s?k=Experimental+and+Quasi-Experimental+Designs+for+Generalized+Causal+Inference+Shadish" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-amazon">🛒 Amazon Search ↗</a>
-              <a href="https://en.wikipedia.org/wiki/Quasi-experiment" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">📖 Wikipedia: Quasi-Experiment ↗</a>
-              <a href="https://py-why.github.io/dowhy/" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-docs">📚 DoWhy Documentation ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Scenario 7: Systematic Evidence Mapping (PRISMA) -->
-        <div class="card-3d-shell" id="method-systematic-review" data-search="systematic evidence mapping existing business research prisma 2020 asreview literature synthesis meta-analysis">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <span class="card-tag tag-azure">EVIDENCE SYNTHESIS</span>
-              <h3 class="card-title">Systematic Evidence Mapping of Existing Business Research</h3>
-              <p class="card-subtitle"><strong>Method:</strong> Systematic Literature Review &amp; Evidence Synthesis (PRISMA 2020 Protocol)</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>Seminal Guide:</strong> PRISMA Statement &amp; Tranfield et al. (Towards a Methodology for Evidence-Informed Management).</div>
-                <div class="card-spec-row"><strong>Recommended Tool:</strong> ASReview Lab (Active learning screening) + Connected Papers (co-citation mapping).</div>
-                <div class="card-spec-row"><strong>Executive Watchout:</strong> Defining explicit search strings, inclusion/exclusion criteria, and quality appraisal checklists.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="http://www.prisma-statement.org" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">📋 PRISMA Statement Portal ↗</a>
-              <a href="https://asreview.ai" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-paper">🧠 ASReview Lab ↗</a>
-              <a href="https://www.connectedpapers.com" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-docs">🕸️ Connected Papers ↗</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         TAB 2: The Executive Bookshelf (Complete 9 Core Books)
-         ========================================================================== -->
-    <div id="pane-books" class="tab-pane" style="display: none;">
-      <div style="margin-bottom: 20px;">
-        <h2 style="font-size: 26px; font-weight: 800; color: var(--color-meteorite-dark);">The Executive Bookshelf &middot; Foundational Literature</h2>
-        <p style="color: var(--color-gray); font-size: 14px;">Seminal research methods texts translated into clear executive takeaways with 1-click citation copying and verified links.</p>
-      </div>
-
-      <div class="books-grid">
-
-        <!-- Book 1: Saunders Research Onion -->
-        <article class="card-3d-shell" data-search="saunders research methods business students research onion philosophy positivism interpretivism pragmatism deductive inductive">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-azure">METHODOLOGY BLUEPRINT</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('Saunders, M., Lewis, P., & Thornhill, A. (2019). Research Methods for Business Students (8th ed.). Pearson.')">📋 Copy APA</button>
-              </div>
-              <h3 class="card-title">Research Methods for Business Students (8th / 9th Edition)</h3>
-              <p class="card-subtitle">Mark Saunders, Philip Lewis, Adrian Thornhill (Pearson)</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>Core Framework:</strong> The "Research Onion" &mdash; peel through Philosophy &rarr; Approach &rarr; Strategy &rarr; Choices &rarr; Time Horizons &rarr; Data Collection.</div>
-                <div class="card-spec-row"><strong>Executive Translation:</strong> Aligning your worldview (Pragmatism), your logical direction (Inductive vs Deductive), and your tactical execution without methodological contradictions.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.amazon.com/s?k=Research+Methods+for+Business+Students+Saunders" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-amazon">🛒 Amazon Search ↗</a>
-              <a href="https://en.wikipedia.org/wiki/Research_design" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">📖 Wikipedia: Research Design ↗</a>
-              <a href="https://en.wikipedia.org/wiki/Management_science" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-paper">🌐 Management Science ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Book 2: Coghlan Action Research -->
-        <article class="card-3d-shell" data-search="coghlan brannick doing action research own organization insider action research role duality politics ethics change">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-mint">PRACTITIONER INQUIRY</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('Coghlan, D., & Brannick, T. (2014). Doing Action Research in Your Own Organization (4th ed.). SAGE Publications.')">📋 Copy APA</button>
-              </div>
-              <h3 class="card-title">Doing Action Research in Your Own Organization (5th Edition)</h3>
-              <p class="card-subtitle">David Coghlan &amp; Teresa Brannick (SAGE)</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>Core Framework:</strong> The Action Research Cycle (Diagnosing &rarr; Planning Action &rarr; Taking Action &rarr; Evaluating Action).</div>
-                <div class="card-spec-row"><strong>Executive Translation:</strong> How to study an organizational change initiative in your own company without falling into consulting bias.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.amazon.com/s?k=Doing+Action+Research+in+Your+Own+Organization+David+Coghlan" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-amazon">🛒 Amazon Search ↗</a>
-              <a href="https://en.wikipedia.org/wiki/Action_research" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">📖 Wikipedia: Action Research ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Book 3: Hair PLS-SEM -->
-        <article class="card-3d-shell" data-search="hair hult ringle sarstedt primer on partial least squares structural equation modeling pls-sem htmt bootstrapping mediation">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-purple">QUANTITATIVE MODELING</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('Hair, J. F., Hult, G. T. M., Ringle, C. M., & Sarstedt, M. (2021). A Primer on Partial Least Squares Structural Equation Modeling (PLS-SEM) (3rd ed.). SAGE Publications.')">📋 Copy APA</button>
-              </div>
-              <h3 class="card-title">A Primer on PLS-SEM (3rd Edition)</h3>
-              <p class="card-subtitle">Joseph F. Hair, G. Tomas M. Hult, Christian M. Ringle, Marko Sarstedt (SAGE)</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>Core Framework:</strong> Measurement model evaluation (convergent/discriminant validity via HTMT) and Structural model evaluation (R², f², Q²).</div>
-                <div class="card-spec-row"><strong>Executive Translation:</strong> Statistically validating multi-variable causal frameworks (e.g. Employee Culture &rarr; Innovation &rarr; EBITDA).</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.amazon.com/s?k=A+Primer+on+Partial+Least+Squares+Structural+Equation+Modeling+PLS-SEM+Hair" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-amazon">🛒 Amazon Search ↗</a>
-              <a href="https://www.pls-sem.net" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-paper">🌐 Official Companion Site ↗</a>
-              <a href="https://doi.org/10.1007/s11747-014-0403-8" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-docs">📄 HTMT Criterion Paper ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Book 4: Yin Case Study -->
-        <article class="card-3d-shell" data-search="yin case study research and applications design methods single case multi case construct validity triangulation">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-amber">QUALITATIVE &amp; COMPARATIVE</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('Yin, R. K. (2018). Case Study Research and Applications: Design and Methods (6th ed.). SAGE Publications.')">📋 Copy APA</button>
-              </div>
-              <h3 class="card-title">Case Study Research and Applications (6th Edition)</h3>
-              <p class="card-subtitle">Robert K. Yin (SAGE)</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>Core Framework:</strong> 4 Design Tests: Construct Validity, Internal Validity, External Validity (analytic generalization), and Reliability.</div>
-                <div class="card-spec-row"><strong>Executive Translation:</strong> Conducting bulletproof case studies where findings generalize to theory rather than statistical populations.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.amazon.com/s?k=Case+Study+Research+and+Applications+Robert+K+Yin" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-amazon">🛒 Amazon Search ↗</a>
-              <a href="https://en.wikipedia.org/wiki/Case_study" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">📖 Wikipedia: Case Study ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Book 5: Miles & Huberman Qualitative Data Analysis -->
-        <article class="card-3d-shell" data-search="miles huberman saldana qualitative data analysis methods sourcebook matrices networks coding display">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-mint">DATA DISPLAY &amp; CODING</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('Miles, M. B., Huberman, A. M., & Saldaña, J. (2020). Qualitative Data Analysis: A Methods Sourcebook (4th ed.). SAGE Publications.')">📋 Copy APA</button>
-              </div>
-              <h3 class="card-title">Qualitative Data Analysis: A Methods Sourcebook (4th Edition)</h3>
-              <p class="card-subtitle">Matthew B. Miles, A. Michael Huberman, Johnny Saldaña (SAGE)</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>Core Framework:</strong> Qualitative data condensation, data display (matrices, networks), and drawing/verifying conclusions.</div>
-                <div class="card-spec-row"><strong>Executive Translation:</strong> Organizing hundreds of pages of executive interview transcripts into structured cross-case matrices.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.amazon.com/s?k=Qualitative+Data+Analysis+A+Methods+Sourcebook+Miles+Huberman" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-amazon">🛒 Amazon Search ↗</a>
-              <a href="https://en.wikipedia.org/wiki/Qualitative_research" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">📖 Wikipedia: Qualitative Research ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Book 6: Andy Field Discovering Statistics -->
-        <article class="card-3d-shell" data-search="andy field discovering statistics using ibm spss statistics r anova regression hypothesis testing factor analysis">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-rose">STATISTICAL REASONING</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('Field, A. (2018). Discovering Statistics Using IBM SPSS Statistics (5th ed.). SAGE Publications.')">📋 Copy APA</button>
-              </div>
-              <h3 class="card-title">Discovering Statistics Using IBM SPSS / R (5th Edition)</h3>
-              <p class="card-subtitle">Andy Field (SAGE)</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>Core Framework:</strong> Practical inferential statistics, assumptions testing (normality, homoscedasticity), ANOVA, and multiple regression.</div>
-                <div class="card-spec-row"><strong>Executive Translation:</strong> Plain-language, humorous explanations of p-values, effect sizes, and avoiding statistical misinterpretations.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.amazon.com/s?k=Discovering+Statistics+Using+IBM+SPSS+Statistics+Andy+Field" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-amazon">🛒 Amazon Search ↗</a>
-              <a href="https://www.discoveringstatistics.com" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-paper">🌐 Author Companion Site ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Book 7: John W. Creswell Research Design -->
-        <article class="card-3d-shell" data-search="john creswell research design qualitative quantitative mixed methods approaches worldview paradigms convergent sequential">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-azure">MIXED METHODS COMPANION</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('Creswell, J. W., & Creswell, J. D. (2018). Research Design: Qualitative, Quantitative, and Mixed Methods Approaches (5th ed.). SAGE Publications.')">📋 Copy APA</button>
-              </div>
-              <h3 class="card-title">Research Design: Qualitative, Quantitative, &amp; Mixed Methods</h3>
-              <p class="card-subtitle">John W. Creswell &amp; J. David Creswell (SAGE)</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>Core Framework:</strong> Tripartite model connecting philosophical worldviews, research designs, and specific inquiry methods.</div>
-                <div class="card-spec-row"><strong>Executive Translation:</strong> Designing mixed-methods studies (e.g. exploratory interviews followed by a quantitative validation survey).</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.amazon.com/s?k=Research+Design+Qualitative+Quantitative+and+Mixed+Methods+Approaches+John+W+Creswell" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-amazon">🛒 Amazon Search ↗</a>
-              <a href="https://en.wikipedia.org/wiki/Research_design" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">📖 Wikipedia: Research Design ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Book 8: Shadish Cook Campbell Quasi-Experiments -->
-        <article class="card-3d-shell" data-search="shadish cook campbell experimental and quasi-experimental designs causal inference internal validity counterfactual">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-rose">CAUSAL INFERENCE</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('Shadish, W. R., Cook, T. D., & Campbell, D. T. (2002). Experimental and Quasi-Experimental Designs for Generalized Causal Inference. Cengage Learning.')">📋 Copy APA</button>
-              </div>
-              <h3 class="card-title">Experimental &amp; Quasi-Experimental Designs</h3>
-              <p class="card-subtitle">William R. Shadish, Thomas D. Cook, Donald T. Campbell (Cengage)</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>Core Framework:</strong> Comprehensive taxonomy of 33 threats to validity (history, maturation, selection bias, regression to the mean).</div>
-                <div class="card-spec-row"><strong>Executive Translation:</strong> Isolating the genuine impact of leadership decisions from macroeconomic trends.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.amazon.com/s?k=Experimental+and+Quasi-Experimental+Designs+for+Generalized+Causal+Inference+Shadish" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-amazon">🛒 Amazon Search ↗</a>
-              <a href="https://en.wikipedia.org/wiki/Quasi-experiment" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">📖 Wikipedia: Quasi-Experiment ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Book 9: Hair Multivariate Data Analysis -->
-        <article class="card-3d-shell" data-search="hair black babin anderson multivariate data analysis regression factor analysis cluster discriminant manova">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-purple">MULTIVARIATE STATISTICS</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('Hair, J. F., Black, W. C., Babin, B. J., & Anderson, R. E. (2018). Multivariate Data Analysis (8th ed.). Cengage Learning.')">📋 Copy APA</button>
-              </div>
-              <h3 class="card-title">Multivariate Data Analysis (8th Edition)</h3>
-              <p class="card-subtitle">Joseph F. Hair, William C. Black, Barry J. Babin, Rolph E. Anderson (Cengage)</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>Core Framework:</strong> Step-by-step decision trees for Exploratory Factor Analysis (EFA), MANOVA, Multiple Discriminant Analysis, and Cluster Analysis.</div>
-                <div class="card-spec-row"><strong>Executive Translation:</strong> Uncovering latent dimensions in corporate survey data and grouping customers or business units into empirical clusters.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.amazon.com/s?k=Multivariate+Data+Analysis+Hair+Black+Babin" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-amazon">🛒 Amazon Search ↗</a>
-              <a href="https://en.wikipedia.org/wiki/Multivariate_analysis" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">📖 Wikipedia: Multivariate Analysis ↗</a>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         TAB 3: Practical Tools (Complete 8 Open-Source Tools)
-         ========================================================================== -->
-    <div id="pane-tools" class="tab-pane" style="display: none;">
-      <div style="margin-bottom: 20px;">
-        <h2 style="font-size: 26px; font-weight: 800; color: var(--color-meteorite-dark);">Practical Software Matrix &middot; Verified Open Source</h2>
-        <p style="color: var(--color-gray); font-size: 14px;">Curated open-source software categorized by executive usability with 1-click install commands and verified documentation links.</p>
-      </div>
-
-      <div class="tools-grid">
-
-        <!-- Tool 1: Taguette -->
-        <div class="card-3d-shell" data-search="taguette qualitative research coding web gui open source python remram44 transcript analysis caqdas">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-mint">🟢 ZERO-CODE WEB GUI</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('pip install taguette && taguette server')">💻 Copy Run</button>
-              </div>
-              <h3 class="card-title">Taguette</h3>
-              <p class="card-subtitle">Free, open-source qualitative text coding in your browser.</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>GitHub Metric:</strong> ~1.8k stars &middot; Active open-source maintenance.</div>
-                <div class="card-spec-row"><strong>Best For:</strong> Tagging interview transcripts, highlighting stakeholder quotes, and exporting categorized text matrices.</div>
-                <div class="card-spec-row"><strong>Executive Usability:</strong> Instant setup. No coding required &mdash; runs locally or via free hosted web app.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://github.com/remram44/taguette" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">⭐ GitHub (remram44/taguette) ↗</a>
-              <a href="https://app.taguette.org" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-paper">🚀 Launch Web App ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tool 2: ASReview Lab -->
-        <div class="card-3d-shell" data-search="asreview active learning systematic literature review ai triage utrecht university caqdas screening">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-mint">🟢 ZERO-CODE WEB GUI</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('pip install asreview && asreview lab')">💻 Copy Run</button>
-              </div>
-              <h3 class="card-title">ASReview Lab</h3>
-              <p class="card-subtitle">AI-assisted systematic literature review by Utrecht University.</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>GitHub Metric:</strong> ~1.4k stars &middot; Published in Nature Machine Intelligence.</div>
-                <div class="card-spec-row"><strong>Best For:</strong> Screening 3,000+ candidate dissertation abstracts in hours using active machine learning.</div>
-                <div class="card-spec-row"><strong>Executive Usability:</strong> Clean browser interface. Upload your CSV/RIS file and start reviewing.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://github.com/asreview/asreview" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">⭐ GitHub (asreview) ↗</a>
-              <a href="https://asreview.readthedocs.io" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-docs">📖 Official Docs ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tool 3: QualCoder -->
-        <div class="card-3d-shell" data-search="qualcoder python caqdas desktop nvivo atlas.ti alternative coding text audio video images">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-amber">🟡 DESKTOP APPLICATION</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('pip install qualcoder && qualcoder')">💻 Copy Run</button>
-              </div>
-              <h3 class="card-title">QualCoder</h3>
-              <p class="card-subtitle">Full-featured Python desktop CAQDAS (NVivo alternative).</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>GitHub Metric:</strong> ~900 stars &middot; Comprehensive qualitative suite.</div>
-                <div class="card-spec-row"><strong>Best For:</strong> Multi-media coding of interviews, PDFs, images, and audio with hierarchical code trees.</div>
-                <div class="card-spec-row"><strong>Executive Usability:</strong> Standard desktop software. No subscription fees &mdash; all data stored in local SQLite.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://github.com/ccbogel/QualCoder" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">⭐ GitHub (QualCoder) ↗</a>
-              <a href="https://github.com/ccbogel/QualCoder/wiki" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-docs">📖 User Manual ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tool 4: SEMinR -->
-        <div class="card-3d-shell" data-search="seminr r package partial least squares structural equation modeling pls-sem cb-sem mediation moderating">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-purple">🟠 R SCRIPTING / STATS</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('install.packages("seminr")')">💻 Copy Install</button>
-              </div>
-              <h3 class="card-title">SEMinR</h3>
-              <p class="card-subtitle">Domain-Specific Language for PLS-SEM path modeling in R.</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>GitHub Metric:</strong> Official R package authored by Sarstedt &amp; Ray.</div>
-                <div class="card-spec-row"><strong>Best For:</strong> Reproducible script-based estimation of complex structural models with automatic HTMT matrix generation.</div>
-                <div class="card-spec-row"><strong>Executive Usability:</strong> Requires basic R syntax, but produces publication-ready tables and bootstrap confidence intervals.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://github.com/sem-in-r/seminr" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">⭐ GitHub (seminr) ↗</a>
-              <a href="https://cran.r-project.org/package=seminr" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-docs">📦 CRAN Package ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tool 5: Pingouin -->
-        <div class="card-3d-shell" data-search="pingouin python statistics package anova regression t-test correlation cronbach alpha mediation effect size">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-purple">🟠 PYTHON STATS</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('pip install pingouin')">💻 Copy Install</button>
-              </div>
-              <h3 class="card-title">Pingouin</h3>
-              <p class="card-subtitle">Simple yet exhaustive statistical package based on Pandas.</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>GitHub Metric:</strong> ~3.6k stars &middot; 480k downloads/mo &middot; Raphael Vallat.</div>
-                <div class="card-spec-row"><strong>Best For:</strong> Performing ANOVA, ANCOVA, linear regression, mediation analysis, and computing effect sizes with 1-line commands.</div>
-                <div class="card-spec-row"><strong>Executive Usability:</strong> Returns clean, tabular DataFrames with exact p-values, Bayes factors, and confidence intervals.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://github.com/raphaelvallat/pingouin" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">⭐ GitHub (Pingouin) ↗</a>
-              <a href="https://pingouin-stats.org" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-docs">📖 Official Docs ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tool 6: DoWhy -->
-        <div class="card-3d-shell" data-search="dowhy causal inference machine learning python pywhy microsoft causal effect identification propensity score">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-rose">🟠 CAUSAL AI / PYTHON</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('pip install dowhy')">💻 Copy Install</button>
-              </div>
-              <h3 class="card-title">DoWhy</h3>
-              <p class="card-subtitle">End-to-end 4-step causal inference library by Microsoft / PyWhy.</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>GitHub Metric:</strong> ~6.2k stars &middot; PyWhy ecosystem standard.</div>
-                <div class="card-spec-row"><strong>Best For:</strong> Causal modeling: 1. Model graph &rarr; 2. Identify estimand &rarr; 3. Estimate effect &rarr; 4. Refute assumptions.</div>
-                <div class="card-spec-row"><strong>Executive Usability:</strong> Unmatched rigor for proving that a business intervention actually caused the outcome.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://github.com/py-why/dowhy" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">⭐ GitHub (DoWhy) ↗</a>
-              <a href="https://py-why.github.io/dowhy/" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-docs">📖 Official Docs ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tool 7: Quarto CLI -->
-        <div class="card-3d-shell" data-search="quarto cli academic manuscript publishing dissertation pdf html epub word quarto-dev quarto-cli">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-amber">🟡 DISSERTATION PUBLISHING</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('quarto create project book my-dissertation')">💻 Copy Scaffold</button>
-              </div>
-              <h3 class="card-title">Quarto CLI</h3>
-              <p class="card-subtitle">Next-generation open-source scientific and doctoral publishing system.</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>GitHub Metric:</strong> ~6.5k stars &middot; Posit / RStudio ecosystem.</div>
-                <div class="card-spec-row"><strong>Best For:</strong> Authoring complete multi-chapter doctoral dissertations with dynamic code, tables, cross-references, and BibTeX citations.</div>
-                <div class="card-spec-row"><strong>Executive Usability:</strong> Compiles seamlessly to publication-quality PDF, Word docx, or standalone HTML websites.</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://github.com/quarto-dev/quarto-cli" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">⭐ GitHub (quarto-cli) ↗</a>
-              <a href="https://quarto.org/docs/books/" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-docs">📖 Book Publishing Guide ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tool 8: R QCA Package -->
-        <div class="card-3d-shell" data-search="qca package r cran qualitative comparative analysis fuzzy set crisp set setmethods dusan dusa">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <span class="card-tag tag-azure">🟠 R SCRIPTING / CONFIG</span>
-                <button class="link-chip link-chip-copy" onclick="copyCitation('install.packages("QCA")')">💻 Copy Install</button>
-              </div>
-              <h3 class="card-title">R QCA Package</h3>
-              <p class="card-subtitle">Qualitative Comparative Analysis (csQCA, mvQCA, fsQCA) by Adrian Dușa.</p>
-              
-              <div class="card-spec-box">
-                <div class="card-spec-row"><strong>CRAN Metric:</strong> Gold standard QCA computation package in political and management science.</div>
-                <div class="card-spec-row"><strong>Best For:</strong> Computing truth tables, Boolean minimization, and identifying necessary/sufficient causal combinations across cases.</div>
-                <div class="card-spec-row"><strong>Executive Usability:</strong> Perfect for small-N comparative corporate studies (10 to 30 enterprise cases).</div>
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://cran.r-project.org/package=QCA" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-docs">📦 CRAN: QCA ↗</a>
-              <a href="https://en.wikipedia.org/wiki/Qualitative_comparative_analysis" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">📖 Wikipedia: QCA ↗</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         TAB 4: Jargon Translated (Complete 10 Core Terms)
-         ========================================================================== -->
-    <div id="pane-jargon" class="tab-pane" style="display: none;">
-      <div style="margin-bottom: 20px;">
-        <h2 style="font-size: 26px; font-weight: 800; color: var(--color-meteorite-dark);">Jargon Translated &middot; Plain English Guide</h2>
-        <p style="color: var(--color-gray); font-size: 14px;">Dense academic methodology concepts demystified into intuitive corporate leadership analogies.</p>
-      </div>
-
-      <div class="jargon-grid">
-
-        <!-- Term 1: Epistemology -->
-        <div class="card-3d-shell" data-search="epistemology philosophy standards of proof evidence positivism interpretivism">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Epistemology</h3>
-                <a href="https://en.wikipedia.org/wiki/Epistemology" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
-              </div>
-              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"What standard of evidence is required before we accept a claim as true?"</div>
-              <div class="card-spec-box">
-                <strong>Executive Analogy:</strong> A CFO demanding audited financial ledger entries (Positivism) vs a CEO conducting in-depth stakeholder interviews to understand morale (Interpretivism).
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Term 2: Ontology -->
-        <div class="card-3d-shell" data-search="ontology reality nature of reality objectivism constructivism">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Ontology</h3>
-                <a href="https://en.wikipedia.org/wiki/Ontology" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
-              </div>
-              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"What is the true nature of the business reality we are investigating?"</div>
-              <div class="card-spec-box">
-                <strong>Executive Analogy:</strong> Is customer brand loyalty an objective metric that exists independently (Objectivism), or is it socially created through perceptions and relationships (Constructivism)?
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Term 3: Construct Validity -->
-        <div class="card-3d-shell" data-search="construct validity survey measurement noise alignment htmt">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Construct Validity</h3>
-                <a href="https://en.wikipedia.org/wiki/Construct_validity" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
-              </div>
-              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"Are your survey questions actually measuring strategic intent or just noise?"</div>
-              <div class="card-spec-box">
-                <strong>Executive Analogy:</strong> Ensuring your employee satisfaction survey isn't just measuring how much staff like the cafeteria coffee instead of their true cultural engagement.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Term 4: Triangulation -->
-        <div class="card-3d-shell" data-search="triangulation cross-check multi-source verification financial interviews logs">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Triangulation</h3>
-                <a href="https://en.wikipedia.org/wiki/Triangulation_(social_science)" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
-              </div>
-              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"Cross-checking a key insight using at least three distinct data sources."</div>
-              <div class="card-spec-box">
-                <strong>Executive Analogy:</strong> Validating customer churn by cross-referencing Salesforce CRM logs, customer exit interviews, and quarterly financial revenue reports.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Term 5: Theoretical Saturation -->
-        <div class="card-3d-shell" data-search="theoretical saturation sampling interviews qualitative sample size">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Theoretical Saturation</h3>
-                <a href="https://en.wikipedia.org/wiki/Theoretical_sampling" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
-              </div>
-              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"The point where conducting further interviews reveals zero new concepts."</div>
-              <div class="card-spec-box">
-                <strong>Executive Analogy:</strong> After speaking with 18 supply chain VPs, the 19th and 20th interviews only repeat the exact same pain points. You have reached diminishing returns.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Term 6: HTMT Ratio -->
-        <div class="card-3d-shell" data-search="htmt ratio heterotrait-monotrait discriminant validity pls-sem hair fornell larcker">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">HTMT Ratio (&lt; 0.85 / 0.90)</h3>
-                <a href="https://doi.org/10.1007/s11747-014-0403-8" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-docs">DOI Paper ↗</a>
-              </div>
-              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"The gold standard test proving two business concepts are truly distinct."</div>
-              <div class="card-spec-box">
-                <strong>Executive Analogy:</strong> Mathematically proving that 'Brand Trust' and 'Customer Satisfaction' in your survey are two separate commercial drivers, not the same question asked twice.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Term 7: Confounding & Endogeneity -->
-        <div class="card-3d-shell" data-search="confounding variable endogeneity omitted variable bias causal inference">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Confounding Variable</h3>
-                <a href="https://en.wikipedia.org/wiki/Confounding" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
-              </div>
-              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"A hidden third factor that secretly causes both your cause and effect."</div>
-              <div class="card-spec-box">
-                <strong>Executive Analogy:</strong> Claiming your new sales training boosted Q4 revenue, while ignoring that the entire industry grew by 25% due to holiday seasonality.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Term 8: Action Research Cycle -->
-        <div class="card-3d-shell" data-search="action research cycle diagnosing planning action taking evaluating change">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Action Research Cycle</h3>
-                <a href="https://en.wikipedia.org/wiki/Action_research" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
-              </div>
-              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"Simultaneously executing an organizational intervention and researching its impact."</div>
-              <div class="card-spec-box">
-                <strong>Executive Analogy:</strong> Rolling out an enterprise ERP platform inside your own business and rigorously documenting behavioral resistance and workflow adaptations across 4 quarters.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Term 9: Quasi-Experiment -->
-        <div class="card-3d-shell" data-search="quasi-experiment field experiment difference-in-differences natural experiment">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Quasi-Experiment</h3>
-                <a href="https://en.wikipedia.org/wiki/Quasi-experiment" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
-              </div>
-              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"An empirical study evaluating an intervention without randomized lab assignment."</div>
-              <div class="card-spec-box">
-                <strong>Executive Analogy:</strong> Testing a new performance bonus in your Chicago regional division while using your Dallas division as an un-treated control benchmark.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Term 10: Gioia Methodology -->
-        <div class="card-3d-shell" data-search="gioia methodology 1st order concepts 2nd order themes aggregate dimensions inductive qualitative rigor">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <h3 class="card-title" style="font-size: 18px; color: var(--color-primary);">Gioia Methodology</h3>
-                <a href="https://en.wikipedia.org/wiki/Thematic_analysis" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Wiki ↗</a>
-              </div>
-              <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--color-meteorite-dark);">"A systematic 3-tier inductive coding structure for qualitative management research."</div>
-              <div class="card-spec-box">
-                <strong>Executive Analogy:</strong> Aggregating raw executive quotes (1st order) into management themes (2nd order) and overarching strategic theoretical dimensions.
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         TAB 5: Executive Audio Walkthrough (Interactive 3D Stage)
-         ========================================================================== -->
-    <div id="pane-video" class="tab-pane" style="display: none;">
-      <div style="margin-bottom: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 16px;">
-        <div>
-          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-            <h2 style="font-size: 26px; font-weight: 800; color: var(--color-meteorite-dark);">
-              Executive Audio Walkthrough
-            </h2>
-            <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; background: var(--color-primary-light); color: var(--color-primary-dark); padding: 4px 12px; border-radius: var(--radius-full);">
-              🎧 1-Min Spoken Briefing
-            </span>
-          </div>
-          <p style="color: var(--color-gray); font-size: 14px; max-width: 800px;">
-            A calm, professorial spoken orientation guiding you through how to use this reference desk to translate corporate challenges into defensible doctoral research designs.
-          </p>
-        </div>
-      </div>
-
-      <div class="walkthrough-stage">
-        
-        <!-- Live Presentation Viewport -->
-        <div class="walkthrough-viewport">
-          
-          <!-- Scene 1: Welcome & Research Philosophy -->
-          <div class="walkthrough-scene active" id="v-scene-1">
-            <span class="card-tag tag-purple">PART 1 &middot; ORIENTATION (00:00 - 00:13)</span>
-            <h3 class="card-title" style="font-size: 28px; margin-bottom: 10px;">From Business Problem to <span class="highlight">Scholarly Rigor</span></h3>
-            <p style="font-size: 15px; color: var(--color-gray-dark); line-height: 1.6; margin-bottom: 18px;">
-              Designed specifically for senior industry leaders with 20+ years of corporate leadership embarking on executive doctoral inquiry (DBA).
-            </p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
-              <div class="exec-metric-card">
-                <div class="exec-metric-label">PRAGMATISM</div>
-                <div class="exec-metric-val">Real-World Action</div>
-              </div>
-              <div class="exec-metric-card">
-                <div class="exec-metric-label">TRANSLATION</div>
-                <div class="exec-metric-val">Executive Terms</div>
-              </div>
-              <div class="exec-metric-card">
-                <div class="exec-metric-label">TOOLS</div>
-                <div class="exec-metric-val">Open-Source Apps</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Scene 2: Problem Solver -->
-          <div class="walkthrough-scene" id="v-scene-2">
-            <span class="card-tag tag-mint">PART 2 &middot; PROBLEM SOLVER (00:13 - 00:26)</span>
-            <h3 class="card-title" style="font-size: 28px; margin-bottom: 10px;">Match Your Challenge to the <span class="highlight">Right Methodology</span></h3>
-            <p style="font-size: 15px; color: var(--color-gray-dark); line-height: 1.6; margin-bottom: 18px;">
-              Select your specific corporate challenge to identify the exact academic research design, textbook chapter, and analysis software.
-            </p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
-              <div class="exec-metric-card" style="border-left: 3px solid var(--color-success);">
-                <div class="exec-metric-label">INTERNAL FIX</div>
-                <div class="exec-metric-val">Action Research</div>
-              </div>
-              <div class="exec-metric-card" style="border-left: 3px solid var(--color-azure);">
-                <div class="exec-metric-label">SURVEY MODEL</div>
-                <div class="exec-metric-val">PLS-SEM Path</div>
-              </div>
-              <div class="exec-metric-card" style="border-left: 3px solid var(--color-primary);">
-                <div class="exec-metric-label">BENCHMARK</div>
-                <div class="exec-metric-val">Multi-Case fsQCA</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Scene 3: Bookshelf & Tools -->
-          <div class="walkthrough-scene" id="v-scene-3">
-            <span class="card-tag tag-amber">PART 3 &middot; BOOKS &amp; TOOLS (00:26 - 00:39)</span>
-            <h3 class="card-title" style="font-size: 28px; margin-bottom: 10px;">Foundational Books &amp; <span class="highlight">Practical Software</span></h3>
-            <p style="font-size: 15px; color: var(--color-gray-dark); line-height: 1.6; margin-bottom: 18px;">
-              Seminal frameworks from Saunders, Coghlan, and Hair connected directly to verified repositories rated by executive usability.
-            </p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
-              <div class="exec-metric-card">
-                <div class="exec-metric-label">ZERO-CODE GUI</div>
-                <div class="exec-metric-val">Taguette &amp; ASReview</div>
-              </div>
-              <div class="exec-metric-card">
-                <div class="exec-metric-label">DESKTOP CAQDAS</div>
-                <div class="exec-metric-val">QualCoder</div>
-              </div>
-              <div class="exec-metric-card">
-                <div class="exec-metric-label">STATS / SCRIPTING</div>
-                <div class="exec-metric-val">SEMinR &amp; Pingouin</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Scene 4: Jargon & Defense -->
-          <div class="walkthrough-scene" id="v-scene-4">
-            <span class="card-tag tag-purple">PART 4 &middot; YOUR DEFENSE (00:39 - 00:51)</span>
-            <h3 class="card-title" style="font-size: 28px; margin-bottom: 10px;">Your Companion to a <span class="highlight">Defensible Doctorate</span></h3>
-            <p style="font-size: 15px; color: var(--color-gray-dark); line-height: 1.6; margin-bottom: 18px;">
-              Decode complex terminology in plain English and walk into your dissertation defense with total methodological confidence.
-            </p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
-              <div class="exec-metric-card">
-                <div class="exec-metric-label">EPISTEMOLOGY</div>
-                <div class="exec-metric-val">Standard of Proof</div>
-              </div>
-              <div class="exec-metric-card">
-                <div class="exec-metric-label">TRIANGULATION</div>
-                <div class="exec-metric-val">Cross-Verification</div>
-              </div>
-              <div class="exec-metric-card">
-                <div class="exec-metric-label">DEFENSE READY</div>
-                <div class="exec-metric-val">Oral Defense Rigor</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Active Soundwave Canvas Visualizer -->
-        <div class="audio-visualizer-container">
-          <canvas id="audio-waveform-canvas"></canvas>
-        </div>
-
-        <!-- Synchronized Spoken Transcript Box -->
-        <div class="transcript-pill-box">
-          <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--color-meteorite-light); letter-spacing: 0.05em;">
-            TRANSCRIPT
-          </span>
-          <span id="v-caption-text" style="flex: 1;">
-            Welcome to the DBA Executive Research Reference Desk.
-          </span>
-        </div>
-
-        <!-- Controls Bar -->
-        <div class="walkthrough-controls">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <button class="btn-action" id="v-play-btn" onclick="toggleVideoPlayback()" style="padding: 8px 18px;">
-              <span id="v-play-icon">▶</span>
-              <span id="v-play-label">Play Briefing</span>
-            </button>
-            <button class="btn-secondary" onclick="restartVideoPlayback()" style="padding: 7px 14px; font-size: 12px;">
-              🔄 Replay
-            </button>
-            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--color-gray);" id="v-time-display">00:00 / 00:50</span>
-          </div>
-
-          <div style="flex: 1; min-width: 160px; display: flex; align-items: center;">
-            <input type="range" style="width: 100%; height: 6px; accent-color: var(--color-primary); cursor: pointer;" id="v-scrubber" min="0" max="50.8" step="0.1" value="0" oninput="seekVideoPlayback(this.value)">
-          </div>
-
-          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-            <button class="btn-secondary active" id="chip-s1" onclick="jumpToScene(0)" style="font-size: 11.5px; padding: 4px 10px;">1. Overview</button>
-            <button class="btn-secondary" id="chip-s2" onclick="jumpToScene(13.0)" style="font-size: 11.5px; padding: 4px 10px;">2. Problem Solver</button>
-            <button class="btn-secondary" id="chip-s3" onclick="jumpToScene(26.0)" style="font-size: 11.5px; padding: 4px 10px;">3. Books &amp; Tools</button>
-            <button class="btn-secondary" id="chip-s4" onclick="jumpToScene(39.0)" style="font-size: 11.5px; padding: 4px 10px;">4. Your Defense</button>
-          </div>
-        </div>
-
-        <audio id="v-narration-audio" src="dba_explainer_narration.mp3" preload="auto"></audio>
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         TAB 6: Curiosity Deep Dive Vault (Complete 6 Portals)
-         ========================================================================== -->
-    <div id="pane-vault" class="tab-pane" style="display: none;">
-      <div style="margin-bottom: 20px;">
-        <h2 style="font-size: 26px; font-weight: 800; color: var(--color-meteorite-dark);">Research Vault &middot; Curated Portals</h2>
-        <p style="color: var(--color-gray); font-size: 14px;">Next-level literature discovery platforms, systematic review standards, and scholarly societies.</p>
-      </div>
-
-      <div class="vault-grid">
-
-        <div class="card-3d-shell" data-search="connected papers literature visual graph citations discovery">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <span class="card-tag tag-azure">VISUAL GRAPH</span>
-              <h3 class="card-title">Connected Papers</h3>
-              <p class="card-subtitle">Visual graph exploration of academic papers.</p>
-              <div class="card-spec-box">
-                Enter one seminal paper to instantly see all co-citations, derivative works, and prior foundational research mapped out visually.
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.connectedpapers.com" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">Explore Connected Papers ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-3d-shell" data-search="sage research methods encyclopedia case studies handbook publishing">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <span class="card-tag tag-mint">METHODOLOGY PORTAL</span>
-              <h3 class="card-title">SAGE Publishing Overview</h3>
-              <p class="card-subtitle">Authoritative publisher of business research methods.</p>
-              <div class="card-spec-box">
-                The premier academic press publishing foundational handbooks on qualitative, quantitative, and mixed-method inquiry.
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://en.wikipedia.org/wiki/SAGE_Publishing" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-paper">SAGE Overview on Wikipedia ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-3d-shell" data-search="academy of management aom amj amr management scholar society">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <span class="card-tag tag-purple">ACADEMIC SOCIETY</span>
-              <h3 class="card-title">Academy of Management</h3>
-              <p class="card-subtitle">The global society for management scholars.</p>
-              <div class="card-spec-box">
-                Publisher of the Academy of Management Journal (AMJ) and Academy of Management Review (AMR).
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://en.wikipedia.org/wiki/Academy_of_Management" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-docs">AOM Wikipedia Portal ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-3d-shell" data-search="prisma 2020 statement systematic review checklist flow diagram">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <span class="card-tag tag-amber">REVIEW STANDARD</span>
-              <h3 class="card-title">PRISMA 2020 Statement</h3>
-              <p class="card-subtitle">Gold-standard systematic review flow diagrams &amp; checklists.</p>
-              <div class="card-spec-box">
-                Official reporting guidelines, flow diagram generators, and checklist templates for doctoral literature reviews.
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="http://www.prisma-statement.org" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-wiki">PRISMA Statement Portal ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-3d-shell" data-search="smartpls pls-sem academy tutorials htmt ringle documentation">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <span class="card-tag tag-azure">PLS-SEM ACADEMY</span>
-              <h3 class="card-title">SmartPLS Knowledge Base</h3>
-              <p class="card-subtitle">Tutorials and interpretation guidelines for PLS-SEM.</p>
-              <div class="card-spec-box">
-                Detailed guides on HTMT discriminant validity, bootstrapping, moderating effects, and sample datasets.
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.smartpls.com/documentation/" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-amazon">SmartPLS Knowledge Base ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-3d-shell" data-search="semantic scholar ai search engine allen institute papers">
-          <div class="card-glare"></div>
-          <div class="card-3d-core">
-            <div>
-              <span class="card-tag tag-mint">AI SEARCH ENGINE</span>
-              <h3 class="card-title">Semantic Scholar</h3>
-              <p class="card-subtitle">AI-backed scholarly discovery by the Allen Institute.</p>
-              <div class="card-spec-box">
-                Extracts key findings, highly influential citations, and methodological snippets across millions of papers.
-              </div>
-            </div>
-            <div class="deep-links-strip">
-              <a href="https://www.semanticscholar.org" target="_blank" rel="noopener noreferrer" class="link-chip link-chip-paper">Semantic Scholar Engine ↗</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-flex">
+  <footer class="relative mt-10 border-t border-hairline-strong bg-footer">
+    <div class="footer-accent"></div>
+    <div class="mx-auto grid w-[min(1120px,calc(100%_-_48px))] grid-cols-[minmax(250px,0.82fr)_minmax(0,2fr)] gap-x-14 gap-y-10 pb-6 pt-11 max-960:grid-cols-1">
       <div>
-        <strong>DBA Executive Research Reference Desk</strong> &middot; Designed for Executive Doctoral Scholars &middot; 100% Light Theme
+        <p class="font-display text-[22px] font-bold leading-none tracking-[-0.035em]">DBA<span class="text-accent"> Research Methods</span></p>
+        <p class="mt-4 max-w-[38ch] text-xs leading-relaxed text-ink-muted">A working desk for practice-led doctoral inquiry: find the problem, sharpen the objective, choose the method, cite the source.</p>
+        <dl class="mt-6 flex flex-wrap gap-x-10 gap-y-4">
+          <div><dt class="text-[10px] text-ink-muted">Pages</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">6</dd></div>
+          <div><dt class="text-[10px] text-ink-muted">Designs</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">7</dd></div>
+          <div><dt class="text-[10px] text-ink-muted">Sources</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">52</dd></div>
+        </dl>
       </div>
-      <div style="font-family: var(--font-mono); font-size: 11.5px;">
-        Zero-Dependency &middot; GitHub Pages Static Ready
-      </div>
+      <nav class="grid grid-cols-2 gap-x-10 gap-y-8 sm:grid-cols-4" aria-label="Footer">
+        <div>
+          <h3 class="text-xs font-semibold text-ink">Start here</h3>
+          <a class="footer-link" href="rq-lab.html">RQ Lab — problem mining</a>
+          <a class="footer-link" href="smart-critique.html">SMART objectives critique</a>
+          <a class="footer-link" href="research-desk.html">Executive reference desk</a>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold text-ink">Orientation</h3>
+          <a class="footer-link" href="audio-orientation.html">Audio briefing</a>
+          <a class="footer-link" href="audio-orientation.html#transcript">Full transcript</a>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold text-ink">Adjacent</h3>
+          <a class="footer-link" href="ml-fundamentals.html">Machine learning fundamentals</a>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold text-ink">Site</h3>
+          <a class="footer-link" href="#top">Back to top</a>
+          <a class="footer-link" href="#inside">What's inside</a>
+          <a class="footer-link" href="https://github.com/dba-research-methods/dba-research-methods.github.io" rel="noopener" target="_blank">Source</a>
+          <span class="footer-link pointer-events-none text-ink-dim">No tracking</span>
+        </div>
+      </nav>
+    </div>
+    <div class="mx-auto w-[min(1120px,calc(100%_-_48px))] border-t border-hairline-strong pt-5 pb-8">
+      <p class="text-[11px] text-ink-muted">© 2026 DBA Research Methods. Open access — copy, correct, remix.</p>
     </div>
   </footer>
 
-  <!-- Floating Toast Notification -->
-  <div id="toast" class="toast">
-    <span>✓</span>
-    <span id="toast-text">Action completed</span>
+  <div id="site-navigation-dialog" data-nav-dialog="true" class="nav-dialog" role="dialog" aria-modal="true" aria-labelledby="nav-dialog-title" hidden>
+    <div data-nav-backdrop="true" class="nav-backdrop"></div>
+    <div class="nav-panel">
+      <div class="flex items-center justify-between border-b border-hairline-strong px-5 py-4">
+        <h2 id="nav-dialog-title" class="font-display text-2xl font-semibold tracking-[-0.035em] text-ink">Browse</h2>
+        <button type="button" data-nav-close="true" aria-label="Close navigation" class="icon-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <nav aria-label="Site pages" class="border-b border-hairline-strong">
+        <p class="nav-group-label">Pages</p>
+        <a class="mobile-nav-link" href="index.html" aria-current="page">Home</a>
+        <a class="mobile-nav-link" href="research-desk.html">Executive reference desk</a>
+        <a class="mobile-nav-link" href="rq-lab.html">RQ Lab — problem mining</a>
+        <a class="mobile-nav-link" href="smart-critique.html">SMART objectives critique</a>
+        <a class="mobile-nav-link" href="ml-fundamentals.html">ML fundamentals</a>
+        <a class="mobile-nav-link" href="audio-orientation.html">Audio orientation</a>
+      </nav>
+      <p class="nav-group-label">On this page</p>
+      <nav aria-label="Mobile" class="pb-8">
+        <a class="mobile-nav-link" href="#start">Start here</a>
+        <a class="mobile-nav-link" href="#orientation">Orientation</a>
+        <a class="mobile-nav-link" href="#adjacent">Adjacent skills</a>
+        <a class="mobile-nav-link" href="#inside">What's inside</a>
+      </nav>
+    </div>
   </div>
-
-  <!-- Dynamic Interaction & 3D Tilt Script -->
-  <script>
-    function switchDeskTab(tabId) {
-      document.querySelectorAll('.tab-pane').forEach(el => el.style.display = 'none');
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'" + tabId + "'")) {
-          btn.classList.add('active');
-        }
-      });
-
-      const target = document.getElementById('pane-' + tabId);
-      if (target) {
-        target.style.display = 'block';
-        if (tabId === 'video') {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    }
-
-    function init3DTilt() {
-      const cards = document.querySelectorAll('.card-3d-shell');
-      
-      cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          
-          const rotateX = ((y - centerY) / centerY) * -6;
-          const rotateY = ((x - centerX) / centerX) * 6;
-          
-          card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-3px) scale3d(1.01, 1.01, 1.01)`;
-          card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
-          card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
-        });
-
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0) scale3d(1, 1, 1)';
-        });
-      });
-    }
-
-    const diagnosticMatrix = {
-      'internal_action': { name: 'Insider Action Research', cardId: 'method-action-research' },
-      'internal_compare': { name: 'Insider Action Research / Case Study', cardId: 'method-action-research' },
-      'internal_kpi': { name: 'Survey Path Modeling (PLS-SEM)', cardId: 'method-pls-sem' },
-      'internal_design': { name: 'Design Science Research', cardId: 'method-design-science' },
-      
-      'comparative_compare': { name: 'Comparative Multi-Case & fsQCA', cardId: 'method-multicase-qca' },
-      'comparative_action': { name: 'Comparative Multi-Case Study', cardId: 'method-multicase-qca' },
-      'comparative_kpi': { name: 'Multi-Group PLS-SEM', cardId: 'method-pls-sem' },
-      'comparative_design': { name: 'Cross-Firm Design Science', cardId: 'method-design-science' },
-
-      'survey_kpi': { name: 'PLS-SEM Path Modeling', cardId: 'method-pls-sem' },
-      'survey_action': { name: 'Action Research with Survey Pulse', cardId: 'method-action-research' },
-      'survey_compare': { name: 'Quasi-Experimental Evaluation', cardId: 'method-quasi-experiment' },
-      'survey_design': { name: 'Design Science Evaluation', cardId: 'method-design-science' },
-
-      'artifact_design': { name: 'Design Science Research (DSR)', cardId: 'method-design-science' },
-      'artifact_action': { name: 'Action Design Research', cardId: 'method-design-science' },
-      'artifact_compare': { name: 'Comparative Artifact Benchmark', cardId: 'method-multicase-qca' },
-      'artifact_kpi': { name: 'PLS-SEM Usability Evaluation', cardId: 'method-pls-sem' },
-
-      'qualitative_grounded': { name: 'Gioia Thematic Analysis', cardId: 'method-grounded-theory' },
-      'qualitative_action': { name: 'Insider Action Research', cardId: 'method-action-research' },
-      'policy_causal': { name: 'Quasi-Experimental Evaluation', cardId: 'method-quasi-experiment' },
-      'litreview_systematic': { name: 'PRISMA Evidence Synthesis', cardId: 'method-systematic-review' }
-    };
-
-    let currentMatchedCardId = 'method-action-research';
-
-    function runMethodologyDiagnostic() {
-      const setting = document.getElementById('wiz-setting').value;
-      const objective = document.getElementById('wiz-objective').value;
-      const key = setting + '_' + objective;
-      
-      const match = diagnosticMatrix[key] || { name: 'Insider Action Research', cardId: 'method-action-research' };
-      document.getElementById('wiz-result-name').textContent = match.name;
-      currentMatchedCardId = match.cardId;
-    }
-
-    function jumpToMatchedMethod() {
-      switchDeskTab('solver');
-      document.querySelectorAll('.card-3d-shell').forEach(c => c.classList.remove('highlight-match'));
-      const target = document.getElementById(currentMatchedCardId);
-      if (target) {
-        target.classList.add('highlight-match');
-        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        showToast('Highlighted: ' + target.querySelector('.card-title').textContent.slice(0, 35) + '...');
-      }
-    }
-
-    function filterDeskContent(query) {
-      const q = query.toLowerCase().trim();
-      const cards = document.querySelectorAll('.card-3d-shell');
-      let visibleCount = 0;
-
-      cards.forEach(card => {
-        const text = (card.getAttribute('data-search') || '' + ' ' + card.innerText).toLowerCase();
-        if (!q || text.includes(q)) {
-          card.style.display = '';
-          visibleCount++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
-      const countEl = document.getElementById('search-match-count');
-      if (countEl) {
-        countEl.textContent = q ? `Found ${visibleCount} matching references` : 'Showing all references';
-      }
-    }
-
-    function copyCitation(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        showToast('Copied: ' + text);
-      }).catch(() => {
-        showToast('Failed to copy');
-      });
-    }
-
-    function showToast(message) {
-      const toast = document.getElementById('toast');
-      const toastText = document.getElementById('toast-text');
-      toastText.textContent = message;
-      toast.classList.add('show');
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 3000);
-    }
-
-    // Audio & Canvas Engine
-    const audio = document.getElementById('v-narration-audio');
-    const playBtn = document.getElementById('v-play-btn');
-    const playIcon = document.getElementById('v-play-icon');
-    const playLabel = document.getElementById('v-play-label');
-    const scrubber = document.getElementById('v-scrubber');
-    const timeDisplay = document.getElementById('v-time-display');
-    const captionEl = document.getElementById('v-caption-text');
-    const canvas = document.getElementById('audio-waveform-canvas');
-    let ctx = canvas ? canvas.getContext('2d') : null;
-
-    const captions = [
-      { start: 0.0, end: 5.5, text: "Welcome to the DBA Executive Research Reference Desk." },
-      { start: 5.5, end: 13.0, text: "If you are an experienced business leader pursuing an executive doctorate, this resource was designed specifically for your journey." },
-      { start: 13.0, end: 19.5, text: "It bridges academic research methodology with practical, evidence-based management inquiry." },
-      { start: 19.5, end: 26.5, text: "Begin with the Problem Solver to align your organizational challenge with the appropriate research design..." },
-      { start: 26.5, end: 33.5, text: "Explore the Core Bookshelf to understand seminal frameworks from Saunders, Coghlan, and Hair in clear executive language." },
-      { start: 33.5, end: 40.0, text: "Use the Practical Tools matrix to access verified open-source software, rated for executive ease of use." },
-      { start: 40.0, end: 45.5, text: "And whenever you encounter complex academic terminology, consult the Jargon Translated guide." },
-      { start: 45.5, end: 51.0, text: "Consider this desk your companion, from framing your initial research question all the way to your doctoral defense." }
-    ];
-
-    function formatTime(sec) {
-      const m = Math.floor(sec / 60);
-      const s = Math.floor(sec % 60);
-      return (m < 10 ? '0' + m : m) + ':' + (s < 10 ? '0' + s : s);
-    }
-
-    function updateVideoState() {
-      if (!audio) return;
-      const t = audio.currentTime;
-      const dur = audio.duration || 50.8;
-
-      scrubber.value = t;
-      timeDisplay.textContent = formatTime(t) + ' / ' + formatTime(dur);
-
-      let activeSceneId = 'v-scene-1';
-      let activeChipId = 'chip-s1';
-
-      if (t >= 39.0) {
-        activeSceneId = 'v-scene-4';
-        activeChipId = 'chip-s4';
-      } else if (t >= 26.0) {
-        activeSceneId = 'v-scene-3';
-        activeChipId = 'chip-s3';
-      } else if (t >= 13.0) {
-        activeSceneId = 'v-scene-2';
-        activeChipId = 'chip-s2';
-      }
-
-      document.querySelectorAll('.walkthrough-scene').forEach(sc => sc.classList.remove('active'));
-      const sc = document.getElementById(activeSceneId);
-      if (sc) sc.classList.add('active');
-
-      document.querySelectorAll('[id^="chip-s"]').forEach(chip => chip.classList.remove('active'));
-      const chip = document.getElementById(activeChipId);
-      if (chip) chip.classList.add('active');
-
-      const cap = captions.find(c => t >= c.start && t <= c.end);
-      if (cap) {
-        captionEl.textContent = cap.text;
-      }
-    }
-
-    let animFrameId = null;
-    let waveOffset = 0;
-
-    function renderWaveform() {
-      if (!canvas || !ctx) return;
-      
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-      
-      const width = canvas.offsetWidth;
-      const height = canvas.offsetHeight;
-      
-      ctx.clearRect(0, 0, width, height);
-
-      const isPlaying = !audio.paused;
-      const barCount = 48;
-      const barWidth = width / barCount;
-
-      for (let i = 0; i < barCount; i++) {
-        let barHeight = 4;
-        if (isPlaying) {
-          barHeight = Math.sin(i * 0.3 + waveOffset) * 16 + Math.cos(i * 0.15 - waveOffset * 0.8) * 12 + 18;
-          barHeight = Math.max(4, Math.min(height - 8, barHeight));
-        }
-
-        const x = i * barWidth + barWidth * 0.2;
-        const y = (height - barHeight) / 2;
-        
-        ctx.fillStyle = isPlaying ? '#673DE6' : '#CBD5E1';
-        ctx.beginPath();
-        ctx.roundRect(x, y, barWidth * 0.6, barHeight, 3);
-        ctx.fill();
-      }
-
-      if (isPlaying) {
-        waveOffset += 0.08;
-      }
-
-      animFrameId = requestAnimationFrame(renderWaveform);
-    }
-
-    function toggleVideoPlayback() {
-      if (!audio) return;
-      if (audio.paused) {
-        audio.play().then(() => {
-          playIcon.textContent = '⏸';
-          playLabel.textContent = 'Pause';
-        });
-      } else {
-        audio.pause();
-        playIcon.textContent = '▶';
-        playLabel.textContent = 'Play Briefing';
-      }
-    }
-
-    function restartVideoPlayback() {
-      if (!audio) return;
-      audio.currentTime = 0;
-      audio.play();
-      playIcon.textContent = '⏸';
-      playLabel.textContent = 'Pause';
-      updateVideoState();
-    }
-
-    function seekVideoPlayback(val) {
-      if (!audio) return;
-      audio.currentTime = parseFloat(val);
-      updateVideoState();
-    }
-
-    function jumpToScene(targetTime) {
-      if (!audio) return;
-      audio.currentTime = targetTime;
-      updateVideoState();
-      if (audio.paused) {
-        audio.play();
-        playIcon.textContent = '⏸';
-        playLabel.textContent = 'Pause';
-      }
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      init3DTilt();
-      if (audio) {
-        audio.addEventListener('timeupdate', updateVideoState);
-        audio.addEventListener('ended', () => {
-          playIcon.textContent = '▶';
-          playLabel.textContent = 'Replay';
-        });
-      }
-      renderWaveform();
-    });
-  </script>
+</div>
+<script src="app.js"></script>
 </body>
 </html>
