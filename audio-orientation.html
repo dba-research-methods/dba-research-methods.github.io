@@ -206,6 +206,13 @@
   }
   .transcript-full li:last-child { border-bottom: 0; }
   .transcript-full time { font-family: var(--font-mono); font-size: 11px; color: var(--ink-dim); }
+
+  /* styles.css hides every <button> when printing; the transcript lines are
+     buttons (they seek the audio), and they are the text alternative for an
+     audio-only page — so they have to survive. */
+  @media print {
+    .transcript-full button { display: inline !important; }
+  }
 </style>
 </head>
 <body>

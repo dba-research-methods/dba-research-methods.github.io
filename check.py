@@ -58,6 +58,14 @@ for page in HTML:
         if token.lower() in src.lower():
             fail("%s: Edubem residue %r" % (page, token))
 
+    # Structural balance. An orphan </div> silently pops <header> off the stack:
+    # every selector-based test still passes and the page just stops sticking.
+    markup = re.sub(r"<style.*?</style>|<script.*?</script>", "", src, flags=re.S)
+    opened = len(re.findall(r"<div\b", markup))
+    closed = markup.count("</div>")
+    if opened != closed:
+        fail("%s: %d <div> vs %d </div>" % (page, opened, closed))
+
     for asset in re.findall(r'(?:src|href)="((?:assets/|\./)?[\w./-]+\.(?:mp3|css|js|png|svg|wav))"', src):
         if "://" not in asset and not os.path.exists(asset):
             fail("%s: missing asset %s" % (page, asset))

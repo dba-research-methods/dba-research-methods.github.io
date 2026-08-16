@@ -36,6 +36,23 @@ for (const p of PAGES) {
   if (current < 1) note(`${p}: site strip does not mark the current page`);
   else ok('current page marked');
 
+  // header nesting — an orphan </div> pops the brand row out of the sticky header
+  const nested = await page.evaluate(() => {
+    const h = document.querySelector('[data-site-header]');
+    return !!h && h.contains(document.querySelector('[data-theme-toggle]'));
+  });
+  if (!nested) note(`${p}: header does not contain the brand row — broken nesting`);
+  else ok('header nesting intact');
+
+  // mermaid actually rendered (the page logs failures with console.warn, which
+  // the console-error filter above would never see)
+  const expectDiagrams = { 'rq-lab.html': 17, 'smart-critique.html': 3 }[p];
+  if (expectDiagrams) {
+    const svgs = await page.locator('.mermaid svg').count();
+    if (svgs !== expectDiagrams) note(`${p}: ${svgs} mermaid diagrams rendered, expected ${expectDiagrams}`);
+    else ok(`mermaid: ${svgs} diagrams rendered`);
+  }
+
   // search: ctrl+K opens and returns results
   await page.keyboard.press('Control+k');
   await page.waitForTimeout(200);
