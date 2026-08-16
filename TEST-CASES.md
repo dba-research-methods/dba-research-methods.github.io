@@ -58,7 +58,7 @@ Subjects under test:
 - jsdom (Node v24) execution of `app.js` with real event dispatch; timers awaited
 - Mermaid: v11; every `pre.mermaid` source parsed with the real `mermaid.parse` (20/20 OK)
 - WCAG AA contrast computed numerically (≥ 4.5:1 for small text)
-- Counts verified: index 9 sections, 6 nav links; walmart 15 sections, 17 figures, 36 refs, 13 nav links; smart 7 sections, 3 figures, 16 refs, 5 nav links
+- Counts verified: index 9 sections, 6 nav links; walmart 16 sections, 17 figures, 36 refs, 14 nav links; smart 7 sections, 3 figures, 16 refs, 5 nav links
 
 ## Test Case Matrix
 
