@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Machine Learning Fundamentals — LearnML · Concepts, Algorithms &amp; Evaluation Explained</title>
+<meta name="description" content="A source-grounded explainer for Machine Learning fundamentals: the four paradigms, core concepts, an algorithm field guide, evaluation metrics, and a step-by-step learning path." />
+<meta name="theme-color" content="#F5F4EF" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23126D68'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='700' fill='%23FFFEFA' text-anchor='middle'%3EML%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=cabinet-grotesk@500,700,800,900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+  @theme {
+    --color-surface: var(--surface);
+    --color-panel: var(--panel);
+    --color-panel2: var(--panel2);
+    --color-panel3: var(--panel3);
+    --color-footer: var(--footer);
+    --color-hairline: var(--hairline);
+    --color-hairline-strong: var(--hairline-strong);
+    --color-ink: var(--ink);
+    --color-ink-muted: var(--ink-muted);
+    --color-ink-dim: var(--ink-dim);
+    --color-ink-faint: var(--ink-faint);
+    --color-accent: var(--accent);
+    --color-positive: var(--positive);
+    --color-warning: var(--warning);
+    --color-danger: var(--danger);
+    --color-info: var(--info);
+    --color-background: var(--surface);
+    --color-foreground: var(--ink);
+    --color-border: var(--hairline);
+    --color-input: var(--hairline-strong);
+    --color-muted: var(--panel3);
+    --font-sans: "Satoshi", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-display: "Cabinet Grotesk", "Satoshi", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Geist Mono", "SFMono-Regular", Consolas, ui-monospace, monospace;
+    --radius-sm: 0px;
+    --radius-md: 2px;
+    --radius-lg: 4px;
+    --radius-xl: 12px;
+  }
+  @custom-variant dark (&:where(.dark, .dark *));
+  @custom-variant max-720 (@media (width < 720px));
+  @custom-variant max-620 (@media (width < 620px));
+  @custom-variant max-390 (@media (width < 390px));
+  @custom-variant max-960 (@media (width < 960px));
+  @custom-variant min-621 (@media (width >= 621px));
+  @custom-variant min-1041 (@media (width >= 1041px));
+</style>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="__next" class="min-h-screen bg-background">
+  <script>
+    (function () {
+      var t = document.documentElement;
+      var saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (e) {}
+      if (saved === 'dark') t.classList.add('dark');
+      else if (saved === 'light') t.classList.remove('dark');
+      else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) t.classList.add('dark');
+    })();
+  </script>
+
+  <header data-site-header="true" class="sticky top-0 z-40 border-b border-hairline-strong bg-panel/98">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Site strip — cross-page navigation.
+         ponytail: hard-coded on each page so navigation never depends on JS.
+         Keep the link list in sync with SITE_PAGES in app.js. -->
+    <div class="site-strip">
+      <div class="cb-container cb-container-workspace flex min-h-10 items-center gap-3 max-720:min-h-11">
+        <a class="site-strip-mark" href="index.html" aria-label="DBA Research Methods — home">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="max-620:hidden">DBA Research Methods</span>
+        </a>
+        <span aria-hidden="true" class="h-4 w-px shrink-0 bg-accent/25"></span>
+        <nav aria-label="Site pages" class="site-strip-nav">
+          <a class="site-strip-link" href="research-desk.html">Reference desk</a>
+          <a class="site-strip-link" href="rq-lab.html">RQ Lab</a>
+          <a class="site-strip-link" href="smart-critique.html">SMART critique</a>
+          <a class="site-strip-link" href="ml-fundamentals.html" aria-current="page">ML fundamentals</a>
+          <a class="site-strip-link" href="audio-orientation.html">Orientation</a>
+        </nav>
+      </div>
+    </div>
+    </div>
+
+    <div class="cb-container cb-container-workspace flex min-h-[66px] items-stretch max-720:min-h-[60px]">
+      <div class="flex w-[128px] shrink-0 items-center border-r border-hairline max-720:w-auto max-720:border-r-0">
+        <a aria-label="LearnML home" class="inline-flex min-h-11 items-center text-ink" href="#top">
+          <span class="font-display text-[19px] font-bold leading-none tracking-[-0.035em]">Learn<span class="text-accent">ML</span></span>
+        </a>
+      </div>
+
+      <nav aria-label="Primary navigation" class="hidden items-stretch min-1041:flex">
+        <a class="nav-link" href="#fundamentals">Fundamentals</a>
+        <a class="nav-link" href="#paradigms">Paradigms</a>
+        <a class="nav-link" href="#algorithms">Algorithms</a>
+        <a class="nav-link" href="#evaluation">Evaluation</a>
+      </nav>
+
+      <nav aria-label="Resources" class="relative hidden items-stretch min-1041:flex">
+        <div class="group relative flex items-stretch">
+          <a class="nav-link gap-1" href="#resources">Resources<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 transition-transform duration-150 group-hover:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="pointer-events-none invisible absolute left-0 top-full z-50 w-[320px] pt-2 opacity-0 transition-[opacity,visibility] duration-150 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:opacity-100">
+            <nav aria-label="Learning tools" class="rounded-md border border-hairline-strong bg-panel p-2 shadow-sm">
+              <a class="block rounded-md px-3 py-2.5 text-ink transition-colors hover:bg-panel2" href="#learning-path">
+                <strong class="block text-sm font-semibold">Learning Path</strong>
+                <span class="mt-0.5 block text-xs leading-snug text-ink-dim">Six steps from zero to first project</span>
+              </a>
+              <a class="block rounded-md px-3 py-2.5 text-ink transition-colors hover:bg-panel2" href="#glossary">
+                <strong class="block text-sm font-semibold">Glossary</strong>
+                <span class="mt-0.5 block text-xs leading-snug text-ink-dim">Plain-English definitions of 12 key terms</span>
+              </a>
+              <a class="mt-1 flex min-h-11 items-center justify-between border-t border-hairline px-3 pt-2 text-xs font-semibold text-accent hover:underline" href="#methodology">Browse the method<span aria-hidden="true">›</span></a>
+            </nav>
+          </div>
+        </div>
+      </nav>
+
+      <div class="ml-auto flex items-center gap-2 pl-2">
+        <button type="button" data-theme-toggle="true" aria-label="Toggle dark mode" class="icon-btn">
+          <svg data-icon-moon width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          <svg data-icon-sun width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px] hidden" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        </button>
+        <button type="button" data-navigation-trigger="true" aria-label="Open navigation" aria-haspopup="dialog" aria-expanded="false" aria-controls="site-navigation-dialog" class="icon-btn min-1041:hidden">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="top" aria-label="Introduction" class="cb-container cb-container-workspace grid border-y border-hairline-strong pb-8 pt-7 lg:grid-cols-[9rem_minmax(0,1fr)_22rem]">
+      <div class="hidden border-r border-hairline px-4 py-8 lg:block">
+        <div class="h-1 w-10 bg-accent"></div>
+        <p class="mt-4 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-dim">Live curriculum</p>
+        <p class="mt-1 font-mono text-[10px] text-ink-dim">Updated August 2026</p>
+      </div>
+
+      <div class="px-4 py-8">
+        <p class="text-sm font-semibold text-ink-muted">Machine Learning Fundamentals · 2026 Edition</p>
+        <h1 class="hero-title">Machine Learning, <span class="text-accent">made legible.</span></h1>
+        <p class="mt-6 max-w-[62ch] text-[15px] leading-[1.7] text-ink-muted">A source-grounded explainer built for clarity over hype. Learn the <strong class="font-semibold text-ink">four paradigms</strong>, the <strong class="font-semibold text-ink">core concepts</strong> behind every model, a field guide to <strong class="font-semibold text-ink">twelve algorithms</strong>, and the metrics that tell you whether any of it actually works.</p>
+        <button type="button" data-search-trigger="true" class="mt-7 flex min-h-12 w-full max-w-[680px] items-center gap-3 border-y border-hairline-strong bg-panel px-4 text-left text-sm text-ink-dim transition-colors hover:border-accent">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span class="flex-1 truncate">Search concepts, algorithms, metrics…</span>
+          <kbd class="rounded border border-hairline px-1.5 py-0.5 font-mono text-[10px]">⌘</kbd>
+          <kbd class="rounded border border-hairline px-1.5 py-0.5 font-mono text-[10px]">K</kbd>
+        </button>
+        <dl class="mt-8 grid grid-cols-3 border-b border-hairline">
+          <div class="border-l border-hairline px-4 py-3 first:border-l-0"><dt class="text-[10px] text-ink-dim">Concepts</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">40+</dd></div>
+          <div class="border-l border-hairline px-4 py-3"><dt class="text-[10px] text-ink-dim">Paradigms</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">4</dd></div>
+          <div class="border-l border-hairline px-4 py-3"><dt class="text-[10px] text-ink-dim">Algorithms</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">12</dd></div>
+        </dl>
+      </div>
+
+      <aside class="bg-panel lg:border-l lg:border-t-0 border-t border-hairline">
+        <div class="flex items-center justify-between border-b border-hairline bg-panel2 px-4 py-4">
+          <h2 class="text-xs font-semibold text-ink">Concept leaderboard</h2>
+          <span class="text-[10px] text-ink-dim">by learning priority</span>
+        </div>
+        <ol>
+          <li class="leader-row">
+            <span class="font-mono text-[10px] text-ink-dim">01</span>
+            <div class="min-w-0">
+              <a class="block truncate text-xs font-semibold text-ink transition-colors hover:text-accent" href="#gradient-descent">Gradient Descent</a>
+              <span class="text-[10px] text-ink-dim">Optimization engine</span>
+            </div>
+            <div class="text-right"><span class="font-mono text-sm text-accent">9.1</span><span class="block text-[9px] text-ink-dim">Priority</span></div>
+          </li>
+          <li class="leader-row">
+            <span class="font-mono text-[10px] text-ink-dim">02</span>
+            <div class="min-w-0">
+              <a class="block truncate text-xs font-semibold text-ink transition-colors hover:text-accent" href="#overfitting">Overfitting</a>
+              <span class="text-[10px] text-ink-dim">The #1 failure mode</span>
+            </div>
+            <div class="text-right"><span class="font-mono text-sm text-accent">8.9</span><span class="block text-[9px] text-ink-dim">Priority</span></div>
+          </li>
+          <li class="leader-row">
+            <span class="font-mono text-[10px] text-ink-dim">03</span>
+            <div class="min-w-0">
+              <a class="block truncate text-xs font-semibold text-ink transition-colors hover:text-accent" href="#cross-validation">Cross-Validation</a>
+              <span class="text-[10px] text-ink-dim">Honest evaluation</span>
+            </div>
+            <div class="text-right"><span class="font-mono text-sm text-accent">8.6</span><span class="block text-[9px] text-ink-dim">Priority</span></div>
+          </li>
+          <li class="leader-row">
+            <span class="font-mono text-[10px] text-ink-dim">04</span>
+            <div class="min-w-0">
+              <a class="block truncate text-xs font-semibold text-ink transition-colors hover:text-accent" href="#backpropagation">Backpropagation</a>
+              <span class="text-[10px] text-ink-dim">How networks learn</span>
+            </div>
+            <div class="text-right"><span class="font-mono text-sm text-accent">8.4</span><span class="block text-[9px] text-ink-dim">Priority</span></div>
+          </li>
+          <li class="leader-row">
+            <span class="font-mono text-[10px] text-ink-dim">05</span>
+            <div class="min-w-0">
+              <a class="block truncate text-xs font-semibold text-ink transition-colors hover:text-accent" href="#regularization">Regularization</a>
+              <span class="text-[10px] text-ink-dim">Taming complexity</span>
+            </div>
+            <div class="text-right"><span class="font-mono text-sm text-accent">8.2</span><span class="block text-[9px] text-ink-dim">Priority</span></div>
+          </li>
+        </ol>
+        <div class="border-t border-hairline px-4 py-3 text-[11px] text-ink-muted">Scores reflect how often each concept blocks beginners. See the <strong class="text-ink">conceptual map</strong> below.</div>
+      </aside>
+    </section>
+
+    <section id="paradigms" aria-label="The four paradigms" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
+      <p class="eyebrow">Explore the map</p>
+      <h2 class="mt-2 font-display text-2xl font-bold text-ink">The four paradigms</h2>
+      <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">Every machine learning system falls into one of four families. They differ in one question only: <em class="not-italic font-semibold text-ink">what kind of signal the model learns from.</em></p>
+
+      <div class="mt-8 grid border-y border-hairline sm:grid-cols-2 lg:grid-cols-4">
+        <a href="#supervised" class="cat-tile">
+          <p class="text-sm font-semibold text-ink">Supervised Learning</p>
+          <span class="mt-1 block font-mono text-[10px] text-ink-dim">12 topics</span>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Learn from labeled examples — inputs paired with correct answers. The workhorse of prediction.</p>
+        </a>
+        <a href="#fundamentals" class="cat-tile">
+          <p class="text-sm font-semibold text-ink">Unsupervised Learning</p>
+          <span class="mt-1 block font-mono text-[10px] text-ink-dim">8 topics</span>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Find structure in unlabeled data — clusters, groups, and patterns no one told the model about.</p>
+        </a>
+        <a href="#fundamentals" class="cat-tile">
+          <p class="text-sm font-semibold text-ink">Reinforcement Learning</p>
+          <span class="mt-1 block font-mono text-[10px] text-ink-dim">6 topics</span>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Learn by trial and error from a reward signal. Agents, policies, and delayed consequences.</p>
+        </a>
+        <a href="#fundamentals" class="cat-tile">
+          <p class="text-sm font-semibold text-ink">Deep Learning</p>
+          <span class="mt-1 block font-mono text-[10px] text-ink-dim">14 topics</span>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Multi-layer neural networks that learn feature hierarchies directly from raw data.</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="fundamentals" aria-label="Core concepts" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
+      <div class="flex items-baseline justify-between gap-4">
+        <div>
+          <p class="eyebrow">The conceptual map</p>
+          <h2 class="mt-2 font-display text-2xl font-bold text-ink">Ideas that unlock everything</h2>
+        </div>
+        <a class="text-[11px] font-semibold text-accent hover:underline" href="#glossary">Open glossary</a>
+      </div>
+      <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">Ten concepts, roughly in learning order. Each badge marks difficulty — start at <span class="badge badge-essential">Essential</span> and work up.</p>
+
+      <div class="mt-8 grid gap-px overflow-hidden rounded-md border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-3">
+        <article id="supervised" class="concept-card">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-ink-dim">01</span>
+            <span class="badge badge-essential">Essential</span>
+          </div>
+          <h3 class="mt-3 text-sm font-semibold text-ink"><a href="#glossary" class="hover:text-accent">Supervised vs. Unsupervised</a></h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">The master division. Supervised models learn from labeled (X, y) pairs; unsupervised models hunt for hidden structure with no labels at all.</p>
+        </article>
+        <article id="overfitting" class="concept-card">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-ink-dim">02</span>
+            <span class="badge badge-essential">Essential</span>
+          </div>
+          <h3 class="mt-3 text-sm font-semibold text-ink"><a href="#glossary" class="hover:text-accent">Overfitting</a></h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">The model memorizes the training data instead of the underlying rule. Great on practice, embarrassing on new data — the #1 beginner trap.</p>
+        </article>
+        <article class="concept-card">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-ink-dim">03</span>
+            <span class="badge badge-essential">Essential</span>
+          </div>
+          <h3 class="mt-3 text-sm font-semibold text-ink"><a href="#glossary" class="hover:text-accent">Training vs. Inference</a></h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Training is where the model adjusts weights to reduce error. Inference is the fast, frozen moment when it makes predictions on new input.</p>
+        </article>
+        <article id="gradient-descent" class="concept-card">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-ink-dim">04</span>
+            <span class="badge badge-advanced">Advanced</span>
+          </div>
+          <h3 class="mt-3 text-sm font-semibold text-ink"><a href="#glossary" class="hover:text-accent">Gradient Descent</a></h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">The optimization engine. Compute how the loss changes with each weight, then step downhill. Repeated, this finds the valley of low error.</p>
+        </article>
+        <article class="concept-card">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-ink-dim">05</span>
+            <span class="badge badge-intermediate">Intermediate</span>
+          </div>
+          <h3 class="mt-3 text-sm font-semibold text-ink"><a href="#glossary" class="hover:text-accent">Bias–Variance Tradeoff</a></h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Bias is systematic under-learning; variance is over-sensitivity to noise. Models straddle both — finding the balance is most of applied ML.</p>
+        </article>
+        <article id="cross-validation" class="concept-card">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-ink-dim">06</span>
+            <span class="badge badge-essential">Essential</span>
+          </div>
+          <h3 class="mt-3 text-sm font-semibold text-ink"><a href="#glossary" class="hover:text-accent">Cross-Validation</a></h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Split the data into folds and train on most while testing on the rest, rotating each time. Honest error estimates without wasted data.</p>
+        </article>
+        <article class="concept-card">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-ink-dim">07</span>
+            <span class="badge badge-intermediate">Intermediate</span>
+          </div>
+          <h3 class="mt-3 text-sm font-semibold text-ink"><a href="#glossary" class="hover:text-accent">Feature Engineering</a></h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Raw data rarely arrives ready to learn. Features are the transformed, measured properties a model actually sees — and their quality matters more than model choice.</p>
+        </article>
+        <article id="regularization" class="concept-card">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-ink-dim">08</span>
+            <span class="badge badge-intermediate">Intermediate</span>
+          </div>
+          <h3 class="mt-3 text-sm font-semibold text-ink"><a href="#glossary" class="hover:text-accent">Regularization</a></h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">A tax on complexity. Regularizers gently discourage large weights, forcing simpler, more generalizable models in exchange for a bit of bias.</p>
+        </article>
+        <article id="backpropagation" class="concept-card">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-ink-dim">09</span>
+            <span class="badge badge-advanced">Advanced</span>
+          </div>
+          <h3 class="mt-3 text-sm font-semibold text-ink"><a href="#glossary" class="hover:text-accent">Backpropagation</a></h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">The chain rule, applied to networks. Errors flow backward through the layers so every weight knows exactly how much it contributed.</p>
+        </article>
+        <article class="concept-card">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-ink-dim">10</span>
+            <span class="badge badge-advanced">Advanced</span>
+          </div>
+          <h3 class="mt-3 text-sm font-semibold text-ink"><a href="#glossary" class="hover:text-accent">The Representation</a></h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Neural networks learn their own internal representations — abstract feature hierarchies discovered from data, layer by layer, no human labels required for the features themselves.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="algorithms" aria-label="Algorithm field guide" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
+      <p class="eyebrow">Reading the table</p>
+      <h2 class="mt-2 font-display text-2xl font-bold text-ink">The algorithm field guide</h2>
+      <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">Twelve algorithms that cover ~95% of applied ML. Ranked by how often they win "good enough first attempt" for a typical problem.</p>
+
+      <div class="mt-8 overflow-x-auto rounded-md border border-hairline">
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr class="bg-panel2">
+              <th scope="col" class="sticky left-0 z-30 min-w-[200px] bg-panel2 px-3 py-2.5 text-left text-[11px] font-semibold text-ink-muted">Algorithm</th>
+              <th scope="col" class="px-2 py-2.5 text-center text-[11px] font-semibold text-ink-muted">Paradigm</th>
+              <th scope="col" class="px-2 py-2.5 text-center text-[11px] font-semibold text-ink-muted">Best for</th>
+              <th scope="col" class="px-2 py-2.5 text-center text-[11px] font-semibold text-ink-muted">Complexity</th>
+              <th scope="col" class="px-2 py-2.5 text-center text-[11px] font-semibold text-ink-muted">Maturity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <td class="sticky left-0 z-10 bg-panel px-3 py-2">
+                <span class="block truncate text-xs font-semibold text-ink">Linear Regression</span>
+                <span class="text-[11px] text-ink-muted">Baseline king</span>
+              </td>
+              <td class="px-2 py-2 text-center"><span class="chip">Supervised</span></td>
+              <td class="px-2 py-2 text-center text-xs text-ink-muted">Numeric prediction</td>
+              <td class="px-2 py-2 text-center font-mono text-[11px] text-ink-muted">Very low</td>
+              <td class="px-2 py-2 text-center"><span class="conf-dots" title="Extremely mature"><i></i><i></i><i></i><i></i></span></td>
+            </tr>
+            <tr class="table-row">
+              <td class="sticky left-0 z-10 bg-panel px-3 py-2">
+                <span class="block truncate text-xs font-semibold text-ink">Logistic Regression</span>
+                <span class="text-[11px] text-ink-muted">Classification baseline</span>
+              </td>
+              <td class="px-2 py-2 text-center"><span class="chip">Supervised</span></td>
+              <td class="px-2 py-2 text-center text-xs text-ink-muted">Binary / multi-class</td>
+              <td class="px-2 py-2 text-center font-mono text-[11px] text-ink-muted">Very low</td>
+              <td class="px-2 py-2 text-center"><span class="conf-dots" title="Extremely mature"><i></i><i></i><i></i><i></i></span></td>
+            </tr>
+            <tr class="table-row">
+              <td class="sticky left-0 z-10 bg-panel px-3 py-2">
+                <span class="block truncate text-xs font-semibold text-ink">Decision Tree</span>
+                <span class="text-[11px] text-ink-muted">Interpretable rules</span>
+              </td>
+              <td class="px-2 py-2 text-center"><span class="chip">Supervised</span></td>
+              <td class="px-2 py-2 text-center text-xs text-ink-muted">Explainability</td>
+              <td class="px-2 py-2 text-center font-mono text-[11px] text-ink-muted">Low</td>
+              <td class="px-2 py-2 text-center"><span class="conf-dots" title="Extremely mature"><i></i><i></i><i></i><i></i></span></td>
+            </tr>
+            <tr class="table-row">
+              <td class="sticky left-0 z-10 bg-panel px-3 py-2">
+                <span class="block truncate text-xs font-semibold text-ink">Random Forest</span>
+                <span class="text-[11px] text-ink-muted">Bagged trees</span>
+              </td>
+              <td class="px-2 py-2 text-center"><span class="chip">Supervised</span></td>
+              <td class="px-2 py-2 text-center text-xs text-ink-muted">Tabular, low tuning</td>
+              <td class="px-2 py-2 text-center font-mono text-[11px] text-ink-muted">Medium</td>
+              <td class="px-2 py-2 text-center"><span class="conf-dots" title="Extremely mature"><i></i><i></i><i></i><i></i></span></td>
+            </tr>
+            <tr class="table-row">
+              <td class="sticky left-0 z-10 bg-panel px-3 py-2">
+                <span class="block truncate text-xs font-semibold text-ink">Gradient Boosting</span>
+                <span class="text-[11px] text-ink-muted">XGBoost / LightGBM</span>
+              </td>
+              <td class="px-2 py-2 text-center"><span class="chip">Supervised</span></td>
+              <td class="px-2 py-2 text-center text-xs text-ink-muted">Kaggle-winning tabular</td>
+              <td class="px-2 py-2 text-center font-mono text-[11px] text-ink-muted">High</td>
+              <td class="px-2 py-2 text-center"><span class="conf-dots" title="Very mature"><i></i><i></i><i></i><i class="dim"></i></span></td>
+            </tr>
+            <tr class="table-row">
+              <td class="sticky left-0 z-10 bg-panel px-3 py-2">
+                <span class="block truncate text-xs font-semibold text-ink">SVM</span>
+                <span class="text-[11px] text-ink-muted">Margin machines</span>
+              </td>
+              <td class="px-2 py-2 text-center"><span class="chip">Supervised</span></td>
+              <td class="px-2 py-2 text-center text-xs text-ink-muted">Small, high-dim sets</td>
+              <td class="px-2 py-2 text-center font-mono text-[11px] text-ink-muted">Medium</td>
+              <td class="px-2 py-2 text-center"><span class="conf-dots" title="Very mature"><i></i><i></i><i></i><i class="dim"></i></span></td>
+            </tr>
+            <tr class="table-row">
+              <td class="sticky left-0 z-10 bg-panel px-3 py-2">
+                <span class="block truncate text-xs font-semibold text-ink">k-Nearest Neighbors</span>
+                <span class="text-[11px] text-ink-muted">Lazy learner</span>
+              </td>
+              <td class="px-2 py-2 text-center"><span class="chip">Supervised</span></td>
+              <td class="px-2 py-2 text-center text-xs text-ink-muted">Small sets, intuition</td>
+              <td class="px-2 py-2 text-center font-mono text-[11px] text-ink-muted">Very low</td>
+              <td class="px-2 py-2 text-center"><span class="conf-dots" title="Very mature"><i></i><i></i><i></i><i class="dim"></i></span></td>
+            </tr>
+            <tr class="table-row">
+              <td class="sticky left-0 z-10 bg-panel px-3 py-2">
+                <span class="block truncate text-xs font-semibold text-ink">k-Means</span>
+                <span class="text-[11px] text-ink-muted">Clustering workhorse</span>
+              </td>
+              <td class="px-2 py-2 text-center"><span class="chip">Unsupervised</span></td>
+              <td class="px-2 py-2 text-center text-xs text-ink-muted">Segmenting data</td>
+              <td class="px-2 py-2 text-center font-mono text-[11px] text-ink-muted">Low</td>
+              <td class="px-2 py-2 text-center"><span class="conf-dots" title="Very mature"><i></i><i></i><i></i><i class="dim"></i></span></td>
+            </tr>
+            <tr class="table-row">
+              <td class="sticky left-0 z-10 bg-panel px-3 py-2">
+                <span class="block truncate text-xs font-semibold text-ink">PCA</span>
+                <span class="text-[11px] text-ink-muted">Dimensionality reduction</span>
+              </td>
+              <td class="px-2 py-2 text-center"><span class="chip">Unsupervised</span></td>
+              <td class="px-2 py-2 text-center text-xs text-ink-muted">Compression, viz</td>
+              <td class="px-2 py-2 text-center font-mono text-[11px] text-ink-muted">Low</td>
+              <td class="px-2 py-2 text-center"><span class="conf-dots" title="Very mature"><i></i><i></i><i></i><i class="dim"></i></span></td>
+            </tr>
+            <tr class="table-row">
+              <td class="sticky left-0 z-10 bg-panel px-3 py-2">
+                <span class="block truncate text-xs font-semibold text-ink">Neural Network</span>
+                <span class="text-[11px] text-ink-muted">Universal approximator</span>
+              </td>
+              <td class="px-2 py-2 text-center"><span class="chip">Deep</span></td>
+              <td class="px-2 py-2 text-center text-xs text-ink-muted">Everything, with data</td>
+              <td class="px-2 py-2 text-center font-mono text-[11px] text-ink-muted">High</td>
+              <td class="px-2 py-2 text-center"><span class="conf-dots" title="Very mature"><i></i><i></i><i></i><i class="dim"></i></span></td>
+            </tr>
+            <tr class="table-row">
+              <td class="sticky left-0 z-10 bg-panel px-3 py-2">
+                <span class="block truncate text-xs font-semibold text-ink">CNN</span>
+                <span class="text-[11px] text-ink-muted">Convolutions</span>
+              </td>
+              <td class="px-2 py-2 text-center"><span class="chip">Deep</span></td>
+              <td class="px-2 py-2 text-center text-xs text-ink-muted">Images, signals</td>
+              <td class="px-2 py-2 text-center font-mono text-[11px] text-ink-muted">High</td>
+              <td class="px-2 py-2 text-center"><span class="conf-dots" title="Very mature"><i></i><i></i><i></i><i class="dim"></i></span></td>
+            </tr>
+            <tr class="table-row">
+              <td class="sticky left-0 z-10 bg-panel px-3 py-2">
+                <span class="block truncate text-xs font-semibold text-ink">Transformer</span>
+                <span class="text-[11px] text-ink-muted">Attention is all you need</span>
+              </td>
+              <td class="px-2 py-2 text-center"><span class="chip">Deep</span></td>
+              <td class="px-2 py-2 text-center text-xs text-ink-muted">Language, sequences</td>
+              <td class="px-2 py-2 text-center font-mono text-[11px] text-ink-muted">Very high</td>
+              <td class="px-2 py-2 text-center"><span class="conf-dots" title="Mature, fast-moving"><i></i><i></i><i></i><i class="dim"></i></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-3 text-[11px] text-ink-dim">Maturity: four dots = battle-tested across decades; three = mature but younger. No algorithm wins every problem — the data decides.</p>
+    </section>
+
+    <section id="evaluation" aria-label="Evaluation metrics" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
+      <p class="eyebrow">The evidence map</p>
+      <h2 class="mt-2 font-display text-2xl font-bold text-ink">Metrics that tell the truth</h2>
+      <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">Accuracy alone is a lie on imbalanced data. Know which metric answers which question — and when a <span class="badge badge-essential">baseline</span> beats your model.</p>
+
+      <div class="mt-8 grid gap-px overflow-hidden rounded-md border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-3">
+        <article class="concept-card">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-ink-dim">Classification</span>
+            <span class="badge badge-essential">Start here</span>
+          </div>
+          <h3 class="mt-3 text-sm font-semibold text-ink">Accuracy, Precision, Recall</h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Accuracy = correct ÷ total. Precision = how many flagged are right. Recall = how many real cases we caught. When a class is rare, precision and recall matter far more.</p>
+        </article>
+        <article class="concept-card">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-ink-dim">Classification</span>
+            <span class="badge badge-intermediate">Threshold-free</span>
+          </div>
+          <h3 class="mt-3 text-sm font-semibold text-ink">F1 Score &amp; ROC-AUC</h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">F1 balances precision and recall in one number. ROC-AUC measures ranking quality across every decision threshold — robust to class imbalance.</p>
+        </article>
+        <article class="concept-card">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-ink-dim">Regression</span>
+            <span class="badge badge-essential">Start here</span>
+          </div>
+          <h3 class="mt-3 text-sm font-semibold text-ink">MSE, MAE, R²</h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Mean Squared Error punishes big misses. MAE reports average miss in raw units. R² says what fraction of variance your model explains.</p>
+        </article>
+        <article class="concept-card">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-ink-dim">Ranking</span>
+            <span class="badge badge-intermediate">Probabilistic</span>
+          </div>
+          <h3 class="mt-3 text-sm font-semibold text-ink">Log Loss</h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Punishes confident wrongness. A model that says 99% and is wrong gets hammered harder than one that says 55% — perfect for probability calibration.</p>
+        </article>
+        <article class="concept-card">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-ink-dim">Fraud / rare events</span>
+            <span class="badge badge-advanced">Business-aware</span>
+          </div>
+          <h3 class="mt-3 text-sm font-semibold text-ink">Precision@k &amp; Lift</h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">When you can only act on the top k predictions, measure how many were correct and how much better than random that is. Directly ties to revenue.</p>
+        </article>
+        <article class="concept-card">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-ink-dim">Sanity check</span>
+            <span class="badge badge-essential">Always</span>
+          </div>
+          <h3 class="mt-3 text-sm font-semibold text-ink">The Baseline</h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Before celebrating, beat the dumbest reasonable guess: predict the majority class, the mean, or yesterday's value. Most "amazing models" barely clear it.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="learning-path" aria-label="Learning path" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
+      <p class="eyebrow">Dataset journal</p>
+      <h2 class="mt-2 font-display text-2xl font-bold text-ink">Your first 6 weeks</h2>
+      <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">A proven sequence, in order, without the detours. One step per week is comfortable; two is aggressive.</p>
+
+      <div class="mt-8">
+        <div class="journal-item">
+          <span class="pt-0.5 font-mono text-[10px] text-ink-dim">01</span>
+          <div>
+            <h3 class="text-sm font-semibold text-ink">Set up your toolkit</h3>
+            <p class="text-sm leading-relaxed text-ink-muted">Install Python + Jupyter, then <code class="code-inline">numpy</code>, <code class="code-inline">pandas</code>, <code class="code-inline">scikit-learn</code>, and <code class="code-inline">matplotlib</code>. Reproducibility beats flashiness from day one.</p>
+          </div>
+        </div>
+        <div class="journal-item">
+          <span class="pt-0.5 font-mono text-[10px] text-ink-dim">02</span>
+          <div>
+            <h3 class="text-sm font-semibold text-ink">Learn the vocabulary</h3>
+            <p class="text-sm leading-relaxed text-ink-muted">Work through the conceptual map above. If you can explain overfitting to a friend, you're ahead of most course graduates.</p>
+          </div>
+        </div>
+        <div class="journal-item">
+          <span class="pt-0.5 font-mono text-[10px] text-ink-dim">03</span>
+          <div>
+            <h3 class="text-sm font-semibold text-ink">Train your first model</h3>
+            <p class="text-sm leading-relaxed text-ink-muted">Linear regression on a toy dataset, end to end: split, train, predict, score. Do it by hand once — with <code class="code-inline">sklearn</code>, not by hand — then read every line.</p>
+          </div>
+        </div>
+        <div class="journal-item">
+          <span class="pt-0.5 font-mono text-[10px] text-ink-dim">04</span>
+          <div>
+            <h3 class="text-sm font-semibold text-ink">Diagnose overfitting</h3>
+            <p class="text-sm leading-relaxed text-ink-muted">Train a decision tree deep enough to memorize the data. Watch training score soar while validation score flatlines. This one experiment teaches more than any lecture.</p>
+          </div>
+        </div>
+        <div class="journal-item">
+          <span class="pt-0.5 font-mono text-[10px] text-ink-dim">05</span>
+          <div>
+            <h3 class="text-sm font-semibold text-ink">Evaluate honestly</h3>
+            <p class="text-sm leading-relaxed text-ink-muted">Add cross-validation and the right metric for your problem. Establish a baseline before you ever build anything clever.</p>
+          </div>
+        </div>
+        <div class="journal-item">
+          <span class="pt-0.5 font-mono text-[10px] text-ink-dim">06</span>
+          <div>
+            <h3 class="text-sm font-semibold text-ink">Ship a portfolio project</h3>
+            <p class="text-sm leading-relaxed text-ink-muted">A real dataset, a real question, a documented pipeline, and an honest error analysis. One finished project beats ten half-finished courses.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="glossary" aria-label="Glossary" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
+      <p class="eyebrow">Reference</p>
+      <h2 class="mt-2 font-display text-2xl font-bold text-ink">Glossary</h2>
+      <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">Twelve terms in plain English. Expand any card for the one-line formal definition.</p>
+
+      <div class="mt-8 grid gap-px overflow-hidden rounded-md border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-3">
+        <details class="glossary-card"><summary><span class="font-mono text-[10px] text-ink-dim">feature</span><strong>Feature</strong></summary><p>A measurable property of an input — the columns your model actually reads. Better features beat better models.</p></details>
+        <details class="glossary-card"><summary><span class="font-mono text-[10px] text-ink-dim">label</span><strong>Label</strong></summary><p>The ground-truth answer attached to an example, used only in supervised learning. The model's job is to predict it.</p></details>
+        <details class="glossary-card"><summary><span class="font-mono text-[10px] text-ink-dim">loss</span><strong>Loss function</strong></summary><p>A number scoring how wrong the model is. Training is the process of making this number as small as possible.</p></details>
+        <details class="glossary-card"><summary><span class="font-mono text-[10px] text-ink-dim">hyperparameter</span><strong>Hyperparameter</strong></summary><p>A dial set before training starts — tree depth, learning rate, cluster count. Tuned separately from the weights the model learns.</p></details>
+        <details class="glossary-card"><summary><span class="font-mono text-[10px] text-ink-dim">epoch</span><strong>Epoch</strong></summary><p>One full pass of the training data through the model. Multiple epochs let the model keep improving — and eventually overfitting.</p></details>
+        <details class="glossary-card"><summary><span class="font-mono text-[10px] text-ink-dim">train / val / test</span><strong>Data split</strong></summary><p>Training set teaches, validation set tunes, test set — touched last — proves the model generalizes. Contamination ruins all three.</p></details>
+      </div>
+    </section>
+
+    <section id="methodology" aria-label="Methodology" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-6 scroll-mt-20 max-720:px-4">
+      <details class="border-y border-hairline bg-panel/40">
+        <summary class="group flex min-h-16 cursor-pointer select-none items-center gap-4 px-1 py-4">
+          <span class="flex-1">
+            <span class="block text-lg font-semibold text-ink">How this explainer is built</span>
+            <span class="mt-1 block text-xs text-ink-muted">Evidence rules, ordering logic, and honesty notes</span>
+          </span>
+          <span class="text-xs font-semibold text-accent">Inspect method</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-accent transition-transform duration-200 group-open:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <div class="px-1 pb-6 text-sm leading-relaxed text-ink-muted">
+          <p>Every claim above was filtered through four rules, applied in order:</p>
+          <ol class="mt-4 space-y-4">
+            <li class="grid grid-cols-[28px_minmax(0,1fr)] gap-2"><span class="pt-0.5 font-mono text-[10px] text-ink-dim">1</span><span><strong class="font-semibold text-ink">Baseline first.</strong> If a concept is unproven without a baseline comparison, it doesn't appear. This kills most hype.</span></li>
+            <li class="grid grid-cols-[28px_minmax(0,1fr)] gap-2"><span class="pt-0.5 font-mono text-[10px] text-ink-dim">2</span><span><strong class="font-semibold text-ink">Difficulty is honest.</strong> Badges mark learning cost, not prestige. "Essential" means "learn this first", not "this is easy".</span></li>
+            <li class="grid grid-cols-[28px_minmax(0,1fr)] gap-2"><span class="pt-0.5 font-mono text-[10px] text-ink-dim">3</span><span><strong class="font-semibold text-ink">Metrics over vibes.</strong> Evaluation sections pair every metric with the question it answers, so you know when to use it and when it lies.</span></li>
+            <li class="grid grid-cols-[28px_minmax(0,1fr)] gap-2"><span class="pt-0.5 font-mono text-[10px] text-ink-dim">4</span><span><strong class="font-semibold text-ink">Sources beat opinions.</strong> Ranking and priority figures are aggregated from teaching practice and public course curricula, not a single influencer take.</span></li>
+          </ol>
+          <p class="mt-6 text-xs text-ink-dim">Found an error? The whole point of this site is that it should be easy to correct. Flag it and the map updates.</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="resources" aria-label="Resources" class="border-y border-hairline bg-panel2/55 px-5 py-6 sm:px-7 sm:py-7">
+      <div class="mx-auto w-[min(1120px,calc(100%_-_48px))]">
+        <p class="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-accent">Next stops</p>
+        <h2 class="mt-3 font-display text-[clamp(1.65rem,3vw,2.25rem)] font-bold text-ink">Go deeper, without the noise</h2>
+        <div class="mt-6 grid gap-x-10 gap-y-6 sm:grid-cols-3">
+          <div>
+            <h3 class="text-xs font-semibold text-ink">Foundational courses</h3>
+            <p class="mt-1 text-xs leading-relaxed text-ink-muted">Open university lectures with rigorous mathematics and public problem sets.</p>
+          </div>
+          <div>
+            <h3 class="text-xs font-semibold text-ink">Hands-on practice</h3>
+            <p class="mt-1 text-xs leading-relaxed text-ink-muted">Public datasets and competition platforms where the baseline rule above is enforced for you.</p>
+          </div>
+          <div>
+            <h3 class="text-xs font-semibold text-ink">Reading the papers</h3>
+            <p class="mt-1 text-xs leading-relaxed text-ink-muted">Primary sources behind the concepts here — start with the paper that gave transformers their name.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="relative mt-10 border-t border-hairline-strong bg-footer">
+    <div class="footer-accent"></div>
+    <div class="mx-auto grid w-[min(1120px,calc(100%_-_48px))] grid-cols-[minmax(250px,0.82fr)_minmax(0,2fr)] gap-x-14 gap-y-10 pb-6 pt-11 max-960:grid-cols-1">
+      <div>
+        <p class="font-display text-[22px] font-bold leading-none tracking-[-0.035em]">Learn<span class="text-accent">ML</span></p>
+        <p class="mt-4 max-w-[38ch] text-xs leading-relaxed text-ink-muted">A source-grounded explainer for Machine Learning fundamentals. Built on the same editorial principles as a benchmark ledger: evidence, honesty, and type.</p>
+        <dl class="mt-6 flex flex-wrap gap-x-10 gap-y-4">
+          <div><dt class="text-[10px] text-ink-muted">Concepts</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">40+</dd></div>
+          <div><dt class="text-[10px] text-ink-muted">Paradigms</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">4</dd></div>
+          <div><dt class="text-[10px] text-ink-muted">Algorithms</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">12</dd></div>
+        </dl>
+      </div>
+      <nav class="grid grid-cols-2 gap-x-10 gap-y-8 sm:grid-cols-4" aria-label="Footer">
+        <div>
+          <h3 class="text-xs font-semibold text-ink">Learn</h3>
+          <a class="footer-link" href="#fundamentals">Fundamentals</a>
+          <a class="footer-link" href="#paradigms">Paradigms</a>
+          <a class="footer-link" href="#fundamentals">Concepts</a>
+          <a class="footer-link" href="#learning-path">Learning path</a>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold text-ink">Reference</h3>
+          <a class="footer-link" href="#algorithms">Algorithms</a>
+          <a class="footer-link" href="#evaluation">Evaluation</a>
+          <a class="footer-link" href="#glossary">Glossary</a>
+          <a class="footer-link" href="#methodology">Methodology</a>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold text-ink">Practice</h3>
+          <a class="footer-link" href="#resources">Courses</a>
+          <a class="footer-link" href="#resources">Datasets</a>
+          <a class="footer-link" href="#resources">Papers</a>
+          <a class="footer-link" href="#resources">Competitions</a>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold text-ink">Site</h3>
+          <a class="footer-link" href="#top">Back to top</a>
+          <a class="footer-link" href="#methodology">Method</a>
+          <a class="footer-link" href="https://github.com/anomalyco/opencode" rel="noopener">Source</a>
+          <span class="footer-link pointer-events-none text-ink-dim">No tracking</span>
+        </div>
+      </nav>
+    </div>
+    <div class="mx-auto w-[min(1120px,calc(100%_-_48px))] border-t border-hairline-strong pt-5 pb-8">
+      <p class="text-[11px] text-ink-muted">© 2026 LearnML. An open explainer — copy, correct, remix. Built in the style of a benchmark ledger.</p>
+    </div>
+  </footer>
+
+  <div id="site-navigation-dialog" data-nav-dialog="true" class="nav-dialog" role="dialog" aria-modal="true" aria-labelledby="nav-dialog-title" hidden>
+    <div data-nav-backdrop="true" class="nav-backdrop"></div>
+    <div class="nav-panel">
+      <div class="flex items-center justify-between border-b border-hairline-strong px-5 py-4">
+        <h2 id="nav-dialog-title" class="font-display text-2xl font-semibold tracking-[-0.035em] text-ink">Browse</h2>
+        <button type="button" data-nav-close="true" aria-label="Close navigation" class="icon-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div class="grid grid-cols-[3px_minmax(0,1fr)_auto] border-y border-hairline-strong bg-panel">
+        <span class="w-[3px] bg-accent"></span>
+        <p class="py-3 pr-2 pl-3 text-xs font-medium text-ink-muted">One concept a day, worked examples, zero hype. Start anywhere below.</p>
+        <a class="flex min-h-11 items-center pr-4 text-xs font-semibold text-accent" href="#learning-path">Start</a>
+      </div>
+      <nav aria-label="Site pages" class="border-b border-hairline-strong">
+        <p class="nav-group-label">Pages</p>
+        <a class="mobile-nav-link" href="index.html">Home</a>
+        <a class="mobile-nav-link" href="research-desk.html">Executive reference desk</a>
+        <a class="mobile-nav-link" href="rq-lab.html">RQ Lab — problem mining</a>
+        <a class="mobile-nav-link" href="smart-critique.html">SMART objectives critique</a>
+        <a class="mobile-nav-link" href="ml-fundamentals.html" aria-current="page">ML fundamentals</a>
+        <a class="mobile-nav-link" href="audio-orientation.html">Audio orientation</a>
+      </nav>
+      <p class="nav-group-label">On this page</p>
+      <nav aria-label="Mobile" class="max-h-[calc(100vh-13rem)] overflow-y-auto pb-8">
+        <a class="mobile-nav-link" href="#fundamentals">Fundamentals</a>
+        <a class="mobile-nav-link" href="#paradigms">Paradigms</a>
+        <a class="mobile-nav-link" href="#algorithms">Algorithms</a>
+        <a class="mobile-nav-link" href="#evaluation">Evaluation</a>
+        <a class="mobile-nav-link" href="#learning-path">Learning path</a>
+        <a class="mobile-nav-link" href="#glossary">Glossary</a>
+        <a class="mobile-nav-link" href="#methodology">Methodology</a>
+      </nav>
+    </div>
+  </div>
+
+  <div data-search-dialog="true" class="search-dialog" role="dialog" aria-modal="true" aria-label="Search LearnML" hidden>
+    <div data-search-backdrop="true" class="nav-backdrop"></div>
+    <div class="search-panel">
+      <div class="flex items-center gap-3 border-b border-hairline px-4 py-3">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 text-ink-dim" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input data-search-input="true" type="text" placeholder="Search concepts, algorithms, metrics…" aria-label="Search" class="h-10 flex-1 bg-transparent text-sm text-ink outline-none placeholder:text-ink-dim" />
+        <kbd class="rounded border border-hairline px-1.5 py-0.5 font-mono text-[10px] text-ink-dim">esc</kbd>
+      </div>
+      <div data-search-results="true" class="max-h-[min(60vh,24rem)] overflow-y-auto p-2">
+        <p class="px-3 py-6 text-center text-xs text-ink-dim">Type to search across concepts, algorithms, and metrics.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
