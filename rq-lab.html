@@ -157,6 +157,11 @@
   }
   .ref-item:last-child { border-bottom: 0; }
 
+  /* Nav rail: scrolls rather than overflowing the header */
+  .nav-rail { scrollbar-width: none; }
+  .nav-rail::-webkit-scrollbar { display: none; }
+  .nav-rail .nav-link { white-space: nowrap; }
+
   /* Template box */
   .template-box {
     background: var(--panel2);
@@ -262,21 +267,25 @@
         </a>
       </div>
 
-      <nav aria-label="Primary navigation" class="hidden items-stretch min-1041:flex">
+      <!-- ponytail: 15 pills exceed the header at 1041-1359px. min-w-0 + overflow-x-auto
+           lets the rail scroll instead of pushing the theme toggle off-screen.
+           Only this page needs it; the others carry 5-7 pills. -->
+      <nav aria-label="Primary navigation" class="nav-rail hidden min-w-0 items-stretch overflow-x-auto min-1041:flex">
         <a class="nav-link" href="#context">Context</a>
-        <a class="nav-link" href="#objectives">Objectives</a>
+        <a class="nav-link" href="#objectives">Aims</a>
         <a class="nav-link" href="#scoping">Scoping</a>
         <a class="nav-link" href="#framework">Framework</a>
         <a class="nav-link" href="#gaps">Gaps</a>
         <a class="nav-link" href="#problems">Problems</a>
         <a class="nav-link" href="#criteria">Criteria</a>
+        <a class="nav-link" href="#drafting">Gate</a>
         <a class="nav-link" href="#method">Method</a>
         <a class="nav-link" href="#designs">Designs</a>
         <a class="nav-link" href="#inquiry">Inquiry</a>
         <a class="nav-link" href="#dba">DBA &amp; AI</a>
         <a class="nav-link" href="#players">Players</a>
         <a class="nav-link" href="#writing">Writing</a>
-        <a class="nav-link" href="#references">References</a>
+        <a class="nav-link" href="#references">Sources</a>
       </nav>
 
       <div class="ml-auto flex items-center gap-2 pl-2">
@@ -313,7 +322,7 @@
           <div class="border-l border-hairline px-3 py-3 first:border-l-0"><dt class="text-[10px] text-ink-dim">Problems</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">3</dd></div>
           <div class="border-l border-hairline px-3 py-3"><dt class="text-[10px] text-ink-dim">Gap types</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">7</dd></div>
           <div class="border-l border-hairline px-3 py-3"><dt class="text-[10px] text-ink-dim">Framework</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">1</dd></div>
-          <div class="border-l border-hairline px-3 py-3"><dt class="text-[10px] text-ink-dim">Sources</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">36</dd></div>
+          <div class="border-l border-hairline px-3 py-3"><dt class="text-[10px] text-ink-dim">Sources</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">38</dd></div>
         </dl>
       </div>
 
@@ -482,7 +491,7 @@ flowchart LR
         <div class="concept-card">
           <div class="flex items-center justify-between"><span class="font-mono text-[10px] text-ink-dim">Move 02</span><span class="badge badge-essential">Map</span></div>
           <h3 class="mt-3 text-sm font-semibold text-ink">Map existing research to find the contested edge</h3>
-          <p class="mt-2 text-xs leading-relaxed text-ink-muted">This is not yet the literature review that verifies a gap — that comes later, in <a class="font-semibold text-accent hover:underline" href="#method">Section 08</a>. Here you read to find where findings <em class="not-italic font-semibold text-ink">stop agreeing</em>, so you know which component is worth a gap claim at all. Scoping reading is wide and shallow; verification reading is narrow and deep.</p>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">This is not yet the literature review that verifies a gap — that comes later, in <a class="font-semibold text-accent hover:underline" href="#method">Section 09</a>. Here you read to find where findings <em class="not-italic font-semibold text-ink">stop agreeing</em>, so you know which component is worth a gap claim at all. Scoping reading is wide and shallow; verification reading is narrow and deep.</p>
         </div>
       </div>
 
@@ -913,8 +922,162 @@ flowchart TD
       </div>
     </section>
 
+    <section id="drafting" aria-label="Drafting the problem statement" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
+      <p class="eyebrow">08 · The drafting gate</p>
+      <h2 class="mt-2 font-display text-2xl font-bold text-ink">Draft with a machine, gate it yourself</h2>
+      <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">Fill-in-the-blank templates for the three paragraphs — current state, then knowledge gap, then consequences — circulate widely. Handed to a language model, they produce something worse than a bad draft: a fluent one. The template is not the fault; what it leaves unsaid is. Nothing in it says which evidence may be cited, which gap type is being claimed, or what the model should do when it has neither. Those are the constraints below, with the gate that catches the draft when they fail.</p>
+
+      <div class="mt-8 grid gap-px overflow-hidden rounded-md border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-3">
+        <div class="concept-card">
+          <div class="flex items-center justify-between"><span class="font-mono text-[10px] text-ink-dim">T1</span><span class="badge badge-essential">Non-negotiable</span></div>
+          <h3 class="mt-3 text-sm font-semibold text-ink">Close the evidence</h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">The model may cite only what you paste. No author, year, DOI or statistic of its own. Anything it cannot support stays in the draft as a marker, not a sentence. “As evidenced by [citations]” is, to a language model, an instruction to invent them.</p>
+        </div>
+        <div class="concept-card">
+          <div class="flex items-center justify-between"><span class="font-mono text-[10px] text-ink-dim">T2</span><span class="badge badge-essential">Non-negotiable</span></div>
+          <h3 class="mt-3 text-sm font-semibold text-ink">Type the gap</h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Force one of the seven from <a class="font-semibold text-accent hover:underline" href="#gaps">Section 05</a>, and make it say why that one and not its neighbour. Untyped, every gap defaults to the same sentence: “limited empirical research exists”.</p>
+        </div>
+        <div class="concept-card">
+          <div class="flex items-center justify-between"><span class="font-mono text-[10px] text-ink-dim">T3</span><span class="badge badge-advanced">Precision</span></div>
+          <h3 class="mt-3 text-sm font-semibold text-ink">Make the turn falsifiable</h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Require the form <em class="not-italic font-semibold text-ink">no empirical test of X under condition Y in population Z</em>. If a reviewer cannot picture the evidence that would refute it, it is not yet a claim.</p>
+        </div>
+        <div class="concept-card">
+          <div class="flex items-center justify-between"><span class="font-mono text-[10px] text-ink-dim">T4</span><span class="badge badge-advanced">Precision</span></div>
+          <h3 class="mt-3 text-sm font-semibold text-ink">Demand the search behind an absence</h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Any claim that nothing exists must carry the search that establishes it — databases, terms, date range, what came back. No search, no absence claim: downgrade it to contested findings or mark it unsupported.</p>
+        </div>
+        <div class="concept-card">
+          <div class="flex items-center justify-between"><span class="font-mono text-[10px] text-ink-dim">T5</span><span class="badge badge-intermediate">Restraint</span></div>
+          <h3 class="mt-3 text-sm font-semibold text-ink">Price the consequences</h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">Name the stakeholder and the magnitude, both from the evidence. Unsourced urgency — “systemic”, “perpetuates inequity” — reads to an examiner as advocacy. Unknown magnitude gets marked, not inflated.</p>
+        </div>
+        <div class="concept-card">
+          <div class="flex items-center justify-between"><span class="font-mono text-[10px] text-ink-dim">T6</span><span class="badge badge-essential">Non-negotiable</span></div>
+          <h3 class="mt-3 text-sm font-semibold text-ink">Gate, then stop</h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">The model runs the rubric from <a class="font-semibold text-accent hover:underline" href="#criteria">Section 07</a> on its own draft and, on any fail, stops and names the missing input instead of polishing prose. A gate that never fails is not a gate.</p>
+        </div>
+      </div>
+
+      <div class="template-box mt-8">
+        <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-accent">Step 1 — the input block</span>
+        <p class="mt-3">Fill this in and paste it above the prompt. If your evidence is thin, paste it thin. A short draft full of unsupported markers is a reading list; a long fluent one is a liability.</p>
+        <pre class="mt-3 overflow-x-auto whitespace-pre-wrap break-words font-mono text-[11px] leading-relaxed text-ink-muted">DOMAIN:      the field and the setting
+POPULATION:  who is studied — the unit that will supply the data
+OUTCOME:     what varies and matters — the thing the study measures
+EVIDENCE:    paste it. Citations, statistics, internal figures, quotes from reports.
+             One per line, with its source. The only material that may be cited.
+CONSTRAINTS: the data you can actually obtain, the time, the access,
+             the method you are able to run</pre>
+      </div>
+
+      <div class="template-box mt-4">
+        <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-accent">Step 2 — the prompt</span>
+        <pre class="mt-3 overflow-x-auto whitespace-pre-wrap break-words font-mono text-[11px] leading-relaxed text-ink-muted">You are a doctoral examiner drafting an evidence-based problem statement from the
+block above. Two rules before you write a word of prose.
+
+1 · CLOSED EVIDENCE. Cite only what appears in EVIDENCE. Add no author, year, DOI
+    or statistic of your own. Any claim you cannot support becomes, inline:
+    [UNSUPPORTED — need: the fact or source that would settle it]
+    A draft carrying eight markers is usable. One invented citation is not.
+
+2 · TYPED GAP. Name it as exactly one of: evidence, knowledge, practical-knowledge,
+    empirical, methodological, theoretical, population — and say why that one and
+    not its neighbour. If you claim absence, state the search that establishes it:
+    databases, terms, date range, what came back. Never write &quot;limited empirical
+    research exists&quot;.
+
+Then write four parts, 250–350 words in total, plain prose.
+
+A · CURRENT STATE   What the field knows and what practice does. Every sentence
+                  traceable to EVIDENCE. Numbers over adjectives. No &quot;increasingly&quot;,
+                  no &quot;rapidly evolving&quot;, no &quot;in today's landscape&quot;.
+B · THE TURN        One sentence beginning &quot;However,&quot; naming what is missing or
+                  contested, specific enough to be false. Then type the gap.
+C · CONSEQUENCES    Who bears the cost, and how much, from EVIDENCE. Name the
+                  stakeholder and the magnitude. No unsourced urgency.
+D · COMMITMENT      One research question: empirical, bounded, answerable within
+                  CONSTRAINTS, naming the unit of analysis.
+
+CHAIN TEST before output: B is the gap implied by A, C is the cost of B, D would close
+B. If a link needs the word &quot;moreover&quot; to hold, the link is broken — fix the part,
+do not smooth the sentence.
+
+Then output the audit: gap type and why not its neighbour / search stated for any
+absence claim / claims cited versus claims marked UNSUPPORTED / faced by more than one
+organisation / knowledge gap rather than implementation task / benefits theory and
+practice / unit of analysis / answerable within CONSTRAINTS.
+
+Any fail: stop. Do not polish the prose. Name the input that is missing and ask for it.</pre>
+      </div>
+
+      <details class="mt-8 border-y border-hairline bg-panel/40">
+        <summary class="group flex min-h-16 cursor-pointer select-none items-center gap-4 px-1 py-4">
+          <span class="flex-1">
+            <span class="block text-lg font-semibold text-ink">Worked run — a specimen that fails the gate</span>
+            <span class="mt-1 block text-xs text-ink-muted">Personalised education using agentic AI</span>
+          </span>
+          <span class="text-xs font-semibold text-accent">Open the audit</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-accent transition-transform duration-200 group-open:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <div class="px-1 pb-6 text-sm leading-relaxed text-ink-muted">
+          <p>A specimen of the kind that arrives at supervision every term. It is well written, which is the problem.</p>
+          <blockquote class="mt-4 border-l-2 border-hairline-strong pl-4 text-xs italic leading-relaxed text-ink-muted">Personalised learning remains a major challenge in modern education, where instruction often fails to reflect the diversity of learners' needs, backgrounds and learning styles. This results in inconsistent outcomes, disengagement and missed opportunities for intellectual growth. While the need for individualised support is well recognised, existing systems lack autonomous agents capable of dynamically guiding students. Agentic AI — systems that perceive, reason and act with autonomy — offers a transformative solution. This study aims to develop a personalised education framework using agentic AI, where intelligent agents continuously assess learner progress, set adaptive goals and provide real-time feedback.</blockquote>
+
+          <div class="mt-6 overflow-x-auto rounded-md border border-hairline">
+            <table class="w-full border-collapse text-sm">
+              <thead>
+                <tr class="bg-panel2">
+                  <th scope="col" class="sticky left-0 z-30 min-w-[190px] bg-panel2 px-3 py-2.5 text-left text-[11px] font-semibold text-ink-muted">Check</th>
+                  <th scope="col" class="px-2 py-2.5 text-left text-[11px] font-semibold text-ink-muted">Verdict</th>
+                  <th scope="col" class="px-2 py-2.5 text-left text-[11px] font-semibold text-ink-muted">Why</th>
+                </tr>
+              </thead>
+              <tbody>
+            <tr class="table-row"><td class="sticky left-0 z-10 bg-panel px-3 py-2 text-xs font-semibold text-ink">Gap type, and why not its neighbour</td><td class="px-2 py-2 text-xs cell-bad">fail</td><td class="px-2 py-2 text-xs text-ink-muted">Untyped. “Existing systems lack autonomous agents” names a missing product feature, not missing knowledge.</td></tr>
+            <tr class="table-row"><td class="sticky left-0 z-10 bg-panel px-3 py-2 text-xs font-semibold text-ink">Search stated for the absence claim</td><td class="px-2 py-2 text-xs cell-bad">fail</td><td class="px-2 py-2 text-xs text-ink-muted">None given — and the claim is probably false. Intelligent tutoring systems are a literature four decades deep.</td></tr>
+            <tr class="table-row"><td class="sticky left-0 z-10 bg-panel px-3 py-2 text-xs font-semibold text-ink">Claims cited / marked unsupported</td><td class="px-2 py-2 text-xs text-ink-muted font-semibold">0 / 7</td><td class="px-2 py-2 text-xs text-ink-muted">Every empirical claim in the specimen is unsourced.</td></tr>
+            <tr class="table-row"><td class="sticky left-0 z-10 bg-panel px-3 py-2 text-xs font-semibold text-ink">Faced by more than one organisation</td><td class="px-2 py-2 text-xs cell-good">pass</td><td class="px-2 py-2 text-xs text-ink-muted">Cohort-level instruction is universal. This is the one test it clears outright.</td></tr>
+            <tr class="table-row"><td class="sticky left-0 z-10 bg-panel px-3 py-2 text-xs font-semibold text-ink">Knowledge gap, not implementation task</td><td class="px-2 py-2 text-xs cell-bad">fail</td><td class="px-2 py-2 text-xs text-ink-muted">“Aims to develop a framework” is a build. Kill test: assembled from documented technique plus an API, it is engineering.</td></tr>
+            <tr class="table-row"><td class="sticky left-0 z-10 bg-panel px-3 py-2 text-xs font-semibold text-ink">Benefits theory and practice</td><td class="px-2 py-2 text-xs text-ink-muted font-semibold">half</td><td class="px-2 py-2 text-xs text-ink-muted">Practice is named. The theory it would refine or challenge is not.</td></tr>
+            <tr class="table-row"><td class="sticky left-0 z-10 bg-panel px-3 py-2 text-xs font-semibold text-ink">Unit of analysis</td><td class="px-2 py-2 text-xs cell-bad">fail</td><td class="px-2 py-2 text-xs text-ink-muted">Absent. “Every learner” and “the educational journey” cannot be counted.</td></tr>
+            <tr class="table-row"><td class="sticky left-0 z-10 bg-panel px-3 py-2 text-xs font-semibold text-ink">Answerable within constraints</td><td class="px-2 py-2 text-xs text-ink-muted font-semibold">unknown</td><td class="px-2 py-2 text-xs text-ink-muted">No constraints supplied, so the question cannot be sized.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-4 text-xs text-ink-dim">Four fails. The prompt stops here and asks for the population, the outcome variable, two or three effect-size sources and the constraints — which is more useful than the three fluent paragraphs it could have written instead.</p>
+
+          <p class="mt-6 text-xs font-semibold uppercase tracking-[0.12em] text-ink-dim">The four structural defects</p>
+          <ol class="mt-3 space-y-3 text-sm">
+            <li><strong class="font-semibold text-ink">Solution-first.</strong> The technology arrives and is called “a transformative solution” before any gap exists. That sentence presumes the answer, and an examiner reads it as vendor copy. Gap first, candidate answer second, never the reverse.</li>
+            <li><strong class="font-semibold text-ink">A product absence, not a knowledge absence.</strong> “Systems lack autonomous agents” resolves by building one. Nothing is found out.</li>
+            <li><strong class="font-semibold text-ink">No commitment.</strong> “Aims to develop a framework” is a deliverable, not a question. It can be shipped but not answered, and nothing in it can come out false — which is part D of <a class="font-semibold text-accent hover:underline" href="#framework">Section 04</a> missing entirely.</li>
+            <li><strong class="font-semibold text-ink">Consequences adjectivised, never stated.</strong> “Inconsistent outcomes, disengagement, missed opportunities” are three unmeasured nouns. Who bears what cost, at what size?</li>
+          </ol>
+
+          <div class="field-note mt-6">
+            <strong>A separate hazard in the same paragraph.</strong> The specimen rests part of its case on <em class="not-italic font-semibold text-ink">learning styles</em>. The meshing hypothesis — that matching instruction to a preferred style raises attainment — has failed repeated experimental test (Pashler et al., 2008). Building a doctoral problem statement on it invites an examiner to end the defence in the first five minutes. Swap it for a construct that survives measurement: prior knowledge, pace, or error pattern.
+          </div>
+
+          <p class="mt-6 text-xs font-semibold uppercase tracking-[0.12em] text-ink-dim">Three defensible gaps in the same territory</p>
+          <ol class="mt-3 space-y-4 text-sm">
+            <li><span class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-dim">Population gap</span><br />Adaptive-system gains are measured largely on school-age learners in Western settings. Whether they hold for working adult learners, who bring prior domain knowledge and fragmented study time, has not been tested. <em class="not-italic font-semibold text-ink">Does adaptive sequencing change time-to-mastery for working adult learners, against fixed sequencing?</em> Unit: the learner–module attempt.</li>
+            <li><span class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-dim">Empirical gap</span><br />Adaptive systems recommend; agentic systems act without waiting for approval. Autonomy is the whole claim of the framing and the one variable nobody has isolated. <em class="not-italic font-semibold text-ink">Does an agent that acts on its own assessment produce different attainment from one that recommends the same action to the instructor?</em> Unit: the intervention event. This keeps the interesting word and makes it falsifiable.</li>
+            <li><span class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-dim">Practical-knowledge gap</span><br />Institutions have already bought adaptive platforms. Instructors override, ignore or work around the recommendations, and nobody has described that behaviour or its effect. <em class="not-italic font-semibold text-ink">What distinguishes instructors who act on adaptive recommendations from those who override them?</em> Unit: the recommendation instance — practitioner behaviour deviating from designed best practice, which is the gap an executive scholar can reach and a full-time academic cannot.</li>
+          </ol>
+
+          <p class="mt-6 text-xs text-ink-dim">If the artefact must be built, design-science research (Hevner et al., 2004) permits it — but the study is then the <strong class="text-ink">evaluation</strong>, not the build, and the artefact must be measured against a named alternative rather than against its own absence. “We built it and users liked it” is a case report.</p>
+        </div>
+      </details>
+
+      <div class="field-note mt-8">
+        <strong>What the gate is actually for.</strong> A language model will not tell you that your problem is unresearchable; it will write you three confident paragraphs about it. The value is not the drafting — it is being handed the list of what you cannot yet support, before a supervisor hands you the same list six months later.
+      </div>
+    </section>
+
     <section id="method" aria-label="Research practice" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">08 · Research practice</p>
+      <p class="eyebrow">09 · Research practice</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">Academic moves that make problems credible</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">The craft of problem-mining draws on established methodology scholarship. These are the moves that separate a persuasive problem statement from an anecdote.</p>
 
@@ -1000,7 +1163,7 @@ flowchart LR
     </section>
 
     <section id="designs" aria-label="Research design catalogue" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">09 · The design catalogue</p>
+      <p class="eyebrow">10 · The design catalogue</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">Research designs, with worked examples</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">Eighteen designs across three paradigms. A design is a plan for answering a <em class="not-italic font-semibold text-ink">specific kind of question</em> — choose by the question your gap implies, never by fashion. Each card pairs the design with an example grounded in the Walmart supply chain case.</p>
 
@@ -1194,7 +1357,7 @@ flowchart LR
     </section>
 
     <section id="inquiry" aria-label="The inquiry spectrum" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">10 · The inquiry spectrum</p>
+      <p class="eyebrow">11 · The inquiry spectrum</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">Structured or unstructured inquiry?</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">Before picking a design, decide how <em class="not-italic font-semibold text-ink">open or fixed</em> the inquiry should be. Structure is a choice about how much you already know — not a measure of quality. Every study sits somewhere on the spectrum, and the poles map onto two logics: deduction and induction.</p>
 
@@ -1318,12 +1481,12 @@ flowchart TD
       </figure>
 
       <div class="field-note mt-6">
-        <strong>Structure is a stance, not a ranking.</strong> Structured is not "better" than unstructured — it is appropriate when constructs are already measurable and inappropriate when they are not. Fix the pole from the state of knowledge first; then the design (Section 09) selects itself.
+        <strong>Structure is a stance, not a ranking.</strong> Structured is not "better" than unstructured — it is appropriate when constructs are already measurable and inappropriate when they are not. Fix the pole from the state of knowledge first; then the design (Section 10) selects itself.
       </div>
     </section>
 
     <section id="dba" aria-label="DBA practice and AI guardrails" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">11 · DBA practice</p>
+      <p class="eyebrow">12 · DBA practice</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">The applied lens — and the AI guardrails that keep it honest</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">A DBA is <em class="not-italic font-semibold text-ink">practitioner scholarship</em>: pragmatic, practical, and applied. The standard is not "advance theory for its own sake" but <em class="not-italic font-semibold text-ink">solve a real problem and defend the solution rigorously</em>. As a DBA candidate — and a student of AI and Generative AI — you are doubly positioned: GenAI can accelerate every stage of the workflow, and only disciplined guardrails keep that acceleration honest.</p>
 
@@ -1443,7 +1606,7 @@ flowchart TD
     </section>
 
     <section id="players" aria-label="Stakeholders and accountability" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">12 · The players</p>
+      <p class="eyebrow">13 · The players</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">Stakeholders, accountability, and the research constitution</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">A DBA is not solo work. Every thesis is produced inside a web of players — each with a distinct <em class="not-italic font-semibold text-ink">attitude</em>, set of <em class="not-italic font-semibold text-ink">responsibilities</em>, line of <em class="not-italic font-semibold text-ink">accountability</em>, <em class="not-italic font-semibold text-ink">ethics and values</em>, and a formal <em class="not-italic font-semibold text-ink">constitution</em> — the documents that bind them. Knowing who answers for what prevents the failures that sink dissertations: ethics slips, supervision drift, and murky ownership.</p>
 
@@ -1694,7 +1857,7 @@ sequenceDiagram
     </section>
 
     <section id="writing" aria-label="Research writing" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">13 · Research writing</p>
+      <p class="eyebrow">14 · Research writing</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">Writing research so a reader can follow the argument</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">A good study can be lost in bad writing. Academic writing is a craft with two tests: can the reader follow the argument without re-reading, and can every claim be checked against the evidence? The moves below — clarity, precision, evidence-led claims, calibrated certainty — are what separate a defensible thesis from a report.</p>
 
@@ -1934,7 +2097,7 @@ flowchart LR
     </section>
 
     <section id="references" aria-label="References" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-6 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">14 · References</p>
+      <p class="eyebrow">15 · References</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">Sources behind the practice</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">Methodology and disciplinary anchors, presented for verification. Reformat to your institution's citation style before submission.</p>
       <div class="mt-6 rounded-md border border-hairline bg-panel px-5">
@@ -1974,6 +2137,8 @@ flowchart LR
         <div class="ref-item"><span class="pt-0.5 font-mono text-[10px] text-ink-dim">34</span><p class="text-xs leading-relaxed text-ink-muted">Gopen, G. D., &amp; Swan, J. A. (1990). The science of scientific writing. <em class="text-ink">American Scientist</em>, 78(6), 550–558.</p></div>
         <div class="ref-item"><span class="pt-0.5 font-mono text-[10px] text-ink-dim">35</span><p class="text-xs leading-relaxed text-ink-muted">Booth, W. C., Colomb, G. G., Williams, J. M., Bizup, J., &amp; FitzGerald, W. T. (2016). <em class="text-ink">The craft of research</em> (4th ed.). University of Chicago Press.</p></div>
         <div class="ref-item"><span class="pt-0.5 font-mono text-[10px] text-ink-dim">36</span><p class="text-xs leading-relaxed text-ink-muted">Companion ledger — RQ Lab (2026). <em class="text-ink"><a class="text-accent font-semibold hover:underline" href="smart-critique.html">SMART objectives in DBA research: framework, critique &amp; the dogma problem</a></em>. A balanced read of the SMART framework — first-order critiques and the second-order systemic challenges that emerge when it is followed dogmatically.</p></div>
+        <div class="ref-item"><span class="pt-0.5 font-mono text-[10px] text-ink-dim">37</span><p class="text-xs leading-relaxed text-ink-muted">Pashler, H., McDaniel, M., Rohrer, D., &amp; Bjork, R. (2008). Learning styles: Concepts and evidence. <em class="text-ink">Psychological Science in the Public Interest</em>, 9(3), 105–119.</p></div>
+        <div class="ref-item"><span class="pt-0.5 font-mono text-[10px] text-ink-dim">38</span><p class="text-xs leading-relaxed text-ink-muted">Hevner, A. R., March, S. T., Park, J., &amp; Ram, S. (2004). Design science in information systems research. <em class="text-ink">MIS Quarterly</em>, 28(1), 75–105.</p></div>
       </div>
       <div class="field-note mt-4">
         <strong>Cite-checking note.</strong> Verify volume, issue, and page numbers against the publisher or Google Scholar before submission. This list is a starting scaffold, not a substitute for your own verification.
@@ -2090,6 +2255,7 @@ flowchart LR
         <a class="mobile-nav-link" href="#gaps">Gaps</a>
         <a class="mobile-nav-link" href="#problems">Problems</a>
         <a class="mobile-nav-link" href="#criteria">Criteria</a>
+        <a class="mobile-nav-link" href="#drafting">The drafting gate</a>
         <a class="mobile-nav-link" href="#method">Method</a>
         <a class="mobile-nav-link" href="#designs">Designs</a>
         <a class="mobile-nav-link" href="#inquiry">Inquiry</a>

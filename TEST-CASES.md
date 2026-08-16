@@ -58,7 +58,7 @@ Subjects under test:
 - jsdom (Node v24) execution of `app.js` with real event dispatch; timers awaited
 - Mermaid: v11; every `pre.mermaid` source parsed with the real `mermaid.parse` (20/20 OK)
 - WCAG AA contrast computed numerically (≥ 4.5:1 for small text)
-- Counts verified: index 9 sections, 6 nav links; walmart 16 sections, 17 figures, 36 refs, 14 nav links; smart 7 sections, 3 figures, 16 refs, 5 nav links
+- Counts verified: index 9 sections, 6 nav links; walmart 17 sections, 17 figures, 38 refs, 15 nav links; smart 7 sections, 3 figures, 16 refs, 5 nav links
 
 ## Test Case Matrix
 
@@ -67,7 +67,7 @@ Subjects under test:
 | TC-01 | Structure | No duplicate `id` / empty `id` on all 3 pages | PASS | — |
 | TC-02 | Nav | All internal `href="#..."` resolve | PASS | BUG-13, BUG-14 fixed |
 | TC-03 | Content | Figure numbers sequential 1..n on each page | PASS | — |
-| TC-04 | Content | Walmart hero stats match content (sources = ref-item count) | PASS | hero now 36 = 36 refs (BUG-15 fixed) |
+| TC-04 | Content | Walmart hero stats match content (sources = ref-item count) | PASS | hero 38 = 38 refs (BUG-15 fixed) |
 | TC-05 | Content | RACI matrix: exactly one Accountable (A) per activity row | PASS | 11/11 rows |
 | TC-06 | Mermaid | All diagram sources parse (17 + 3) | PASS | — |
 | TC-07 | Theme | Toggle flips `dark`, persists, theme-color meta syncs, both icons present | PASS | — |
