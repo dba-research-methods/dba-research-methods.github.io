@@ -13,7 +13,7 @@ Built for senior leaders pursuing a **Doctor of Business Administration**: peopl
 | Page | What it is |
 |---|---|
 | `index.html` | Hub. Where to start, by stage of inquiry. |
-| `rq-lab.html` | **RQ Lab** — problem-mining workbook. Reads Walmart's supply chain as evidence rather than a success story, separates implementation challenges from research gaps, and produces three researchable problems with the designs that would answer them. 15 sections, 17 figures, 36 sources. |
+| `rq-lab.html` | **RQ Lab** — problem-mining workbook. Reads Walmart's supply chain as evidence rather than a success story, separates implementation challenges from research gaps, and produces three researchable problems with the designs that would answer them. 16 sections, 17 figures, 36 sources. |
 | `smart-critique.html` | **SMART objectives — framework & critique.** First-order critiques of the five criteria, then the second-order effects when SMART becomes dogma: goal displacement, risk aversion in topic choice, epistemic closure. 16 sources. |
 | `research-desk.html` | **Executive reference desk.** Seven business situations mapped to research designs, each with its seminal text, open-source software and executive watch-out — plus a bookshelf (9), a tools matrix (8), jargon translated (10) and a research vault (6). |
 | `audio-orientation.html` | 51-second spoken orientation with synchronised slides, chapter jumps, live captions and a full text transcript. |

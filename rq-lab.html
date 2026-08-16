@@ -265,6 +265,7 @@
       <nav aria-label="Primary navigation" class="hidden items-stretch min-1041:flex">
         <a class="nav-link" href="#context">Context</a>
         <a class="nav-link" href="#objectives">Objectives</a>
+        <a class="nav-link" href="#scoping">Scoping</a>
         <a class="nav-link" href="#framework">Framework</a>
         <a class="nav-link" href="#gaps">Gaps</a>
         <a class="nav-link" href="#problems">Problems</a>
@@ -446,7 +447,7 @@ flowchart LR
         <div class="mt-6 grid gap-x-10 gap-y-4 sm:grid-cols-2">
           <div class="anatomy-row">
             <span class="pt-0.5 font-mono text-[10px] text-ink-dim">1</span>
-            <p class="text-sm leading-relaxed text-ink-muted"><strong class="font-semibold text-ink">Identify researchable problems</strong> hidden within organisational success stories.</p>
+            <p class="text-sm leading-relaxed text-ink-muted"><strong class="font-semibold text-ink">Scope an area of inquiry</strong> and identify researchable problems hidden within organisational success stories.</p>
           </div>
           <div class="anatomy-row">
             <span class="pt-0.5 font-mono text-[10px] text-ink-dim">2</span>
@@ -462,13 +463,102 @@ flowchart LR
           </div>
         </div>
         <div class="field-note mt-6">
-          <strong>Group protocol.</strong> In groups of 3–4, share your problem-mining results and identify the 3 most researchable problems from your combined lists — then pressure-test each against the three criteria in <a class="text-accent font-semibold hover:underline" href="#criteria">Section 06</a>.
+          <strong>Group protocol.</strong> In groups of 3–4, share your problem-mining results and identify the 3 most researchable problems from your combined lists — then pressure-test each against the three criteria in <a class="text-accent font-semibold hover:underline" href="#criteria">Section 07</a>.
         </div>
       </div>
     </section>
 
+    <section id="scoping" aria-label="Investigating the area of inquiry" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
+      <p class="eyebrow">03 · Scoping</p>
+      <h2 class="mt-2 font-display text-2xl font-bold text-ink">Investigate the area of inquiry</h2>
+      <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">Almost nobody starts with a problem. You start with an <em class="not-italic font-semibold text-ink">area</em> — "supply chain resilience", "AI in customer service", "hybrid work". An area is not researchable: it has no gap, no unit of analysis and no stated consequence. Investigating the area is the work that turns a topic into something the framework in the next section can bite on.</p>
+
+      <div class="mt-8 grid gap-px overflow-hidden rounded-md border border-hairline bg-hairline lg:grid-cols-2">
+        <div class="concept-card">
+          <div class="flex items-center justify-between"><span class="font-mono text-[10px] text-ink-dim">Move 01</span><span class="badge badge-essential">Decompose</span></div>
+          <h3 class="mt-3 text-sm font-semibold text-ink">Break the inquiry into components</h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">An area is a bundle. Name its <strong class="font-semibold text-ink">actors</strong>, its <strong class="font-semibold text-ink">mechanism</strong>, its <strong class="font-semibold text-ink">outcome</strong> and its <strong class="font-semibold text-ink">setting</strong> separately, and each becomes a candidate boundary for the study. An undecomposed area produces the questions supervisors send back: too broad to answer, too vague to falsify.</p>
+        </div>
+        <div class="concept-card">
+          <div class="flex items-center justify-between"><span class="font-mono text-[10px] text-ink-dim">Move 02</span><span class="badge badge-essential">Map</span></div>
+          <h3 class="mt-3 text-sm font-semibold text-ink">Map existing research to find the contested edge</h3>
+          <p class="mt-2 text-xs leading-relaxed text-ink-muted">This is not yet the literature review that verifies a gap — that comes later, in <a class="font-semibold text-accent hover:underline" href="#method">Section 08</a>. Here you read to find where findings <em class="not-italic font-semibold text-ink">stop agreeing</em>, so you know which component is worth a gap claim at all. Scoping reading is wide and shallow; verification reading is narrow and deep.</p>
+        </div>
+      </div>
+
+      <div class="mt-10">
+        <h3 class="font-display text-lg font-bold text-ink">Four lenses that decompose any area</h3>
+        <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">Run these four questions at the area and it stops being a topic. Each one isolates a different component, and each points at a different gap type from <a class="font-semibold text-accent hover:underline" href="#gaps">Section 05</a>.</p>
+        <div class="mt-6 grid gap-px overflow-hidden rounded-md border border-hairline bg-hairline sm:grid-cols-2">
+          <div class="concept-card">
+            <div class="flex items-center justify-between"><span class="font-mono text-[10px] text-ink-dim">L1</span><span class="badge badge-essential">Boundary</span></div>
+            <h3 class="mt-3 text-sm font-semibold text-ink">Where does it succeed, and where does it fail?</h3>
+            <p class="mt-2 text-xs leading-relaxed text-ink-muted">The performance edge is where the variance lives, and variance is the only thing a study can explain. Uniform success is a press release; the interesting cases are the conditions that flip the outcome.</p>
+          </div>
+          <div class="concept-card">
+            <div class="flex items-center justify-between"><span class="font-mono text-[10px] text-ink-dim">L2</span><span class="badge badge-advanced">Mechanism</span></div>
+            <h3 class="mt-3 text-sm font-semibold text-ink">How does it actually work?</h3>
+            <p class="mt-2 text-xs leading-relaxed text-ink-muted">Open the box. Distinguishing two mechanisms the literature lumps together is frequently the whole contribution — a rule-based system and a learned one share a label and share almost nothing else.</p>
+          </div>
+          <div class="concept-card">
+            <div class="flex items-center justify-between"><span class="font-mono text-[10px] text-ink-dim">L3</span><span class="badge badge-intermediate">Perception</span></div>
+            <h3 class="mt-3 text-sm font-semibold text-ink">How is it experienced, against what it replaced?</h3>
+            <p class="mt-2 text-xs leading-relaxed text-ink-muted">Name the comparator and the metrics before you collect anything: speed, resolution quality, trust, effort. "Better" with no comparator is the most common unfalsifiable claim in DBA proposals.</p>
+          </div>
+          <div class="concept-card">
+            <div class="flex items-center justify-between"><span class="font-mono text-[10px] text-ink-dim">L4</span><span class="badge badge-intermediate">Deployment</span></div>
+            <h3 class="mt-3 text-sm font-semibold text-ink">How is it used in the wild, by whom, and at which step?</h3>
+            <p class="mt-2 text-xs leading-relaxed text-ink-muted">Designed use and actual use diverge, and the space between them is a standing source of the <a class="font-semibold text-accent hover:underline" href="#gaps">practical-knowledge gap</a> — the one an applied doctorate is built to occupy.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 overflow-x-auto rounded-md border border-hairline">
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr class="bg-panel2">
+              <th scope="col" class="sticky left-0 z-30 min-w-[150px] bg-panel2 px-3 py-2.5 text-left text-[11px] font-semibold text-ink-muted">Lens</th>
+              <th scope="col" class="px-2 py-2.5 text-left text-[11px] font-semibold text-ink-muted">Applied to Walmart's supply chain</th>
+              <th scope="col" class="px-2 py-2.5 text-left text-[11px] font-semibold text-ink-muted">Component it isolates</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row"><td class="sticky left-0 z-10 bg-panel px-3 py-2 text-xs font-semibold text-ink">Boundary</td><td class="px-2 py-2 text-xs text-ink-muted">Under which disruption types does cross-docking hold, and under which does it amplify the shock?</td><td class="px-2 py-2 text-xs text-ink-muted">Outcome, conditioned</td></tr>
+            <tr class="table-row"><td class="sticky left-0 z-10 bg-panel px-3 py-2 text-xs font-semibold text-ink">Mechanism</td><td class="px-2 py-2 text-xs text-ink-muted">Is the resilience coming from inventory buffers, from supplier redundancy, or from forecast accuracy? They are reported as one capability.</td><td class="px-2 py-2 text-xs text-ink-muted">Mechanism</td></tr>
+            <tr class="table-row"><td class="sticky left-0 z-10 bg-panel px-3 py-2 text-xs font-semibold text-ink">Perception</td><td class="px-2 py-2 text-xs text-ink-muted">How do suppliers experience Retail Link compared with the relationship it replaced — and does that shape what they report upstream?</td><td class="px-2 py-2 text-xs text-ink-muted">Actors</td></tr>
+            <tr class="table-row"><td class="sticky left-0 z-10 bg-panel px-3 py-2 text-xs font-semibold text-ink">Deployment</td><td class="px-2 py-2 text-xs text-ink-muted">Where in the replenishment cycle do store managers override the system, and on what basis?</td><td class="px-2 py-2 text-xs text-ink-muted">Setting</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <details class="mt-8 border-y border-hairline bg-panel/40">
+        <summary class="group flex min-h-16 cursor-pointer select-none items-center gap-4 px-1 py-4">
+          <span class="flex-1">
+            <span class="block text-lg font-semibold text-ink">The same four lenses, a different domain</span>
+            <span class="mt-1 block text-xs text-ink-muted">AI-driven customer service in e-commerce</span>
+          </span>
+          <span class="text-xs font-semibold text-accent">Open the transfer</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-accent transition-transform duration-200 group-open:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <div class="px-1 pb-6 text-sm leading-relaxed text-ink-muted">
+          <p>The workbook runs one case throughout so the three problems stay comparable — but the lenses are not Walmart-specific, and it is worth seeing them land somewhere else before you point them at your own area.</p>
+          <ol class="mt-4 space-y-4">
+            <li class="grid grid-cols-[64px_minmax(0,1fr)] gap-2"><span class="pt-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-dim">Boundary</span><span>In which query classes do AI chatbots resolve the request, and in which do they generate frustration or escalation?</span></li>
+            <li class="grid grid-cols-[64px_minmax(0,1fr)] gap-2"><span class="pt-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-dim">Mechanism</span><span>Is the system rule-based, retrieval-based, or a generative language model — and does the answer change which queries it can hold?</span></li>
+            <li class="grid grid-cols-[64px_minmax(0,1fr)] gap-2"><span class="pt-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-dim">Perception</span><span>How do customers rate the exchange against a human agent on speed, resolution quality and empathy — and do those three move together?</span></li>
+            <li class="grid grid-cols-[64px_minmax(0,1fr)] gap-2"><span class="pt-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-dim">Deployment</span><span>Where do platforms actually place them — pre-sales enquiry, post-sales support, returns — and is the placement chosen by evidence or by cost?</span></li>
+          </ol>
+          <p class="mt-6 text-xs text-ink-dim">Note the shape of the fourth: it asks how a practice is chosen, not whether the technology works. That is a practical-knowledge gap, and it is the kind an executive scholar can answer better than a full-time academic can.</p>
+        </div>
+      </details>
+
+      <div class="field-note mt-8">
+        <strong>The failure this prevents.</strong> A problem statement written straight from an area produces a current state everyone already accepts and a gap nobody can dispute — which means nobody can be wrong, which means there is nothing to find out. Scope first, then write. The framework in <a class="font-semibold text-accent hover:underline" href="#framework">Section 04</a> assumes you already know which component you are making a claim about.
+      </div>
+    </section>
+
     <section id="framework" aria-label="The framework" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">03 · The framework</p>
+      <p class="eyebrow">04 · The framework</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">Current state → gap → consequences</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">An evidence-based problem statement is a three-part argument. Ellis and Levy's <em class="not-italic">framework of problem-based research</em> insists the problem be <strong class="font-semibold text-ink">studied, not just solved</strong> — the engine of that argument is the gap.</p>
 
@@ -523,7 +613,7 @@ flowchart LR
     </section>
 
     <section id="gaps" aria-label="Gap taxonomy" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">04 · Knowing the gap</p>
+      <p class="eyebrow">05 · Knowing the gap</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">Implementation challenge or research gap?</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">The single most common student failure is proposing an engineering task as a research problem. The distinction is binary and testable.</p>
 
@@ -609,9 +699,9 @@ flowchart TD
 
         <div class="template-box mt-8">
           <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-accent">Why seven and not five</span>
-          <p class="mt-3 text-sm leading-relaxed text-ink-muted">A five-gap version of this taxonomy circulates widely &mdash; evidence, methodological, empirical, theoretical, knowledge, arranged on a star. Those are cards 01, 02, 04, 05 and 06 above. It invents nothing Miles did not already put there, so the only question worth asking of it is what it drops.</p>
-          <p class="mt-3 text-sm leading-relaxed text-ink-muted">It drops <strong class="font-semibold text-ink">practical-knowledge</strong> and <strong class="font-semibold text-ink">population</strong> &mdash; the two a DBA most often occupies. An applied doctorate is largely the study of practitioner behaviour deviating from established best practice, and of findings imported from one sector into another without being retested there. Claim a theoretical gap while sitting in a population gap and a reviewer will find it before you defend.</p>
-          <p class="mt-3 text-sm leading-relaxed text-ink-muted">It also blurs two of the five it keeps, defining an evidence gap as "a lack of empirical data or research evidence" and an empirical gap as "a lack of studies or data" &mdash; the same sentence twice. Miles separates them, and so do cards 01 and 05: an <strong class="font-semibold text-ink">evidence gap</strong> is findings that contradict each other; an <strong class="font-semibold text-ink">empirical gap</strong> is a claim nobody has tested.</p>
+          <p class="mt-3 text-sm leading-relaxed text-ink-muted">A five-gap version of this taxonomy circulates widely — evidence, methodological, empirical, theoretical, knowledge, arranged on a star. Those are cards 01, 02, 04, 05 and 06 above. It invents nothing Miles did not already put there, so the only question worth asking of it is what it drops.</p>
+          <p class="mt-3 text-sm leading-relaxed text-ink-muted">It drops <strong class="font-semibold text-ink">practical-knowledge</strong> and <strong class="font-semibold text-ink">population</strong> — the two a DBA most often occupies. An applied doctorate is largely the study of practitioner behaviour deviating from established best practice, and of findings imported from one sector into another without being retested there. Claim a theoretical gap while sitting in a population gap and a reviewer will find it before you defend.</p>
+          <p class="mt-3 text-sm leading-relaxed text-ink-muted">It also blurs two of the five it keeps, defining an evidence gap as "a lack of empirical data or research evidence" and an empirical gap as "a lack of studies or data" — the same sentence twice. Miles separates them, and so do cards 01 and 05: an <strong class="font-semibold text-ink">evidence gap</strong> is findings that contradict each other; an <strong class="font-semibold text-ink">empirical gap</strong> is a claim nobody has tested.</p>
         </div>
       </div>
 
@@ -641,7 +731,7 @@ mindmap
     </section>
 
     <section id="problems" aria-label="Researchable problems" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">05 · The harvest</p>
+      <p class="eyebrow">06 · The harvest</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">Three researchable problems</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">Each problem is written in full statement form, annotated with its gap type and the research question it commits to.</p>
 
@@ -752,7 +842,7 @@ quadrantChart
     </section>
 
     <section id="criteria" aria-label="Evaluation criteria" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">06 · The audit</p>
+      <p class="eyebrow">07 · The audit</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">Three criteria for a researchable problem</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">Pressure-test every candidate problem against all three criteria. A problem that fails any one is a story, not a study.</p>
 
@@ -824,7 +914,7 @@ flowchart TD
     </section>
 
     <section id="method" aria-label="Research practice" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">07 · Research practice</p>
+      <p class="eyebrow">08 · Research practice</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">Academic moves that make problems credible</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">The craft of problem-mining draws on established methodology scholarship. These are the moves that separate a persuasive problem statement from an anecdote.</p>
 
@@ -910,7 +1000,7 @@ flowchart LR
     </section>
 
     <section id="designs" aria-label="Research design catalogue" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">08 · The design catalogue</p>
+      <p class="eyebrow">09 · The design catalogue</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">Research designs, with worked examples</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">Eighteen designs across three paradigms. A design is a plan for answering a <em class="not-italic font-semibold text-ink">specific kind of question</em> — choose by the question your gap implies, never by fashion. Each card pairs the design with an example grounded in the Walmart supply chain case.</p>
 
@@ -1104,7 +1194,7 @@ flowchart LR
     </section>
 
     <section id="inquiry" aria-label="The inquiry spectrum" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">09 · The inquiry spectrum</p>
+      <p class="eyebrow">10 · The inquiry spectrum</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">Structured or unstructured inquiry?</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">Before picking a design, decide how <em class="not-italic font-semibold text-ink">open or fixed</em> the inquiry should be. Structure is a choice about how much you already know — not a measure of quality. Every study sits somewhere on the spectrum, and the poles map onto two logics: deduction and induction.</p>
 
@@ -1228,12 +1318,12 @@ flowchart TD
       </figure>
 
       <div class="field-note mt-6">
-        <strong>Structure is a stance, not a ranking.</strong> Structured is not "better" than unstructured — it is appropriate when constructs are already measurable and inappropriate when they are not. Fix the pole from the state of knowledge first; then the design (Section 08) selects itself.
+        <strong>Structure is a stance, not a ranking.</strong> Structured is not "better" than unstructured — it is appropriate when constructs are already measurable and inappropriate when they are not. Fix the pole from the state of knowledge first; then the design (Section 09) selects itself.
       </div>
     </section>
 
     <section id="dba" aria-label="DBA practice and AI guardrails" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">10 · DBA practice</p>
+      <p class="eyebrow">11 · DBA practice</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">The applied lens — and the AI guardrails that keep it honest</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">A DBA is <em class="not-italic font-semibold text-ink">practitioner scholarship</em>: pragmatic, practical, and applied. The standard is not "advance theory for its own sake" but <em class="not-italic font-semibold text-ink">solve a real problem and defend the solution rigorously</em>. As a DBA candidate — and a student of AI and Generative AI — you are doubly positioned: GenAI can accelerate every stage of the workflow, and only disciplined guardrails keep that acceleration honest.</p>
 
@@ -1258,7 +1348,7 @@ flowchart TD
           </tbody>
         </table>
       </div>
-      <p class="mt-3 text-[11px] text-ink-dim">A spectrum, not a wall: many theses sit between the poles. The DBA simply tilts the balance toward practice — the framework in Section 03 is built for exactly that tilt.</p>
+      <p class="mt-3 text-[11px] text-ink-dim">A spectrum, not a wall: many theses sit between the poles. The DBA simply tilts the balance toward practice — the framework in Section 04 is built for exactly that tilt.</p>
 
       <figure class="mermaid-figure">
         <figcaption class="fig-caption">Figure 12 — The DBA applied-research loop: practice → research → contribution → practice</figcaption>
@@ -1353,7 +1443,7 @@ flowchart TD
     </section>
 
     <section id="players" aria-label="Stakeholders and accountability" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">11 · The players</p>
+      <p class="eyebrow">12 · The players</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">Stakeholders, accountability, and the research constitution</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">A DBA is not solo work. Every thesis is produced inside a web of players — each with a distinct <em class="not-italic font-semibold text-ink">attitude</em>, set of <em class="not-italic font-semibold text-ink">responsibilities</em>, line of <em class="not-italic font-semibold text-ink">accountability</em>, <em class="not-italic font-semibold text-ink">ethics and values</em>, and a formal <em class="not-italic font-semibold text-ink">constitution</em> — the documents that bind them. Knowing who answers for what prevents the failures that sink dissertations: ethics slips, supervision drift, and murky ownership.</p>
 
@@ -1604,7 +1694,7 @@ sequenceDiagram
     </section>
 
     <section id="writing" aria-label="Research writing" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-10 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">12 · Research writing</p>
+      <p class="eyebrow">13 · Research writing</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">Writing research so a reader can follow the argument</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">A good study can be lost in bad writing. Academic writing is a craft with two tests: can the reader follow the argument without re-reading, and can every claim be checked against the evidence? The moves below — clarity, precision, evidence-led claims, calibrated certainty — are what separate a defensible thesis from a report.</p>
 
@@ -1844,7 +1934,7 @@ flowchart LR
     </section>
 
     <section id="references" aria-label="References" class="mx-auto w-[min(1120px,calc(100%_-_48px))] px-0 pb-12 pt-6 scroll-mt-20 max-720:px-4">
-      <p class="eyebrow">13 · References</p>
+      <p class="eyebrow">14 · References</p>
       <h2 class="mt-2 font-display text-2xl font-bold text-ink">Sources behind the practice</h2>
       <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">Methodology and disciplinary anchors, presented for verification. Reformat to your institution's citation style before submission.</p>
       <div class="mt-6 rounded-md border border-hairline bg-panel px-5">
@@ -1995,6 +2085,7 @@ flowchart LR
       <nav aria-label="Mobile" class="max-h-[calc(100vh-13rem)] overflow-y-auto pb-8">
         <a class="mobile-nav-link" href="#context">Context</a>
         <a class="mobile-nav-link" href="#objectives">Objectives</a>
+        <a class="mobile-nav-link" href="#scoping">Scoping the inquiry</a>
         <a class="mobile-nav-link" href="#framework">Framework</a>
         <a class="mobile-nav-link" href="#gaps">Gaps</a>
         <a class="mobile-nav-link" href="#problems">Problems</a>
