@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Audio Orientation — DBA Research Methods</title>
+<meta name="description" content="A one-minute spoken orientation to the DBA executive research reference desk, with synchronised slides, a live transcript and chapter navigation." />
+<meta name="theme-color" content="#F5F4EF" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23126D68'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='14' font-weight='700' fill='%23FFFEFA' text-anchor='middle'%3EDBA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=cabinet-grotesk@500,700,800,900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+  @theme {
+    --color-surface: var(--surface);
+    --color-panel: var(--panel);
+    --color-panel2: var(--panel2);
+    --color-panel3: var(--panel3);
+    --color-footer: var(--footer);
+    --color-hairline: var(--hairline);
+    --color-hairline-strong: var(--hairline-strong);
+    --color-ink: var(--ink);
+    --color-ink-muted: var(--ink-muted);
+    --color-ink-dim: var(--ink-dim);
+    --color-ink-faint: var(--ink-faint);
+    --color-accent: var(--accent);
+    --color-positive: var(--positive);
+    --color-warning: var(--warning);
+    --color-danger: var(--danger);
+    --color-info: var(--info);
+    --color-background: var(--surface);
+    --color-foreground: var(--ink);
+    --color-border: var(--hairline);
+    --color-input: var(--hairline-strong);
+    --color-muted: var(--panel3);
+    --font-sans: "Satoshi", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-display: "Cabinet Grotesk", "Satoshi", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Geist Mono", "SFMono-Regular", Consolas, ui-monospace, monospace;
+    --radius-sm: 0px;
+    --radius-md: 2px;
+    --radius-lg: 4px;
+    --radius-xl: 12px;
+  }
+  @custom-variant dark (&:where(.dark, .dark *));
+  @custom-variant max-720 (@media (width < 720px));
+  @custom-variant max-620 (@media (width < 620px));
+  @custom-variant max-390 (@media (width < 390px));
+  @custom-variant max-960 (@media (width < 960px));
+  @custom-variant min-621 (@media (width >= 621px));
+  @custom-variant min-1041 (@media (width >= 1041px));
+</style>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* Audio orientation — page-specific components. Tokens live in styles.css. */
+  .stage { border: 1px solid var(--hairline-strong); background: var(--panel); }
+
+  .stage-viewport {
+    position: relative;
+    min-height: 21rem;
+    border-bottom: 1px solid var(--hairline);
+    padding: 1.5rem;
+  }
+  .scene { display: none; }
+  .scene.active { display: block; }
+
+  .scene-tag {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 9%, transparent);
+    padding: 0.125rem 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .scene-title {
+    margin-top: 0.875rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.12;
+    color: var(--ink);
+  }
+  .scene-lead {
+    margin-top: 0.75rem;
+    max-width: 62ch;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--ink-muted);
+  }
+
+  .metric-strip {
+    display: grid;
+    margin-top: 1.5rem;
+    gap: 1px;
+    border: 1px solid var(--hairline);
+    background: var(--hairline);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  }
+  .metric-card { background: var(--panel2); padding: 0.875rem 1rem; }
+  .metric-card[data-accent="positive"] { box-shadow: inset 3px 0 0 var(--positive); }
+  .metric-card[data-accent="info"] { box-shadow: inset 3px 0 0 var(--info); }
+  .metric-card[data-accent="accent"] { box-shadow: inset 3px 0 0 var(--accent); }
+  .metric-label {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .metric-val { margin-top: 0.375rem; font-size: 12.5px; font-weight: 600; line-height: 1.4; color: var(--ink); }
+
+  .waveform-wrap { height: 3.25rem; border-bottom: 1px solid var(--hairline); background: var(--panel2); padding: 0 1rem; }
+  #waveform { display: block; width: 100%; height: 100%; }
+
+  .transcript-live {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    border-bottom: 1px solid var(--hairline);
+    background: var(--surface);
+    padding: 0.875rem 1rem;
+    min-height: 4rem;
+  }
+  .transcript-label {
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 0.1875rem;
+  }
+  .transcript-live p { font-size: 13px; line-height: 1.6; color: var(--ink); }
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+  }
+
+  .btn-action, .btn-secondary {
+    display: inline-flex;
+    min-height: 2.5rem;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 2px;
+    padding: 0 0.875rem;
+    font-family: inherit;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .btn-action { border: 1px solid var(--accent); background: var(--accent); color: var(--panel); }
+  .btn-action:hover { background: var(--ink); border-color: var(--ink); }
+  .btn-secondary { border: 1px solid var(--hairline-strong); background: var(--panel); color: var(--ink); }
+  .btn-secondary:hover { background: var(--panel2); border-color: var(--ink-faint); }
+
+  .chapter-btn {
+    display: inline-flex;
+    min-height: 2rem;
+    align-items: center;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 3px;
+    background: var(--panel);
+    padding: 0 0.5rem;
+    font-family: inherit;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+  }
+  .chapter-btn:hover { color: var(--accent); border-color: var(--accent); }
+  .chapter-btn.active {
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  #scrubber { width: 100%; min-width: 8rem; accent-color: var(--accent); cursor: pointer; }
+
+  .transcript-full li {
+    display: grid;
+    grid-template-columns: 3.75rem minmax(0, 1fr);
+    gap: 0.75rem;
+    border-bottom: 1px solid var(--hairline);
+    padding: 0.625rem 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink-muted);
+  }
+  .transcript-full li:last-child { border-bottom: 0; }
+  .transcript-full time { font-family: var(--font-mono); font-size: 11px; color: var(--ink-dim); }
+</style>
+</head>
+<body>
+<div id="__next" class="min-h-screen bg-background">
+  <script>
+    (function () {
+      var t = document.documentElement;
+      var saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (e) {}
+      if (saved === 'dark') t.classList.add('dark');
+      else if (saved === 'light') t.classList.remove('dark');
+      else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) t.classList.add('dark');
+    })();
+  </script>
+
+  <header data-site-header="true" class="sticky top-0 z-40 border-b border-hairline-strong bg-panel/98">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Site strip — cross-page navigation.
+         ponytail: hard-coded on each page so navigation never depends on JS.
+         Keep the link list in sync with SITE_PAGES in app.js. -->
+    <div class="site-strip">
+      <div class="cb-container cb-container-workspace flex min-h-10 items-center gap-3 max-720:min-h-11">
+        <a class="site-strip-mark" href="index.html" aria-label="DBA Research Methods — home">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="max-620:hidden">DBA Research Methods</span>
+        </a>
+        <span aria-hidden="true" class="h-4 w-px shrink-0 bg-accent/25"></span>
+        <nav aria-label="Site pages" class="site-strip-nav">
+          <a class="site-strip-link" href="research-desk.html">Reference desk</a>
+          <a class="site-strip-link" href="rq-lab.html">RQ Lab</a>
+          <a class="site-strip-link" href="smart-critique.html">SMART critique</a>
+          <a class="site-strip-link" href="ml-fundamentals.html">ML fundamentals</a>
+          <a class="site-strip-link" href="audio-orientation.html" aria-current="page">Orientation</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="cb-container cb-container-workspace flex min-h-[66px] items-stretch max-720:min-h-[60px]">
+      <div class="flex shrink-0 items-center border-r border-hairline pr-4 max-720:border-r-0">
+        <a aria-label="Audio orientation — top" class="inline-flex min-h-11 items-center text-ink" href="#top">
+          <span class="font-display text-[19px] font-bold leading-none tracking-[-0.035em]">Audio<span class="text-accent"> orientation</span></span>
+        </a>
+      </div>
+      <nav aria-label="Primary navigation" class="ml-4 hidden items-stretch min-1041:flex">
+        <a class="nav-link" href="#briefing">The briefing</a>
+        <a class="nav-link" href="#transcript">Full transcript</a>
+      </nav>
+      <div class="ml-auto flex items-center gap-2 pl-2">
+        <button type="button" data-theme-toggle="true" aria-label="Toggle dark mode" class="icon-btn">
+          <svg data-icon-moon width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          <svg data-icon-sun width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px] hidden" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        </button>
+        <button type="button" data-navigation-trigger="true" aria-label="Open navigation" aria-haspopup="dialog" aria-expanded="false" aria-controls="site-navigation-dialog" class="icon-btn min-1041:hidden">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="top" aria-label="Introduction" class="cb-container cb-container-workspace border-b border-hairline-strong pb-9 pt-8">
+      <p class="eyebrow">Spoken orientation · 51 seconds · synchronised slides</p>
+      <h1 class="hero-title mt-3">Hear how the desk <span class="text-accent">fits together.</span></h1>
+      <p class="mt-5 max-w-[62ch] text-sm leading-relaxed text-ink-muted">
+        A calm, professorial walkthrough of how to move from a corporate challenge to a defensible doctoral
+        research design. Four chapters, a live transcript, and the full text below for anyone who would
+        rather read than listen.
+      </p>
+    </section>
+
+    <section id="briefing" aria-label="The briefing" class="cb-container cb-container-workspace py-8">
+      <div class="stage">
+        <div class="stage-viewport">
+
+          <div class="scene active" id="scene-1">
+            <span class="scene-tag">Part 1 · Orientation · 00:00–00:13</span>
+            <h2 class="scene-title">From business problem to <span class="text-accent">scholarly rigor</span></h2>
+            <p class="scene-lead">Designed for senior industry leaders with 20+ years of corporate leadership entering executive doctoral inquiry.</p>
+            <div class="metric-strip">
+              <div class="metric-card"><div class="metric-label">Pragmatism</div><div class="metric-val">Real-world action</div></div>
+              <div class="metric-card"><div class="metric-label">Translation</div><div class="metric-val">Executive terms</div></div>
+              <div class="metric-card"><div class="metric-label">Tools</div><div class="metric-val">Open-source apps</div></div>
+            </div>
+          </div>
+
+          <div class="scene" id="scene-2">
+            <span class="scene-tag">Part 2 · Problem solver · 00:13–00:26</span>
+            <h2 class="scene-title">Match your challenge to the <span class="text-accent">right methodology</span></h2>
+            <p class="scene-lead">Select your corporate challenge to identify the research design, the textbook chapter, and the analysis software that go with it.</p>
+            <div class="metric-strip">
+              <div class="metric-card" data-accent="positive"><div class="metric-label">Internal fix</div><div class="metric-val">Action research</div></div>
+              <div class="metric-card" data-accent="info"><div class="metric-label">Survey model</div><div class="metric-val">PLS-SEM path</div></div>
+              <div class="metric-card" data-accent="accent"><div class="metric-label">Benchmark</div><div class="metric-val">Multi-case fsQCA</div></div>
+            </div>
+          </div>
+
+          <div class="scene" id="scene-3">
+            <span class="scene-tag">Part 3 · Books &amp; tools · 00:26–00:39</span>
+            <h2 class="scene-title">Foundational books &amp; <span class="text-accent">practical software</span></h2>
+            <p class="scene-lead">Seminal frameworks from Saunders, Coghlan and Hair connected directly to verified repositories, rated by executive usability.</p>
+            <div class="metric-strip">
+              <div class="metric-card"><div class="metric-label">Zero-code GUI</div><div class="metric-val">Taguette &amp; ASReview</div></div>
+              <div class="metric-card"><div class="metric-label">Desktop CAQDAS</div><div class="metric-val">QualCoder</div></div>
+              <div class="metric-card"><div class="metric-label">Stats / scripting</div><div class="metric-val">SEMinR &amp; Pingouin</div></div>
+            </div>
+          </div>
+
+          <div class="scene" id="scene-4">
+            <span class="scene-tag">Part 4 · Your defence · 00:39–00:51</span>
+            <h2 class="scene-title">Your companion to a <span class="text-accent">defensible doctorate</span></h2>
+            <p class="scene-lead">Decode the terminology in plain English and walk into your dissertation defence with methodological confidence.</p>
+            <div class="metric-strip">
+              <div class="metric-card"><div class="metric-label">Epistemology</div><div class="metric-val">Standard of proof</div></div>
+              <div class="metric-card"><div class="metric-label">Triangulation</div><div class="metric-val">Cross-verification</div></div>
+              <div class="metric-card"><div class="metric-label">Defence ready</div><div class="metric-val">Oral defence rigour</div></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="waveform-wrap">
+          <canvas id="waveform" aria-hidden="true"></canvas>
+        </div>
+
+        <div class="transcript-live">
+          <span class="transcript-label">Transcript</span>
+          <p id="caption" role="status" aria-live="polite">Welcome to the DBA Executive Research Reference Desk.</p>
+        </div>
+
+        <div class="controls">
+          <button type="button" class="btn-action" id="play-btn">
+            <span id="play-icon" aria-hidden="true">▶</span>
+            <span id="play-label">Play briefing</span>
+          </button>
+          <button type="button" class="btn-secondary" id="restart-btn">Replay</button>
+          <span class="font-mono text-xs text-ink-dim" id="time-display">00:00 / 00:51</span>
+
+          <div class="flex min-w-[10rem] flex-1 items-center">
+            <label class="sr-only" for="scrubber">Seek</label>
+            <input type="range" id="scrubber" min="0" max="51" step="0.1" value="0" aria-label="Seek through the briefing">
+          </div>
+
+          <div class="flex flex-wrap gap-1.5" role="group" aria-label="Chapters">
+            <button type="button" class="chapter-btn active" data-seek="0">1. Overview</button>
+            <button type="button" class="chapter-btn" data-seek="13">2. Problem solver</button>
+            <button type="button" class="chapter-btn" data-seek="26">3. Books &amp; tools</button>
+            <button type="button" class="chapter-btn" data-seek="39">4. Your defence</button>
+          </div>
+        </div>
+
+        <audio id="narration" src="assets/narration.mp3" preload="metadata"></audio>
+      </div>
+    </section>
+
+    <section id="transcript" aria-label="Full transcript" class="cb-container cb-container-workspace border-t border-hairline-strong py-9">
+      <h2 class="font-display text-2xl font-bold tracking-[-0.03em] text-ink">Full transcript</h2>
+      <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-muted">The complete spoken text, for reading or quoting. Select a line to jump the audio to it.</p>
+      <ol class="transcript-full mt-6" id="transcript-list"></ol>
+    </section>
+  </main>
+
+  <footer class="relative mt-10 border-t border-hairline-strong bg-footer">
+    <div class="footer-accent"></div>
+    <div class="mx-auto grid w-[min(1120px,calc(100%_-_48px))] grid-cols-[minmax(250px,0.82fr)_minmax(0,2fr)] gap-x-14 gap-y-10 pb-6 pt-11 max-960:grid-cols-1">
+      <div>
+        <p class="font-display text-[22px] font-bold leading-none tracking-[-0.035em]">Audio<span class="text-accent"> orientation</span></p>
+        <p class="mt-4 max-w-[38ch] text-xs leading-relaxed text-ink-muted">A one-minute spoken guide to the reference desk, with a synchronised slide for each chapter and a readable transcript.</p>
+        <dl class="mt-6 flex flex-wrap gap-x-10 gap-y-4">
+          <div><dt class="text-[10px] text-ink-muted">Runtime</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">0:51</dd></div>
+          <div><dt class="text-[10px] text-ink-muted">Chapters</dt><dd class="mt-1 font-mono text-xs font-semibold text-ink">4</dd></div>
+        </dl>
+      </div>
+      <nav class="grid grid-cols-2 gap-x-10 gap-y-8 sm:grid-cols-4" aria-label="Footer">
+        <div>
+          <h3 class="text-xs font-semibold text-ink">This page</h3>
+          <a class="footer-link" href="#briefing">The briefing</a>
+          <a class="footer-link" href="#transcript">Full transcript</a>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold text-ink">Elsewhere on the site</h3>
+          <a class="footer-link" href="index.html">Home</a>
+          <a class="footer-link" href="research-desk.html">Executive reference desk</a>
+          <a class="footer-link" href="rq-lab.html">RQ Lab — problem mining</a>
+          <a class="footer-link" href="smart-critique.html">SMART objectives critique</a>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold text-ink">Learn</h3>
+          <a class="footer-link" href="ml-fundamentals.html">Machine learning fundamentals</a>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold text-ink">Site</h3>
+          <a class="footer-link" href="#top">Back to top</a>
+          <a class="footer-link" href="https://github.com/dba-research-methods/dba-research-methods.github.io" rel="noopener" target="_blank">Source</a>
+          <span class="footer-link pointer-events-none text-ink-dim">No tracking</span>
+        </div>
+      </nav>
+    </div>
+    <div class="mx-auto w-[min(1120px,calc(100%_-_48px))] border-t border-hairline-strong pt-5 pb-8">
+      <p class="text-[11px] text-ink-muted">© 2026 DBA Research Methods. Open access — copy, correct, remix.</p>
+    </div>
+  </footer>
+
+  <div id="site-navigation-dialog" data-nav-dialog="true" class="nav-dialog" role="dialog" aria-modal="true" aria-labelledby="nav-dialog-title" hidden>
+    <div data-nav-backdrop="true" class="nav-backdrop"></div>
+    <div class="nav-panel">
+      <div class="flex items-center justify-between border-b border-hairline-strong px-5 py-4">
+        <h2 id="nav-dialog-title" class="font-display text-2xl font-semibold tracking-[-0.035em] text-ink">Browse</h2>
+        <button type="button" data-nav-close="true" aria-label="Close navigation" class="icon-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <nav aria-label="Site pages" class="border-b border-hairline-strong">
+        <p class="nav-group-label">Pages</p>
+        <a class="mobile-nav-link" href="index.html">Home</a>
+        <a class="mobile-nav-link" href="research-desk.html">Executive reference desk</a>
+        <a class="mobile-nav-link" href="rq-lab.html">RQ Lab — problem mining</a>
+        <a class="mobile-nav-link" href="smart-critique.html">SMART objectives critique</a>
+        <a class="mobile-nav-link" href="ml-fundamentals.html">ML fundamentals</a>
+        <a class="mobile-nav-link" href="audio-orientation.html" aria-current="page">Audio orientation</a>
+      </nav>
+      <p class="nav-group-label">On this page</p>
+      <nav aria-label="Mobile" class="pb-8">
+        <a class="mobile-nav-link" href="#briefing">The briefing</a>
+        <a class="mobile-nav-link" href="#transcript">Full transcript</a>
+      </nav>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var audio = document.getElementById("narration");
+  var playBtn = document.getElementById("play-btn");
+  var playIcon = document.getElementById("play-icon");
+  var playLabel = document.getElementById("play-label");
+  var scrubber = document.getElementById("scrubber");
+  var timeDisplay = document.getElementById("time-display");
+  var caption = document.getElementById("caption");
+  var canvas = document.getElementById("waveform");
+  var ctx = canvas ? canvas.getContext("2d") : null;
+
+  var DURATION = 51;
+
+  var captions = [
+    { start: 0.0, end: 5.5, text: "Welcome to the DBA Executive Research Reference Desk." },
+    { start: 5.5, end: 13.0, text: "If you are an experienced business leader pursuing an executive doctorate, this resource was designed specifically for your journey." },
+    { start: 13.0, end: 19.5, text: "It bridges academic research methodology with practical, evidence-based management inquiry." },
+    { start: 19.5, end: 26.5, text: "Begin with the Problem Solver to align your organizational challenge with the appropriate research design." },
+    { start: 26.5, end: 33.5, text: "Explore the Core Bookshelf to understand seminal frameworks from Saunders, Coghlan, and Hair in clear executive language." },
+    { start: 33.5, end: 40.0, text: "Use the Practical Tools matrix to access verified open-source software, rated for executive ease of use." },
+    { start: 40.0, end: 45.5, text: "And whenever you encounter complex academic terminology, consult the Jargon Translated guide." },
+    { start: 45.5, end: 51.0, text: "Consider this desk your companion, from framing your initial research question all the way to your doctoral defense." }
+  ];
+
+  var SCENES = [
+    { at: 0, id: "scene-1" },
+    { at: 13, id: "scene-2" },
+    { at: 26, id: "scene-3" },
+    { at: 39, id: "scene-4" }
+  ];
+
+  function formatTime(sec) {
+    if (!isFinite(sec)) sec = 0;
+    var m = Math.floor(sec / 60);
+    var s = Math.floor(sec % 60);
+    return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+  }
+
+  /* Static transcript, rendered from the same source as the live captions. */
+  var list = document.getElementById("transcript-list");
+  captions.forEach(function (c) {
+    var li = document.createElement("li");
+    var time = document.createElement("time");
+    time.textContent = formatTime(c.start);
+    var p = document.createElement("p");
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "text-left hover:text-accent";
+    btn.textContent = c.text;
+    btn.addEventListener("click", function () { seek(c.start); });
+    p.appendChild(btn);
+    li.appendChild(time);
+    li.appendChild(p);
+    list.appendChild(li);
+  });
+
+  function currentScene(t) {
+    var found = SCENES[0];
+    SCENES.forEach(function (s) { if (t >= s.at) found = s; });
+    return found;
+  }
+
+  function update() {
+    if (!audio) return;
+    var t = audio.currentTime;
+    var dur = audio.duration || DURATION;
+
+    scrubber.max = dur;
+    scrubber.value = t;
+    timeDisplay.textContent = formatTime(t) + " / " + formatTime(dur);
+
+    var scene = currentScene(t);
+    document.querySelectorAll(".scene").forEach(function (s) { s.classList.toggle("active", s.id === scene.id); });
+    document.querySelectorAll(".chapter-btn").forEach(function (b) {
+      b.classList.toggle("active", parseFloat(b.dataset.seek) === scene.at);
+    });
+
+    var cap = captions.filter(function (c) { return t >= c.start && t <= c.end; })[0];
+    if (cap && caption.textContent !== cap.text) caption.textContent = cap.text;
+  }
+
+  function setPlayingUI(playing) {
+    playIcon.textContent = playing ? "⏸" : "▶";
+    playLabel.textContent = playing ? "Pause" : "Play briefing";
+  }
+
+  function seek(seconds) {
+    if (!audio) return;
+    audio.currentTime = seconds;
+    update();
+    if (audio.paused) audio.play().catch(function () {});
+  }
+
+  if (playBtn) {
+    playBtn.addEventListener("click", function () {
+      if (audio.paused) audio.play().catch(function () {});
+      else audio.pause();
+    });
+  }
+  document.getElementById("restart-btn").addEventListener("click", function () { seek(0); });
+  scrubber.addEventListener("input", function () { audio.currentTime = parseFloat(scrubber.value); update(); });
+  document.querySelectorAll(".chapter-btn").forEach(function (b) {
+    b.addEventListener("click", function () { seek(parseFloat(b.dataset.seek)); });
+  });
+
+  audio.addEventListener("timeupdate", update);
+  audio.addEventListener("play", function () { setPlayingUI(true); });
+  audio.addEventListener("pause", function () { setPlayingUI(false); });
+  audio.addEventListener("ended", function () { setPlayingUI(false); playLabel.textContent = "Replay"; });
+  audio.addEventListener("loadedmetadata", update);
+
+  /* ---- Waveform. Colours are read from the theme tokens, because a canvas
+     cannot inherit html.dark the way the rest of the page does. ---- */
+  var waveOffset = 0;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function token(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim() || "#126D68";
+  }
+
+  function renderWaveform() {
+    if (!canvas || !ctx) return;
+    var dpr = window.devicePixelRatio || 1;
+    var width = canvas.offsetWidth;
+    var height = canvas.offsetHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, width, height);
+
+    var playing = !audio.paused && !reduceMotion;
+    var active = token("--accent");
+    var idle = token("--ink-faint");
+    var bars = 48;
+    var barWidth = width / bars;
+
+    for (var i = 0; i < bars; i++) {
+      var h = 4;
+      if (playing) {
+        h = Math.sin(i * 0.3 + waveOffset) * 16 + Math.cos(i * 0.15 - waveOffset * 0.8) * 12 + 18;
+        h = Math.max(4, Math.min(height - 10, h));
+      }
+      ctx.fillStyle = playing ? active : idle;
+      ctx.beginPath();
+      ctx.roundRect(i * barWidth + barWidth * 0.2, (height - h) / 2, barWidth * 0.6, h, 2);
+      ctx.fill();
+    }
+    if (playing) waveOffset += 0.08;
+    requestAnimationFrame(renderWaveform);
+  }
+
+  document.addEventListener("themechange", renderWaveform);
+  window.addEventListener("resize", renderWaveform);
+  requestAnimationFrame(renderWaveform);
+  update();
+})();
+</script>
+</body>
+</html>
