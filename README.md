@@ -31,8 +31,9 @@ Zero build step. Static HTML, deployed by GitHub Pages.
 styles.css     shared design tokens + components (warm paper, deep teal, real dark mode)
 app.js         theme toggle, mobile Browse dialog, ⌘K search, scroll-spy
 desk.css/js    reference-desk components: tablist, diagnostic, filter, citations
-check.py       regression check — dead anchors, dead links, duplicate ids, theme residue
-TEST-CASES.md  manual/automated test matrix
+check.py       static check — dead anchors, dead links, duplicate ids, theme residue
+verify.mjs     browser check — nav, search, dark mode, desk + audio behaviour
+TEST-CASES.md  test matrix (Section A site-level, Section B per-page baseline)
 ```
 
 Tailwind v4 runs from the browser CDN, configured by an `@theme` block in each page head; Mermaid renders diagrams on RQ Lab and the SMART critique. Cross-page navigation (the `.site-strip`) is hard-coded in each page rather than injected by JavaScript — navigating the site never depends on JS.
@@ -42,8 +43,11 @@ Tailwind v4 runs from the browser CDN, configured by an `@theme` block in each p
 ```bash
 git clone https://github.com/dba-research-methods/dba-research-methods.github.io.git
 cd dba-research-methods.github.io
-python3 -m http.server 8080     # then open http://localhost:8080
-python3 check.py                # static regression check
+python3 -m http.server 8099     # then open http://localhost:8099
+python3 check.py                # static regression check, no dependencies
+
+# optional browser pass (needs playwright-core + a chromium build)
+PLAYWRIGHT=/path/to/playwright-core/index.mjs CHROME_PATH=/path/to/chrome node verify.mjs
 ```
 
 ### Adding a page
@@ -51,7 +55,7 @@ python3 check.py                # static regression check
 1. Copy the shell (head, site strip, header, footer, nav dialog) from any existing page.
 2. Add it to the `.site-strip` link list on **every** page and to the mobile dialog's *Pages* group.
 3. Add it to `SITE_PAGES` in `app.js` so it appears in cross-page search.
-4. Run `python3 check.py`.
+4. Run `python3 check.py`, then `node verify.mjs`.
 
 ---
 

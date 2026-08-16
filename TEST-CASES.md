@@ -1,8 +1,54 @@
-# RQ Lab — Web App Test Cases & Bug Report
+# DBA Research Methods — test cases
+
+Two passes:
+
+- `python3 check.py` — static. Dead anchors, dead cross-page links, duplicate ids, missing assets, Edubem-theme residue. Zero dependencies.
+- `node verify.mjs` — browser. Console errors, cross-page nav, ⌘K search, dark mode, mobile dialog on all six pages, plus desk and audio behaviour. Needs playwright-core + a chromium build; see the header of the file.
+
+Section A below is the site-level matrix added when the pages were unified.
+Section B is the original per-page matrix from when RQ Lab, the SMART critique
+and the ML explainer were three standalone pages; it remains the regression
+baseline. Filenames there predate the rename
+(`walmart-research.html` → `rq-lab.html`, LearnML `index.html` → `ml-fundamentals.html`).
+
+---
+
+## Section A — site-level (automated)
+
+| ID | Area | Test | Result |
+|----|------|------|--------|
+| TC-A1 | Structure | All six pages exist; no duplicate/empty ids | PASS |
+| TC-A2 | Links | Every `href="#…"` resolves to an id on that page | PASS |
+| TC-A3 | Links | Every cross-page `href="*.html"` resolves to a file | PASS |
+| TC-A4 | Assets | Every referenced css/js/mp3/svg exists | PASS |
+| TC-A5 | Theme | No `#673DE6`, `backdrop-filter`, `bg-glass` or "meteorite" anywhere | PASS |
+| TC-A6 | Nav | `.site-strip` present on all six pages with 5 cross-page links | PASS |
+| TC-A7 | Nav | Current page marked `aria-current="page"` in strip *and* mobile dialog | PASS |
+| TC-A8 | Nav | Mobile dialog (390 px) opens with a 6-link "Pages" group | PASS |
+| TC-A9 | Search | Ctrl/⌘+K opens on **every** page and returns a non-zero result count | PASS |
+| TC-A10 | Search | Results include other pages of the site, not just the current one | PASS |
+| TC-A11 | Theme | Toggle flips `html.dark`, persists, `meta[theme-color]` syncs to `#0A0D14` | PASS |
+| TC-A12 | JS | No console errors or pageerrors on any page | PASS |
+| TC-A13 | Desk | Tab switching leaves exactly one pane visible | PASS |
+| TC-A14 | Desk | `research-desk.html#pane-tools` deep-links to that tab | PASS |
+| TC-A15 | Desk | Diagnostic (comparative + compare) → "Comparative Multi-Case & fsQCA" | PASS |
+| TC-A16 | Desk | Jump-to-match highlights exactly one card and fires the toast | PASS |
+| TC-A17 | Desk | Filter updates the live count and hides non-matching cards | PASS |
+| TC-A18 | Audio | Full static transcript renders all 8 lines | PASS |
+| TC-A19 | Audio | Chapter jump activates the matching scene | PASS |
+| TC-A20 | Audio | Waveform canvas paints, reading `--accent` from the theme tokens | PASS |
+
+**Known, accepted:** cross-page search is page-level only — sections of *other*
+pages are not indexed. Upgrade path is a generated `site-index.json`; see the
+`ponytail:` comment on `buildIndex()` in `app.js`.
+
+---
+
+## Section B — original per-page matrix
 
 Subjects under test:
-- `index.html` (733 lines) — LearnML landing page
-- `walmart-research.html` (2,047 lines) — RQ Lab workbook
+- `index.html` (733 lines) — LearnML landing page, now `ml-fundamentals.html`
+- `walmart-research.html` (2,047 lines) — RQ Lab workbook, now `rq-lab.html`
 - `smart-critique.html` (695 lines) — SMART framework critique
 - Shared `app.js` (241 lines) and `styles.css`
 

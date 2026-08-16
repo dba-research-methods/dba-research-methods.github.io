@@ -95,13 +95,26 @@
      duplicated into every page's markup. */
   var SEARCH_ICON = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>';
 
+  /* ⌘ is wrong on Windows/Linux, where the shortcut app.js listens for is Ctrl.
+     Normalises the hardcoded hints in page markup as well as the injected one. */
+  var isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+  var SHORTCUT = isMac ? "\u2318K" : "Ctrl K";
+  if (!isMac) {
+    $$("kbd").forEach(function (kbd) {
+      if (kbd.textContent.indexOf("\u2318") === -1) return;
+      if (kbd.textContent.trim() === "\u2318") kbd.textContent = "Ctrl";
+      else kbd.textContent = kbd.textContent.replace("\u2318", "Ctrl ");
+    });
+  }
+
   if (!$("[data-search-trigger]") && themeBtn && themeBtn.parentElement) {
     var trigger = document.createElement("button");
     trigger.type = "button";
     trigger.setAttribute("data-search-trigger", "true");
     trigger.setAttribute("aria-label", "Search this site");
     trigger.className = "icon-btn";
-    trigger.innerHTML = SEARCH_ICON + '<kbd class="font-mono text-[10px] font-medium text-ink-dim max-720:hidden">⌘K</kbd>';
+    trigger.innerHTML = SEARCH_ICON + '<kbd class="font-mono text-[10px] font-medium text-ink-dim max-720:hidden"></kbd>';
+    trigger.querySelector("kbd").textContent = SHORTCUT;
     themeBtn.parentElement.insertBefore(trigger, themeBtn);
   }
 
